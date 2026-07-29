@@ -725,3 +725,107 @@ AWAY from an independent ground truth — or it cannot separate benign denoising
    representation gap is inherent to the profile or specific to this compiler.
 3. **Re-examine r33's +0.0663 as the primary evidence about compilation**, not as background. It may
    already answer Q2 in the direction opposite to the one I proposed.
+
+---
+
+## Entry 10 — the design would have manufactured its own headline, and I verified the mechanism myself
+
+**Observed.** Four of five reviewers in. **Q1 is not underpowered. It is unidentified.** And the
+single sharpest finding is arithmetic I re-derived rather than accepted on trust.
+
+### The headline was a tie-breaking artifact — verified, not reported
+
+`repᵢ` is `k/6`, `k ∈ {0..6}`. Under the **exact null** where the leave-one-out rubric and the floor
+rubric are equally good, they are i.i.d. draws, so `P(repᵢ ≤ floorᵢ) = 0.5 + 0.5·P(tie)`. Computed:
+
+| p | P(tie) | **P(rep ≤ floor)** |
+|---|---|---|
+| 0.5 | 0.2256 | **0.6128** |
+| 0.7 | 0.2484 | **0.6242** |
+| 0.8 | 0.2907 | **0.6453** |
+
+> **The headline could have read "62% of participants represented no better than by a stranger" with
+> the true representation gap set to exactly zero.** The `≤` in my own estimand resolved every tie
+> toward the abandoned side.
+
+**And six pairs are not six Bernoulli trials.** A ranking of 4 items is one draw from S₄; the pairwise
+comparisons are its transitive closure. The true distribution of concordant pairs is
+**(1,3,5,6,5,3,1)/24**, not **(1,6,15,20,15,6,1)/64**. P(perfect match) is **0.0417, not 0.0156 —
+understated 2.67×.** Every SE I would have quoted was from the wrong sampling distribution.
+
+**And the noise inflates the tail on top of that.** At p≈0.7 the SE of one `repᵢ` is 0.187 and of the
+difference 0.265. With a true between-person SD of 0.10 around a true mean gap of +0.10, the true tail
+share is **0.159** and the observed is **0.362** — **2.28× inflation from measurement noise alone**,
+before the tie artifact. **Three independent mechanisms, all pushing the same direction, all
+manufacturing the finding.**
+
+### My gate was theatre — the null could not reject
+
+**M1's permutation null shuffles rating-to-rater assignment within a criterion. The sign-split share
+of weight mass is a function of the MULTISET of ratings only — invariant under any relabelling.** It
+passes with probability 1 regardless of the truth.
+
+**That is worse than having no null, because it looks like a check that ran** — and it was the
+pre-registered gate deciding whether the whole of Q2 was worth running. *A check that cannot fail is
+the defect this project has catalogued more than any other, and I built one into my own gate.*
+
+### Four more identification failures I had not seen
+
+| | defect | consequence |
+|---|---|---|
+| **F1** | **The compiler is non-exchangeable in set membership.** `coval_core` merges similar criteria across participants — a clustering event. Removing *i* does not down-weight *i* marginally; it can **dissolve, split or re-polarise an entire cluster** *i* happened to support | `repᵢ` conflates *"you were outvoted"* with *"your phrasing was pivotal to a cluster surviving"* — a combinatorial artifact of who else phrased things similarly |
+| **F3** | **`floorᵢ`'s reference prompt is unspecified**, and prompt heterogeneity is real (design effect 1.499) | uniform-random p′ makes the floor trivially low and manufactures a reassuring headline; topic-matched p′ could flip it. **Whoever picks the sampling rule picks the answer** |
+| **F4** | **`Yᵢ` may not be independent of `Iᵢ`** — participants wrote criteria *after* seeing the four responses, and the elicitation order is not established | the ranking and the criteria may share an anchoring event; **no stated control can catch this, because they all test the estimator's mechanics, not the target's independence** |
+| **F7** | **M3 is not independent of r33** — same pair-level differences, unregistered threshold, binary read-out | textbook HARKing configuration |
+
+### The best thing any reviewer gave me is a finding I did not propose
+
+**F1's remedy:** for every core criterion, log whether it survives under `R₋ᵢ` as *same cluster,
+reweighted* or *dissolved / reformed*, and **report the dissolution rate as its own result.**
+
+> **The rate at which one participant's removal dissolves a criterion from the compiled rubric is
+> probably the most interesting number in the whole design, and it was not in the design.**
+
+### What survives, and all four reviewers converge on it
+
+**M2, with its placebo replaced.** My control held *magnitude* fixed but not *which criteria* the
+perturbation lands on — so a reweighting that merely **correlates** with disagreement would look
+load-bearing for a structural reason. **The correct control is a PERMUTATION placebo: take the actual
+empirical disagreement vector and reassign it across criteria. Same distribution, same scale, broken
+pairing only.** Strictly harder to pass.
+
+The corrected study, which needs **no leave-one-out at all** and therefore inherits none of the
+dependence problems:
+
+```
+τ = D(w_d) − E_π[ D(w_π(d)) ]
+```
+`w₀` baseline core weights · `d(c)` recovered per-criterion disagreement, **fixed before any flip count
+is seen** · `D(w)` pairwise decisions flipped versus `w₀` · `π` permutations of `d` across criteria ·
+**permutation-exact inference, clustered at the prompt.** No CLT, no asymptotics, no LOO.
+
+**And P1 survives unconditionally** — every reviewer kept it: *a loss claim must be validated by a
+restoration experiment; putting the discarded quantity back must change a decision, not merely move a
+metric.* One reviewer called it a genuine advance over reporting information loss via a proxy that is
+never shown to be decision-relevant.
+
+### The honest accounting
+
+**Q1 is dead on CoVal — unidentified, not underpowered.** More data cannot fix F1, F2, F3 or F4;
+they are properties of the elicitation and compilation design. It could move to Community Notes, where
+`relᵢ` is estimable from within-rater variance — **but CN has a WORSE interference problem than CoVal**,
+because which notes reach a scoreable threshold depends on who rated them, so dropping a pivotal rater
+changes which notes *exist* in the counterfactual.
+
+**And the process is what caught this.** The design never ran. Nothing was published. **Five reviewers
+cost a few hundred thousand tokens and prevented a paper whose headline was three compounding
+artifacts.** That is the system working exactly as intended — *and it only worked because the design
+was written down as an object and committed before anyone saw it.*
+
+**NEXT.** Before anything is rewritten:
+1. **Check the schema for compiler provenance.** If `coval_core` retains a link to its `coval_full`
+   ancestors, M2 needs no semantic matcher and weakness #2 evaporates. **Check before building.**
+2. **Fix M1's null** — resample values under a single-latent-polarity model, or permute across
+   criteria corpus-wide. The current one cannot reject.
+3. **Compute the cluster-dissolution rate** (F1's remedy). It may be the result.
+4. **Re-read r33's +0.0663 as primary evidence**, per entry 9.
