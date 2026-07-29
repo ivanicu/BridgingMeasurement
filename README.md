@@ -85,7 +85,7 @@ Carried over intact from the CoVal work, where every one of these was earned by 
 | **Smoke runs never reach the README** | they go to `results/_smoke/` and are labelled |
 | **Every round persists its vectors** | so a later round can attack it — four CoVal rounds existed only because an earlier one saved its records |
 | **Every number carries its scope** | population · instrument · baseline · regime. Eleven of twelve CoVal retractions were a correct number reported without the scope over which it held |
-| **Reproducibility is a gate, not a virtue** | every round runs twice under different `PYTHONHASHSEED`, byte-identical. **Every seed being set is not the same as being seeded** — two CoVal rounds proved it. Sort any set before it can decide an order a seeded draw consumes |
+| **Reproducibility is a gate, not a virtue** | every round runs twice under different `PYTHONHASHSEED`, byte-identical. **Every seed being set is not the same as being seeded** — two CoVal rounds proved it. Sort any set before it can decide an order a seeded draw consumes. ⚠ **And this certifies DETERMINISM, not CURRENCY**: it compares two fresh runs to each other, never to what is on disk, so a round patched after running passes it forever while its committed numbers appear in no output. That needs the separate stamp gate below |
 
 **Diary discipline — one action, one commit; the git log is the narrative that cannot be compacted
 away.** Format and the entry contract are in [`LEDGER.md`](LEDGER.md).
