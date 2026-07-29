@@ -1365,3 +1365,73 @@ either."*
 2. **Arm 3, starting with the reconciliation**: why does r04 put core **below** full while r33 puts it
    **above**, and which weighting does each use? **That contradiction is the first thing Arm 3 must
    resolve, because both numbers are currently in my ledger as evidence for opposite conclusions.**
+
+---
+
+## Entry 17 — there was no contradiction; my ledger cited two cells of one grid as two measurements, and the grid answers Q2 in the direction opposite to my design
+
+**Observed.** r33's stored grid, 968 prompts, judge and responses held fixed, **only the weighting
+varying**:
+
+| | equal | sign | signed_magnitude |
+|---|---|---|---|
+| **full** | 0.5899 | 0.6775 | **0.6831** |
+| **core** | **0.6563** | 0.6563 | 0.6563 |
+
+**Core is identical across all three weightings — `0.656254647418647`, to fifteen digits.** Because
+**core has no ratings to apply.** r33 pre-registered that as P2 and it came back **exactly 0.0**.
+
+### The reconciliation, and it is arithmetic
+
+- **r33's +0.0663** = core/equal − full/equal. **Both at equal weights. Compilation alone.** (P1)
+- **r04's "core below full"** = full with `np.mean(scores)` weights vs core with `None` — i.e.
+  full/signed_magnitude vs core/equal. **r33 already computed it: −0.0268 [−0.0336, −0.0202].** (P3)
+
+**Confirmed at the source.** `r04/run.py:252-259`: for `source == "core"` the weight is literally
+`None`, because core ships without ratings; for `full` it is `float(np.mean(sc))`. **r04's contrast
+therefore confounds compilation with the presence of ratings, and cannot be a compilation contrast at
+all.**
+
+> **Two different cells of one grid, both computed and labelled by r33 months ago. I cited them as
+> two contradictory measurements of one quantity and opened a reconciliation.**
+
+**Sixth instance of the pattern, and the purest.** The resolving material was **in my own repository,
+in a round I cited by name in the same paragraph, in a field literally called
+`predictions.P3`.** Not hard to find. Already labelled. Already pre-registered.
+
+### And the substantive finding, which I have been quoting all day without registering
+
+> **Applying the human ratings to core changes its accuracy by EXACTLY ZERO, to fifteen decimal
+> places, because there are no negative weights left to apply. Full needs the ratings to climb from
+> 0.5899 to 0.6831. Core reaches 0.6563 from TEXT ALONE.**
+>
+> **So compilation did not discard the polarity. It MOVED it — out of the ratings and into the
+> wording — and the wording carries roughly 76% of what the ratings were worth.**
+
+**That is Q2, answered, on this dataset, in the direction opposite to my design's premise.** My design
+assumed compilation *discards recoverable structure* and set out to measure the loss. **r33 shows the
+dominant effect is a TRANSFER, not a loss** — and it shows it with a control I could not improve on:
+*core's accuracy is invariant to the weighting scheme, which is what "the information is no longer in
+the weights" looks like when it is true.*
+
+**This is exactly the failure the psychometric reviewer predicted for r33 specifically:** *"no gate
+fixes a claim not read as evidence against itself except reading it as evidence against itself."* I
+had the number in my design document as background. **The gate I built cannot catch this** — it checks
+absence claims, and this is not one.
+
+### What it does to Arm 3
+
+**Not dead, but re-aimed.** The accuracy direction is settled: core ≥ full at matched weighting. **So
+Arm 3 may no longer ask "is compilation lossy" — that is answered.** What remains open is a different
+quantity the grid does not contain:
+
+> **Does the CASE-SHARED component of rater disagreement differ between full and core?** Accuracy is a
+> mean; ρ is a variance ratio. **A transfer that preserves mean accuracy can still change WHICH cases
+> the rule gets wrong, and whether raters agree with each other about it.** That is not in r33's grid
+> and is still worth measuring.
+
+**NEXT.** Arm 3, with its premise corrected in the claim card before any code: the hypothesis is no
+longer *compilation loses information* but **compilation relocates it, and the question is whether the
+relocation changes the case-structure of the errors.** Pre-registered kill unchanged and now more
+likely to fire: **flat Δρ means the transfer is clean, which would be a strong positive result about
+the compiler and must be reported as one.**
