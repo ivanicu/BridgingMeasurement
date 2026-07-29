@@ -495,3 +495,56 @@ of three predictions survived, and only the CONTEST one is reliable enough to sa
    out of scope for a Community Notes paper and live in the platform-governance and appeals
    literature* — Crossref now works, so search it. **If that literature exists, the finding becomes
    "the CN measurement literature does not connect to it", which is weaker and still true.**
+
+---
+
+## Entry 7 — the contestability literature exists, exactly as pre-registered; the connection to it does not, and that is now a lexical count rather than a judgement
+
+**Observed.** Entry 6's NEXT named the obvious kill for the CONTEST finding and it landed: **the
+literature exists.** Crossref, in three queries: *Understanding Contestability on the Margins* (CHI
+2024) · *Beyond explainability: justifiability and contestability of algorithmic decisions* (AI &
+SOCIETY 2021) · *Shaping Our Tools: Contestability as a Means to Promote Responsible Algorithmic
+Decision Making* (2022) · *'Dysfunctional' appeals and failures of algorithmic justice in Instagram*
+(Information, Communication & Society 2024) · *Due Diligence Obligations, Content Moderation and
+Procedural Fairness* (EU Platform Law 2025).
+
+**So "nobody has asked about contestability" is dead** — the third field-wide negative to die this
+week, and **the first one I killed myself, on a prediction written before the search.** That is the
+only difference between this and the two that an adversary had to kill.
+
+**Downgraded to the exact form entry 6 pre-registered as the fallback**: *"the CN measurement
+literature does not connect to it, which is weaker and still true."*
+
+### And the disconnection is now a count, not a coding
+
+Lexical search over the 22 full texts — **no coder judgement, perfectly reliable, reproducible**:
+
+| term | papers containing it |
+|---|---|
+| `recourse` | **0 / 22** |
+| `procedural justice` | **0 / 22** |
+| `due process` | **0 / 22** |
+| `redress` | **0 / 22** |
+| `contestab*` | 2 / 22 — and no body-text context matched, so likely bibliography only |
+| `appeal*` | 10 / 22 — **and every occurrence is the ordinary-English sense** |
+
+**The `appeal` result is the one worth stating carefully, because it would have been the strongest
+counter-evidence and it is a false positive.** Every hit is *"surfaced context is broadly appealing"*,
+*"universally appealing to achieve a high intercept"*, *"annotations that appeal broadly across
+heterogeneous [viewpoints]"*, *"a note that only appeals to..."*. **The word appears ten times in the
+sense that is the founding paper's own core concept — cross-viewpoint appeal — and zero times in the
+governance sense of an appeal against a decision.** A polysemous term counted naively would have
+reported 10/22 and killed this finding.
+
+**Survived, in its narrowed form and with better evidence than the coding gave it:** four governance
+terms appear in **zero** of 22 full texts. The Community Notes measurement literature and the
+algorithmic-contestability literature **do not cite each other.**
+
+**Ontology shift.** The coding exercise produced this finding at 4/4 coder unanimity; the lexical
+count produces it at **zero judgement**. *A cheaper instrument beat an expensive one on the same
+claim* — and the expensive one was needed only to find out which claim was worth counting.
+
+**NEXT.** Unchanged in kind: repair E6 into E6a/E6b before any re-coding. But the higher-leverage item
+is now Ivan's question — *given everything known, which blank matters most to collective alignment* —
+and the answer must be handed to an adversary rather than asserted, because that is exactly the move
+that failed twice today.
