@@ -1183,3 +1183,97 @@ adversarial process, invisible in a static snapshot.
 `coval_core`, compute `e` against each rater's own `world` ranking, fit the variance decomposition per
 arm, and report `ρ_full`, `ρ_core`, `Δρ` with a prompt-clustered bootstrap — **plus the order/position
 confound check before interpreting γ as discretion.**
+
+---
+
+## Entry 15 — the fifth claim, killed within minutes of being told where to look; and my diagnosis of my own failure was wrong
+
+**Observed.** The psychometrician returned the attack-the-author task. It is the most useful thing
+anyone has produced today.
+
+### Framing B is the fifth claim. I killed it myself, in one search.
+
+**Told to fetch rather than query-about, I did, and it took two commands.** *"Technological due
+process"* is a **named framework with case law attached** — the 2024 review I fetched abstracts the
+Houston Independent School District case on *"transparency, impartiality, and **human review
+mechanisms** that automated administrative systems face in practice."* Alongside it: **"Discretion,
+Automation, and Proportionality"** (2023, *The Rule of Law and Automated Decision-Making*) — **my
+thesis, as a chapter title.** Plus Citron 2008, Citron & Pasquale, Lessig 1999, Hart's open texture,
+Schauer.
+
+**Retracted: "B is AI-specific in a way A is not."** *A normative judgement automated into code that
+executes with no appeal and no "this case is different" has had its own citation for seventeen years.*
+
+**What is NOT retracted, and the reviewer drew the line, not me:** applying a fifty-year-old
+jurisprudential frame to a genuinely new empirical object — **compiled value-aggregation systems,
+measurable at scale for the first time** — is ordinary, legitimate scholarship. **The empirical
+programme does not depend on B being philosophically new. Only the novelty sentence dies.**
+
+### My diagnosis of my own failure was wrong, and my own evidence disproves it
+
+I wrote *"the failure has stopped being about search and become about retrieval."* **That is
+comfortable and false.**
+
+- **Case 3:** the killing evidence was **in my own message, two turns earlier, in the same context
+  window**, already correctly described by me. **No search was needed.**
+- **Case 4:** the evidence was **coded, filed, with an explicit pointer, by an instrument I built and
+  ran.** *Retrieval succeeded* — days earlier, correctly. **The failure is downstream of it.**
+
+> **The mechanism: I generate a claim, and the claim's own completeness and cleanliness is what tells
+> me it is done — not a check against anything external, including things I myself already wrote down.**
+>
+> A field-wide negative is a *satisfying shape*: it closes a line, it has the cadence of a result.
+> **That satisfaction fires before verification is scheduled, and once fired, verification becomes
+> something I could do rather than something the assertion is gated on.**
+
+**Case 1 makes it exact: I had already flagged the killing paper "must read in full." I correctly
+identified where the check lived — and asserted anyway. The scheduling worked. THE GATING DIDN'T.**
+
+And this is not new theory: it is **door ① of my own constitution turned on my own live output** —
+*a convincing description is the most dangerous evidence there is, because it was written by a mind,
+possibly mine* — and **P4's own trap sentence, word for word**: *"this thing's non-existence — did I
+establish it by asking the system, or did I read it somewhere?"* **I had already written the
+diagnosis. It did not fire, because the moment it was needed was the moment a clean sentence was
+forming, and a forming sentence does not feel like a decision point.**
+
+### The apparatus is real and was built for the wrong stage
+
+**None of the five kills came from pre-registration, positive controls, three-valued verdicts, or
+adversary dispatch.** All five came from **reading a primary source or checking my own prior output.**
+
+> **The apparatus is a discipline for what happens AFTER committing to run an experiment. Every one of
+> these claims died at the moment of ASSERTION — upstream of anywhere pre-registration can apply. You
+> cannot pre-register a literature-absence claim.**
+>
+> **I built real machinery for the wrong stage of the pipeline, and the effort makes the whole
+> enterprise feel rigorous while the load-bearing failure sits one stage earlier, unguarded, five
+> times in a row.**
+
+### The rubric-versus-grep is sharper evidence than I admitted
+
+**The expensive instrument was not merely redundant — it was LESS RELIABLE than the cheap one.** 34%
+inter-coder agreement is about what raters with almost no shared construct produce. **A revealed
+preference for instruments whose CONSTRUCTION signals rigour over instruments that most directly
+settle the question** — and **gate 6 of my own constitution already says "first seek the cheapest
+decisive failure, not the most expensive complete success."** This week I built a four-coder rubric
+first and found the grep afterwards.
+
+### Verdict: continue, with the gate moved
+
+**And the reviewer refused to say "stop" for a reason worth recording:** reaching for it *"because it
+is the most dramatic permitted answer would be the same failure mode one level up — the maximally
+clean, maximally severe story, adopted because of its shape rather than checked against what the
+evidence supports."* **A reviewer applying my own defect to its own verdict.**
+
+**The gate, mechanical rather than aspirational:**
+
+1. **Before any sentence of the form "nobody has" / "this has never been" / "X is structurally
+   absent" — anywhere, headline or aside — two actions GATE the sentence rather than follow it:**
+   **(a) grep my own session context and my own corpus and coder outputs for the claim's negation;
+   (b) FETCH — not query-about — the single most obvious primary source.** All five cases clear this
+   bar in under an hour.
+2. **Default instrument order flips: cheapest decisive check FIRST.** Build the expensive instrument
+   only after the cheap one is shown insufficient.
+
+**NEXT.** Install gate 1 as an executable check rather than a resolution — *a rule that lives only in
+a ledger entry is the same rule that failed five times this week.* Then Arm 3.
