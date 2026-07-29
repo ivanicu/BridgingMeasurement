@@ -92,6 +92,31 @@ away.** Format and the entry contract are in [`LEDGER.md`](LEDGER.md).
 
 ---
 
+## The three mechanical gates
+
+Every rule in the table above is enforced by *remembering it*. These three are enforced by code,
+because each was earned by a failure that discipline had already been pointed at and missed. All three
+run from [`bin/commit`](bin/commit) or by hand; **all three are two-sided** — a checker that only ever
+refuses is as useless as one that only ever passes, so each proves it can do both before it certifies
+anything.
+
+| gate | the failure it exists for | what it cannot do |
+|---|---|---|
+| [`absence_claims_are_gated.py`](assurance/absence_claims_are_gated.py) | **Five field-wide negatives died in one week**, four with the falsifying material already in hand. An absence claim now needs a fetched primary-source pointer or an explicit `UNVERIFIED` mark **in the same paragraph** | Lexical. It cannot tell whether a pointer *supports* the claim, only that one is present |
+| [`thresholds_are_justified.py`](assurance/thresholds_are_justified.py) | A script printed *"consistent with balance"* on **χ² = 52.1, 3 df, p = 2.85e-11**, because `if chi > 100` was invented. A substantive threshold must be an UPPERCASE constant or carry its provenance beside it | Static. A threshold assembled at runtime or read from a file is invisible. **Its own first build flagged 91% of the corpus while its control passed — because the control's cases were ones I invented** |
+| [`artifacts_match_their_code.py`](assurance/artifacts_match_their_code.py) | The two-hashseed check compares two fresh runs **to each other**, never to disk — so it certifies determinism, not currency, and a round patched after running passes it forever. A round stamps its source's sha256; the gate verifies the stamp still matches | Tracks the **code**, not the data. And it is **three-valued**: 138 pre-existing artifacts read `UNVERIFIED`, which is not a pass — retro-stamping them would convert an honest unknown into a false certification |
+
+**Each was attacked before being trusted.** The threshold gate survived six evasions only after four of
+them worked on the first build — all four the same move, *bind the literal to a name and it vanishes
+from the comparison*. The artifact gate was verified by appending one comment to a real round's source
+and watching it flip to `STALE`, then reverting **against the file rather than the index**.
+
+**And the honest limit on all of it:** `bin/commit` is bypassable. `--no-verify` is required here
+because the global hooks would write an attribution trailer into the history, so git-level enforcement
+would cost the workspace machinery that shares that directory. A stated hole, not a solved problem.
+
+---
+
 ## Frozen
 
 - **The "does it work" cell.** Six independent difference-in-differences studies converge on spread
