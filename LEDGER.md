@@ -1499,3 +1499,58 @@ own stratification, not the data.** The over-dispersion check replaced it.
    **Check whether CoVal randomised response order across raters before any interpretation ships.**
 2. **Prompt-clustered bootstrap CIs on Δρ**, plus the reproducibility gate (two `PYTHONHASHSEED`s,
    byte-identical). **Δρ = −0.0748 has no interval and may not be quoted until it does.**
+
+---
+
+## Entry 19 — the order confound is not unchecked, it is UNCHECKABLE on this release; and my own printed verdict was wrong
+
+**Observed.** Queue item 1, run while the navigator read. Two facts, and the second one I nearly
+mis-reported.
+
+### Presentation order is not recorded, so it cannot be ruled out — ever, on CoVal
+
+The fields on a CoVal assessment are exactly: `conversation_id`, `importance`, `ranking_blocks`,
+`representativeness`, `subjectivity`, `annotator_id`. **Nothing records the order in which the four
+responses were shown to that rater.**
+
+> **So the order confound on entry 18 is not "unchecked pending work". It is UNCHECKABLE from the
+> release.** Under the pre-registered kill — *γ is not discretion until presentation order is ruled
+> out* — **γ can never be called discretion on CoVal.** Not with more analysis, not with more prompts.
+> The variable is absent.
+
+### And there IS a label asymmetry, at p ≈ 3e-11
+
+Which label is ranked top, over 21,693 top-slots (ties counted once per tied label):
+
+| A | B | C | D |
+|---|---|---|---|
+| 25.63% | **22.88%** | 25.74% | 25.75% |
+
+**χ² = 52.1 on 3 df, p ≈ 2.9×10⁻¹¹.** **B is under-selected by ~2.8 points** while A, C and D sit
+within 0.12 of each other.
+
+**Two readings, and they cannot be separated without the order log:**
+1. **Order was not randomised** — the label maps to a screen position, and one position is
+   disadvantaged.
+2. **Labels are not quality-balanced** — generation systematically put weaker responses at B.
+
+**Either way the label carries information beyond the response's content.** For entry 18 specifically:
+a *uniform* label bias loads onto μ or ε, not γ — **so this does not automatically invalidate Δρ** —
+but it does mean the rule and the raters may both be partly reading a label signal, and **the
+interaction with prompt, which is what would contaminate γ, is exactly what the missing order field
+would be needed to test.**
+
+### My own printed verdict was wrong, and rule (e) is what caught it
+
+The script printed **"consistent with balance"** because I had written `if chi>100` as the decision
+rule — **a threshold I invented on the spot with no justification.** χ²=52.1 on 3 df is not balance;
+it is p≈3e-11.
+
+> **The number was right and the label on it was wrong.** I caught it by reading the number rather
+> than the sentence the script printed about it — which is exactly rule (e), and exactly the class the
+> absence-claim gate is blind to. *A hand-written threshold is a hand-written conclusion.*
+
+**NEXT.** Held for the navigator, which is reading the ledger now. **What I will not do is decide the
+direction myself** — but the fact above changes the option set, and it should be given to the
+navigator: **CoVal cannot support a discretion claim at all, which strengthens the case for the
+Community Notes arm where the algorithm and its inputs are both recomputable.**
