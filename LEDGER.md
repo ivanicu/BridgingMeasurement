@@ -354,3 +354,73 @@ returns noise, and noise is not evidence of absence.**
 2. Then the surviving leg: **individual stability**, and specifically whether Community Notes' rating
    histories permit a within-person test–retest at all. If they do, that is the first buildable thing
    in this project — and unlike the status counterfactual, no one has even the adjacent paper.
+
+---
+
+## Entry 5 — read 2506.15168 myself; S1 survives and is now a statement about β, not about the axis
+
+**Observed.** Queue item 1: read the most load-bearing paper in the ledger firsthand rather than
+through the adversary's summary. **The numbers in that summary were right and the concept was
+compressed**, and the compression is exactly where our question lives.
+
+**What the paper's dimensionality result actually is** (§ *Latent ideological dimension in Community
+Notes*, and it is one sentence wide):
+
+- **AUC 0.808 ± 0.037** — how well a user's position along **δ₁**, the single most-structuring
+  direction of a country's Left-Right / Anti-Elite plane, predicts the **sign of θₙ**, the *note's
+  latent ideology*. Range 0.850 (Poland) → 0.729 (Israel), 13 countries.
+- **AUC 0.813 ± 0.035** — the same prediction from the **full 2-D plane.** The second ideology
+  dimension buys **+0.005**.
+
+**θₙ is not status.** From §F.3, in the paper's own words: **the note bias βₙ** predicts X's Helpful
+Status at **one-vs-rest AUC 0.92** and Not Helpful at **0.97**, with *"90% of notes with Helpful
+Status have βₙ > 0.180"*. **θ is the ideology axis; β is the intercept; status is a threshold on β.**
+Two separate parameters of the same model, and the dimensionality finding is entirely about the first.
+
+### The distinction that keeps S1 alive, stated precisely
+
+| | operation | what moves |
+|---|---|---|
+| **2506.15168** | fit **rank 1**, then regress the resulting **θ** against an *external* 2-D space | nothing is refitted; the question is how well a known plane explains an existing 1-D fit |
+| **S1** | **refit at rank 2** and read the **status** | θ gains capacity, and **β is whatever the factors did not absorb** |
+
+**In a matrix factorization θ and β compete for the same residual.** Giving θ a second dimension
+necessarily changes β — and β is the only parameter status touches. **So "+0.005 for the second
+ideology dimension" is not evidence that status is insensitive to rank. It is not about status at
+all.** The paper never refits.
+
+**And the paper says so itself**, which is the strongest possible form of this: *"X implements
+heuristics constraining note status changes, **which we did not implement**, focusing solely on the
+core matrix factorization."* Their 0.92 is a reconstruction of X's labels from their own rank-1 fit,
+not the production status.
+
+**Survived.** S1, sharpened from *"the axis was tested, the decision was not"* to: **the fitted
+ideology parameter was tested against an external space; the intercept the decision is thresholded on
+was never refitted at all.**
+
+**Gained — a rebuild-control benchmark, which is worth as much as the survival.** Any reimplementation
+of ours must recover **βₙ → Helpful Status at ≈0.92 AUC, Not Helpful at ≈0.97**, with 90% of Helpful
+notes above βₙ = 0.180. **A published number to clear before any rank-2 result may be believed.**
+Their fit: λ = 2.5×10⁻⁵, lr 2.5×10⁻³, 3 epochs, **X's own 5:1 bias-to-ideology regularisation ratio**,
+mean reconstruction error 0.204.
+
+**⚠ One probable typo in the source, recorded so we do not inherit it:** §F.3 reads *"90% of notes
+with Not Helpful Status have **θₙ** < −0.159"* two lines after stating those notes have *"large
+negative **bias**"*. Read as βₙ. **Flagged, not corrected — we do not silently fix another paper's
+text.**
+
+**Downgraded.** The adversary's phrase *"tests whether CN's single fitted axis reduces to it"* — true,
+but it invited the reading that dimensionality sufficiency had been settled for the **system**. It was
+settled for **θ**. *A second-hand summary compressed a two-parameter result into a one-parameter
+claim, and I nearly retired our question on it.*
+
+**NEXT.** Queue item 2: the S1 claim card. The estimand is fixed —
+**the count and character of notes whose display status flips under a rank-2 refit of the same rating
+matrix.** Order of work, and the first is not skippable:
+1. **Rebuild control at rank 1**, scored against the two published benchmarks above *and* against X's
+   own published statuses. Report the agreement rate as a number.
+2. Only then rank 2, and the flip count.
+3. **The confound to write before running it:** a refit changes *every* β, so some flips will be
+   numerical churn near the threshold rather than structural. The control for that is a **rank-1
+   refit under a different seed** — flips that survive re-seeding at the same rank are the floor any
+   rank-2 flip count must clear.
