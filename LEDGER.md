@@ -548,3 +548,80 @@ claim* — and the expensive one was needed only to find out which claim was wor
 is now Ivan's question — *given everything known, which blank matters most to collective alignment* —
 and the answer must be handed to an adversary rather than asserted, because that is exactly the move
 that failed twice today.
+
+---
+
+## Entry 8 — the exclusion counterfactual is dead, and for the FOURTH time the kill was in material I already held
+
+**Observed.** The adversary attacking the two candidate blanks returned.
+
+### Claim 2 — the exclusion counterfactual: **DEAD**
+
+- **[2602.08970](https://arxiv.org/abs/2602.08970)** *Hyperactive Minority Alters the Stability of
+  Community Notes* — integrates the **open-source production algorithm** and runs **counterfactual
+  simulations varying the rater pool** to see whether display status flips. Finds outcomes structurally
+  unstable under perturbation of a few dozen active raters.
+- **[2601.14002](https://arxiv.org/abs/2601.14002) / 10.1145/3774904.3792987** *Consensus Stability of
+  Community Notes* (**WWW 2026**) — 437K notes, 35M ratings, counterfactual analyses of rating
+  dynamics explaining why 30.2% of displayed notes lose status.
+
+*"Nobody has produced this map"* does not survive contact. **The substantive question is answered.**
+
+### And this is the fourth time
+
+**2602.08970 is in our own corpus.** Coder B read it, coded it, and wrote the pointer:
+`E3: 3 | M | 3.3 counterfactual rater removal; Fig.6 (Jaccard, CRNH 69.6%)` —
+*"Using CN's production algorithm in counterfactual simulations… removing <0.01% of top raters
+substantially destabilises which notes get published."*
+
+**I proposed the exclusion counterfactual as a candidate blank while holding a coder's note saying it
+had been done.** The tally for the week:
+
+| # | claim | where the kill was |
+|---|---|---|
+| 1 | "no positive control for helpfulness" | X's own docs and the founding paper — never opened |
+| 2 | "nobody asked if 1-D is enough" | X's `ranking-notes.md` — never opened |
+| 3 | "discarded disagreement is absent" | **my own message to Ivan, two turns earlier** |
+| 4 | "nobody mapped the exclusion counterfactual" | **my own coder's file, in this repository** |
+
+**The failure has stopped being about search and become about retrieval.** Twice the material was
+public and unread; twice it was *mine* and unconsulted. **A new absence claim must now be grepped
+against `priorart/` and the ledger BEFORE it is written down** — not as diligence, as a hard gate.
+
+### Claim 1 — the endorsement gap: **SURVIVES, provisionally (D6)**
+
+No kill across ~35 queries over Crossref, DBLP, ACL Anthology and one full-text PDF audit.
+
+- **Nearest miss, and the boundary is exact:** *Reward Model Perspectives: Whose Opinions Do Reward
+  Models Reward?* (**EMNLP 2025**, 10.18653/v1/2025.emnlp-main.754) measures a reward model's implicit
+  opinions against **demographic-group opinion surveys**. It does **not** ask the annotators whose
+  judgements trained that model whether it represents them — **it substitutes an external survey
+  population for the aggregated contributors, which is precisely the substitution the claim says
+  nobody avoids.**
+- **The strongest evidence, and it is a negative control rather than an assertion:** the **CHI 2026**
+  systematic review of **n=56** crowdsourced-context-system papers ([2509.15434](https://arxiv.org/abs/2509.15434))
+  has **zero full-text hits** for `endorse`, `satisf*`, `recourse`, `due process`, `procedural
+  justice`, `redress`, `counterfactual` — while explicitly writing that legitimacy claims *"require
+  further scrutiny"* and that *"if contributors' beliefs are not representative of users' beliefs then
+  the algorithm's outcomes may be a biased representation."* **The field's own most recent survey
+  names the concern and cites nobody who measured it.**
+- The adversary's own flag: **the RLHF angle — ask the annotators, not a proxy survey population —
+  looks like unclaimed territory.**
+
+**Its prudence note is adopted verbatim:** given three prior field-wide negatives from this line died
+within the hour and this one died about as fast, **treat Claim 1's survival as provisional. It rests
+on absence-of-evidence from a bounded search, not on a positive control.**
+
+### What survives of S1
+
+**Narrowly.** The adversary killed *"under what alternative RATER SET"*. S1 is *"under what alternative
+RANK"*, which was not tested. **So S1 lives — but as one more cell in a table others have started
+filling, not as the opening of a new question.** Its value dropped by more than the kill it survived.
+
+**NEXT.** The practical situation has inverted: **the thing I could compute is done; the thing that
+survives needs humans.** That inversion is the argument for the reframe now on the table — from
+aggregation to **compilation**, *what is lost when a normative judgment becomes a program that executes
+without an interpreter* — because under that frame the CoVal core-compiler result (**core internalises
+polarity into rewritten criterion semantics while discarding rating and disagreement provenance**)
+stops being a footnote and becomes **a completed measurement of compilation loss, on data already in
+hand**, and endorsement stops being a separate question and becomes **the validation step**.
