@@ -1435,3 +1435,67 @@ longer *compilation loses information* but **compilation relocates it, and the q
 relocation changes the case-structure of the errors.** Pre-registered kill unchanged and now more
 likely to fire: **flat Δρ means the transfer is clean, which would be a strong positive result about
 the compiler and must be reported as one.**
+
+---
+
+## Entry 18 — first measurement: compilation converts case-shared error into rater-idiosyncratic error
+
+**[PRELIMINARY COMPUTATION, NOT A ROUND.** No CIs, no prompt-clustered bootstrap, order confound
+unchecked. Recorded because rule (c) says run the cheapest decisive check before building the
+instrument, and this one decided that the instrument is worth building.**]**
+
+**Both arms at EQUAL weights** — matched, so entry 17's confound is not reproduced.
+
+| arm | criteria/prompt | mean err | var_case | var_idio | **ρ** |
+|---|---|---|---|---|---|
+| **full** | 15.48 | 0.4048 | 0.02930 | 0.05229 | **0.3591** |
+| **core** | 3.95 | 0.3361 | 0.02184 | 0.05498 | **0.2843** |
+
+> **Δρ = −0.0748.** A **3.9× compression** of the rubric leaves the residual errors **25% less
+> case-bound** and **more spread across raters.**
+
+### Three checks, and the free one is a rebuild control
+
+**① Rebuild control, unplanned.** My mean errors reproduce r33's stored grid: full 0.4048 against
+r33's 0.4101 (accuracy 0.5899), core 0.3361 against 0.3437 (accuracy 0.6563) — **both within 0.008**,
+computed independently, different aggregation unit. *I did not set out to get this and it is the
+strongest evidence the pipeline is reading the same thing r33 read.*
+
+**② Permutation null — the case structure is real.** Permuting errors across prompts (killing case
+structure, preserving the marginal exactly) collapses ρ to **0.0007** (full) and **0.0000** (core)
+against observed 0.3591 and 0.2843.
+
+**③ The mean-shift confound, and it fails in the informative direction.** Core's mean error is further
+from 0.5, so a pure binomial account predicts core should have **lower** idiosyncratic variance:
+expected **0.0389** vs full's **0.0410**. **Observed, core is HIGHER — 0.0550 vs 0.0523.**
+Over-dispersion relative to binomial rises from **1.28 to 1.41**.
+
+> **Both components move against the mean-driven prediction. var_case falls 25% while var_idio rises
+> and becomes MORE over-dispersed. That is not a mean artifact.**
+
+**④ The tie-selection confound is dead.** Core has 3.95 criteria to full's 15.48, so coarser scores
+could tie more pairs and change which pairs are scored. Measured: **identical observation counts
+(15,202 each)** and **21 pairs differ out of 80,542 — 0.026%.** *The arms score the same pairs.*
+
+### What it means, under the causal reviewer's decomposition
+
+**γ is "this case needed discretion the rule lacks"; ε is raters disagreeing with each other.**
+
+> **Compilation makes the rule's mistakes LESS about the case and MORE about who is judging.**
+
+That is not "compilation flattens contested cases" — my original hypothesis, already dead. **It is
+closer to compilation SMEARING the error across raters**: the compiled rule is right more often *and*
+its remaining errors are less systematically tied to particular prompts.
+
+### A check I ran that was invalid, recorded so it is not repeated
+
+I first stratified prompts **by their own arm's mean error** and compared ρ within strata. ρ collapsed
+to 0.0000 in four of five strata — **and that was guaranteed**, because stratifying on the prompt mean
+conditions on the outcome and removes the between-prompt variance by construction. **It measured my
+own stratification, not the data.** The over-dispersion check replaced it.
+
+**NEXT.** Build the round properly, and the two things it must add are named:
+1. **The order/position confound** — γ is not discretion until presentation order is ruled out.
+   **Check whether CoVal randomised response order across raters before any interpretation ships.**
+2. **Prompt-clustered bootstrap CIs on Δρ**, plus the reproducibility gate (two `PYTHONHASHSEED`s,
+   byte-identical). **Δρ = −0.0748 has no interval and may not be quoted until it does.**
