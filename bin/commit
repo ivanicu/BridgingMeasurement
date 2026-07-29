@@ -1,13 +1,27 @@
 #!/bin/bash
 # THE commit path for this repository. Plain `git commit` is not.
 #
-# Why a wrapper and not a hook: core.hooksPath is set globally, so repo-local
-# .git/hooks is ignored; and every commit here passes --no-verify, which skips the
-# global hooks too. Git-level enforcement is therefore unavailable, and this wrapper
-# IS BYPASSABLE. That is a stated limitation, not a solved problem -- the gate it runs
-# would have stopped four of five failures this week, but only if it is run.
+# Why a wrapper and not a git hook, corrected 2026-07-29 after checking rather than
+# repeating: the earlier version of this file said "core.hooksPath is set globally, so
+# repo-local .git/hooks is ignored". That reason is WRONG. A repo-local core.hooksPath
+# overrides the global one, and `git config --local core.hooksPath` is unset here, so
+# repo-level enforcement was always available.
+#
+# The real blocker is --no-verify, which every commit here needs: the global hooks
+# directory (~/.claude/neural-commit/hooks) contains commit-msg and prepare-commit-msg
+# hooks that write an attribution trailer into the message, and this history may not
+# carry one. Those hooks live in the same directory as the neural-commit machinery that
+# produces this workspace's vitals, so routing hooksPath elsewhere for this repo would
+# trade one loss for another.
+#
+# So THIS WRAPPER IS BYPASSABLE, and that is a stated limitation rather than a solved
+# problem. It matters because the gates it runs would have stopped four of five failures
+# in one week -- but only when it is the thing that runs.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 python3 assurance/absence_claims_are_gated.py --staged || {
   echo "COMMIT REFUSED: an ungated absence claim is in the staged diff." >&2; exit 1; }
+python3 assurance/thresholds_are_justified.py --staged || {
+  echo "COMMIT REFUSED: a staged script decides a verdict with an anonymous threshold." >&2
+  echo "Name it as an UPPERCASE constant, or state its provenance beside it." >&2; exit 1; }
 git commit --no-verify "$@"

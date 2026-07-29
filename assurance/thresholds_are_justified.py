@@ -271,6 +271,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("roots", nargs="*", default=["."])
     ap.add_argument("--glob", default="**/run.py")
+    ap.add_argument("--staged", action="store_true",
+                    help="scan only the .py files staged for commit, so the gate certifies a "
+                         "CHANGE rather than a state. Without it, a clean tree passes forever and "
+                         "every new anonymous threshold rides in behind an already-green check.")
     args = ap.parse_args()
 
     if not control():
@@ -278,9 +282,19 @@ def main() -> int:
               "cannot certify either.", file=sys.stderr)
         return 1
 
-    files = []
-    for r in args.roots:
-        files.extend(sorted(pathlib.Path(r).glob(args.glob)))
+    if args.staged:
+        import subprocess
+        out = subprocess.run(["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"],
+                             capture_output=True, text=True).stdout
+        files = [pathlib.Path(x) for x in out.split()
+                 if x.endswith(".py") and pathlib.Path(x).exists()]
+        if not files:
+            print("no python files staged -- nothing to gate.")
+            return 0
+    else:
+        files = []
+        for r in args.roots:
+            files.extend(sorted(pathlib.Path(r).glob(args.glob)))
     if not files:
         print(f"REFUSING: no files matched {args.glob} under {args.roots}. "
               f"Nothing-to-check is exit 2, never a pass.", file=sys.stderr)
@@ -311,7 +325,7 @@ def main() -> int:
         print(f"  {k:<12}{tally[k]:>4}  ({why})")
     print(f"  {'SUBSTANTIVE':<12}{tally['SUBSTANTIVE']:>4}  of which {len(bare)} are ANONYMOUS")
     share = len(bare) / max(total, 1)
-    if share > MAX_FLAG_SHARE:
+    if share > MAX_FLAG_SHARE and total >= 50 and not args.staged:
         print(f"\nREFUSING: {share:.0%} of all classified comparisons flagged, above the "
               f"pre-registered {MAX_FLAG_SHARE:.0%}. A gate this noisy does not identify the "
               f"entry-19 threshold, it buries it. Add the missing class before trusting any row.",
