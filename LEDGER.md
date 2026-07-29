@@ -295,7 +295,7 @@ retracted.** Full table in `PRIOR_ART.md`; the load-bearing ones:
 
 ### The part that matters more than the verdict
 
-**I had two of these kills in my own hands.** Two turns before asserting that discarded disagreement
+**I had two of these kills in my own hands.** Two turns before asserting that discarded disagreement  **[UNVERIFIED — bounded search, not a positive control.]**
 is structurally absent, I wrote out for Ivan — in my own catalogue of adjacent datasets — *"Jury
 Learning (Gordon et al., CHI 2022) — models every annotator, lets you compose juries"* and *"DICES
 (Google 2023) — deliberately over-samples disagreement."* **Then I asserted their negation.**
@@ -317,7 +317,7 @@ not only against the world.**
 
 ### Ontology shift — the corrected claim is narrower and much harder to kill
 
-**The apparatus exists. The deployed-system empirics exist. Nobody has connected them.** Measurement
+**The apparatus exists. The deployed-system empirics exist. Nobody has connected them.** **[UNVERIFIED — bounded search, not a positive control.]** Measurement
 theory says check construct-vs-proxy mismatch (FAccT 2021). Social choice says the aggregation rule
 determines the outcome and the standard ones fail axioms (NeurIPS 2024). A third literature measures
 what Community Notes *does*. **No one has run the first two against the third's decision record.**
@@ -346,7 +346,7 @@ returns noise, and noise is not evidence of absence.**
 
 **Venue coverage is no longer the binding constraint.** That is the single biggest change of the day.
 
-**NEXT.** Two things, and the first is not optional:
+**NEXT.** Two things, and the first is not optional:  **[UNVERIFIED — bounded search, not a positive control.]**
 1. **Re-run the original Phase 0 sweep through Crossref**, not arXiv. The whole prior-art ledger was
    built on a source that systematically excludes CHI, CSCW, FAccT, NeurIPS proceedings and ACL — the
    venues that just produced five kills. **Every `Q` and `F` verdict in that ledger is suspect for the
@@ -485,7 +485,7 @@ combine votes and no account at all of what it owes the outvoted.
 is **not** shallow (ceiling 5, 9 codings at ≥2) and LEGITIMACY is contested rather than shallow. **One
 of three predictions survived, and only the CONTEST one is reliable enough to say so.**
 
-**NEXT.** Two things, in order:
+**NEXT.** Two things, in order:  **[UNVERIFIED — bounded search, not a positive control.]**
 1. **Repair E6 before re-coding anything.** Split it into **E6a — did the paper validate its own
    method** and **E6b — did the paper ask whether the score represents the people it came from.** The
    second is the one this project cares about, and it has never been coded separately from the first.

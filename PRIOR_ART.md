@@ -122,7 +122,7 @@ not re-ask. **O** = leaves something open we could take.
 
 ## WHAT NOBODY HAS ASKED — ⛔ RETRACTED 2026-07-29, SAME DAY, BY THE ADVERSARY THIS LEDGER DISPATCHED
 
-**The original paragraph is below, struck. It claimed (a) the helpfulness score has never been
+**The original paragraph is below, struck. It claimed (a) the helpfulness score has never been  **[UNVERIFIED — bounded search, not a positive control.]**
 validated as a measurement — "this instrument has never had a positive control" — and (b) nobody has
 tested whether one latent dimension is enough. Both are wrong, and the ledger's own text predicted
 how.**
@@ -167,7 +167,9 @@ into this document, above the claim, by me. *A confession is never audited.*
 **Three residuals the adversary could not kill, stated grudgingly in its own words, plus one question
 it found that this ledger never contained.**
 
-### S1 · The decision has never been tested, only the axis — and these are different questions
+### S1 · The decision has never been tested, only the axis — and these are different questions  **[UNVERIFIED — bounded search, not a positive control.]**
+
+**[UNVERIFIED — bounded search, not a positive control.]** Adversary verdict on the general form: **DEAD** — see LEDGER entry 8.
 
 2506.15168 answers: *does CN's fitted axis recover a known ideology space?* **Roughly yes — AUC
 0.808, and a true second dimension buys 0.005.**
@@ -246,7 +248,7 @@ object of study, in venues the arXiv-only sweep could not see.
 
 ### The corrected claim, which is narrower and much harder to kill
 
-**The apparatus exists and the deployed-system empirics exist. Nobody has connected them.**
+**The apparatus exists and the deployed-system empirics exist. Nobody has connected them.** **[UNVERIFIED — bounded search, not a positive control.]**
 Measurement theory says to check construct-vs-proxy mismatch (FAccT 2021); social choice says the
 aggregation rule determines the outcome and standard rules fail axioms (NeurIPS 2024); and a separate
 literature measures what Community Notes does. **No one has run the first two against the third's
@@ -259,7 +261,7 @@ claim that survived contact.
 |---|---|
 | **Individual stability** — within-person test–retest of the *same* person's judgment, applied to AI value elicitation | **GENUINELY ABSENT (weakly).** The adjacent literatures exist — preference-construction in survey methodology, between-annotator identity effects in NLP — but no bridge paper. **The one leg that holds** |
 | **Referent circularity** — does a specific crowd system's validation chain terminate in professional experts | **PARTLY — unconfirmed rather than killed.** General platform-self-regulation critique exists; no paper traces one system's chain |
-| **Decision contingency**, in its *empirical* form on a deployed system: *N% of decisions flip under a defensible alternative rule nobody argued for* | **PARTLY.** The social-choice work is axiomatic; the Community Notes work is temporal. **Nobody has run the counterfactual rule on the live record** |
+| **Decision contingency**, in its *empirical* form on a deployed system: *N% of decisions flip under a defensible alternative rule nobody argued for* | **PARTLY.** The social-choice work is axiomatic; the Community Notes work is temporal. **Nobody has run the counterfactual rule on the live record** |  **[UNVERIFIED — bounded search, not a positive control.]**
 
 ---
 

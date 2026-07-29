@@ -3,11 +3,17 @@
 **Status: UNREVIEWED. Written 2026-07-29. Nothing here has been run.** This document exists to be
 attacked. Every number in it is a plan, not a result.
 
+> ## ⛔ SUPERSEDED AND RETRACTED, 2026-07-29
+> **Five reviewers found this design would manufacture its own headline.** Q1 is
+> unidentified, M1's null cannot reject, M2 is impossible as specified. Kept unedited as
+> the object that was reviewed. **The replacement is LEDGER entries 12–14.** Every absence
+> claim below is **UNVERIFIED** and several are **dead** — see entries 8 and 10.
+
 ---
 
 ## The two questions
 
-**Q1 · REPRESENTATION.** Collective-alignment systems claim their output *represents* the people whose
+**Q1 · REPRESENTATION.** Collective-alignment systems claim their output *represents* the people whose  **[UNVERIFIED — bounded search, not a positive control.]**
 judgements were aggregated. Nobody has measured this by asking whether the output reproduces the
 judgement of the individuals who supplied it. The field reports one pooled accuracy.
 
