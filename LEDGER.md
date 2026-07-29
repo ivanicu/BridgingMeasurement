@@ -1277,3 +1277,91 @@ evidence supports."* **A reviewer applying my own defect to its own verdict.**
 
 **NEXT.** Install gate 1 as an executable check rather than a resolution — *a rule that lives only in
 a ledger entry is the same rule that failed five times this week.* Then Arm 3.
+
+---
+
+## Entry 16 — the retrieval diagnosis is testably wrong, and the rule that would have stopped four of five was already written
+
+**Observed.** The psychometrician's final report, and one fact from the CoVal repo.
+
+### `a04_core.npz` exists — Arm 3 is runnable today
+
+Both compiler outputs are scored: **`a04_full` 59,936 judgements, `a04_core` 15,312**, identical key
+schema, 968 prompts each, same judge (`Qwen3.5-2B-Base`), both with `positive_control_passed: True`.
+
+**And the stored numbers already say something:** pairwise accuracy **full 0.6860 vs core 0.6602**;
+prompt concordance **0.6126 vs 0.5320**. ⚠ **This is the opposite direction from the r33 figure I have
+been citing all day** (+0.0663, core beats full **at equal weights**). Two different weightings, two
+different signs. **Neither may be quoted as "the" compilation effect until that is reconciled — and
+reconciling it is now the first step of Arm 3, not a footnote.**
+
+### The retrieval diagnosis is not merely comfortable — it is testably false
+
+> **A retrieval failure predicts errors concentrated on HARD-TO-FIND material. Four of the five had
+> the falsifying material ALREADY IN HAND.** #1 was found and flagged "must read in full"; #3 and #4
+> were in my own corpus, listed by me, coded by my own coder with the pointer written down; #5 was a
+> number in the same document in the same sitting — **zero retrieval distance.**
+>
+> **A retrieval fix would not have prevented any of those four. It explains only #2.**
+
+**And the mechanism targets one claim type specifically** — negative/novelty existence claims — **and
+fires hardest exactly when the checking material is closest at hand**, because *that is precisely the
+condition under which the felt need to check drops to zero.*
+
+### The rule existed. It was not run.
+
+**P4 of my own constitution already specifies the fix, in writing:** *"'none' must come from ASKING
+THE SYSTEM. Paste cmd + output."*
+
+> **None of the five claims shipped with that artifact attached.**
+>
+> **Naming a failure mode in a constitution does not make it self-enforcing. It becomes enforcement
+> only when it is a mechanical, blocking step — not a described disposition.**
+
+**And framing B died to Lessig 1999, "Code is Law"** — *"arguably the single most famous popular
+articulation of exactly this idea in exactly this domain. This was not a hard find."*
+
+### The 34% rubric and the elegant claims are ONE pattern, not two
+
+**Elaborate machinery deployed before the cheap check that would have said whether the machinery was
+warranted.** *"Complexity is being generated as a proxy for rigor in both cases, ahead of the
+falsifier that's actually cheap enough to run first."* **And the failing step is a judgment call —
+"this one feels solid enough to skip it" — which fails hardest exactly when confidence is highest.**
+
+### The study, narrowed to one commitment
+
+**CN rank as the literal Kaplow parameter.** The reviewer killed its own three-arm spread: *"running
+three arms when one dominates is exactly the over-instrumentation pattern flagged in Task B."*
+
+**And it supplies the reference a bare flip count lacks:**
+
+| | |
+|---|---|
+| **overfitting null** | simulate ratings from the fitted rank-1 model **plus independent noise** — the world where one dimension really is enough — refit at rank 2, and measure **the flip rate that added flexibility alone produces** |
+| **positive control** | inject a synthetic second dimension of **known, swept effect size**; recover a flip-rate-versus-effect-size **power curve** before trusting any real comparison |
+
+> **Not "X notes would flip" — "X notes flip BEYOND what added flexibility alone would produce."**
+
+**The Thurstonian answer, straight:** the model is real; `z_i` is identified from **as few as two
+rankings per person** because a stable trait produces *correlated* consensus-deviation across
+different prompts' loadings. `τ_i` needs **5–10**. **Gated on whether annotator_ids recur across
+prompts — which the empiricist already answered: 1,012 unique annotators, 100% join.** So it is
+checkable, and the reviewer still declines it, because **CN gives per-rater reliability for free** and
+*"choosing the dataset that makes the hard problem disappear over the one that requires a clever
+rescue of a fragile method"* is what not-over-instrumenting looks like in practice.
+
+### Its own credibility note, which I am recording because it is the right form
+
+*"In my first answer I gestured at the rules-vs-standards debate without naming a single source or
+checking one. That gesture happened to be right. That is a sample size of one, and I should not be
+treated as more reliable on unverified structural claims than the pattern above suggests anyone is —
+including me, right now, on this document, which I have not run through anyone else's adversarial pass
+either."*
+
+**NEXT.** Two, and the first is the one that would have stopped four of five:
+1. **Make the gate BLOCKING, not advisory** — a pre-commit hook, so an ungated absence claim cannot
+   enter the history at all. *A described practice failed five times; a blocking step has not been
+   tried.*
+2. **Arm 3, starting with the reconciliation**: why does r04 put core **below** full while r33 puts it
+   **above**, and which weighting does each use? **That contradiction is the first thing Arm 3 must
+   resolve, because both numbers are currently in my ledger as evidence for opposite conclusions.**
