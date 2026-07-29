@@ -1711,3 +1711,94 @@ dropped.** The navigator's words, adopted:
 **NEXT.** Build the round exactly as directed: crossed decomposition with the rater main effect, the
 script committed, the two-hashseed gate run, and the αᵢ-coherence test on the three assessment
 covariates staged behind World B's kill condition.
+
+---
+
+## Entry 21 — the 14% is attached to PARTICULAR PEOPLE, and it is not granularity
+
+**Observed.** Entry 20's navigator narrowed entry 18's finding to a defensible sentence — *compilation
+removes case-shared error and leaves the idiosyncratic component essentially unchanged* — and named the
+one clause that overreached: **"smears error across raters" is a claim about the 14%, and a one-way
+model cannot tell a rise attached to particular people from unstructured noise.** It directed the
+crossed decomposition and pre-registered the kill. Round:
+`coval/rounds/r110_rater_component/run.py`, commit `9185b91`, 484 lines, the first round in this line
+that ships code.
+
+### The rater main effect is IDENTIFIED on CoVal, which entry 10 said required leaving it
+
+CoVal is **fully crossed** — 1,012 raters over 968 prompts, every rater on ≥2, median 20. Fitting
+`e_{i,p} = μ + γ_p + α_i + ε_{i,p}` per arm, 15,202 cells each:
+
+| arm | var_case | var_rater | var_resid | rater/resid | within-prompt shuffle floor | excess over floor |
+|---|---|---|---|---|---|---|
+| full (15.48 criteria) | 0.03299 | 0.00422 | 0.04509 | 9.4% | 0.00375 | **+13%** |
+| core (3.95) | 0.02550 | **0.00626** | 0.04571 | **13.7%** | 0.00392 | **+60%** |
+
+**Δvar_rater = +0.00204, 95% CI over prompts [+0.00133, +0.00302]**, paired prompt-clustered
+bootstrap, 2,000 draws, excludes zero. **The pre-registered kill did not fire.** Full sits barely above
+the floor that estimated effects always produce; core sits five times further above its own.
+
+### And the control that could have made it an artifact
+
+The navigator ran the granularity check on **ρ**. It was never run on **var_rater**, which is what this
+entry rests on. Capping full's criteria at core's count varies coarseness with compilation **absent**:
+
+| | var_case | var_rater |
+|---|---|---|
+| full capped at 4 | 0.03599 | 0.00420 |
+| full capped at 6 | 0.03532 | 0.00407 |
+| full capped at 8 | 0.03493 | 0.00427 |
+| full, all 15.48 | 0.03299 | 0.00422 |
+| **core @ 3.95** | **0.02550** | **0.00626** |
+
+**full's var_rater band is [0.00407, 0.00427] — 0.00020 wide. Core sits 0.00200 above its top, 10.2×
+the band width.** Coarsening does not move the rater component at all. And var_case moves the *other*
+way under coarsening — rising to 0.03599 at cap 4 against full's 0.03299 — while core is 0.02550 below
+both. **Both components move in directions granularity cannot produce, in opposite senses.**
+
+**Killed.** *World A UNSTRUCTURED* — that the idiosyncratic rise is noise and the compilation line
+closes as a purely positive result about the compiler. **Also killed: the granularity world**, on its
+own numbers, on the component that mattered. **And killed: entry 10's premise**, which held that a
+rater component "could move to Community Notes, where rel_i is estimable" — the disproving column was
+`annotator_id`, present in every assessment this programme has read since entry 1. **Eighth instance of
+the assertion defect, and again the material was already in hand.**
+
+**Survived.** *World B STRUCTURED.* **Particular raters are systematically worse served by the compiled
+rule, across prompts.** That is entry 13's B\* — *does the compiled decision override disagreement
+coherently patterned by an identifiable subgroup* — reached on data in hand, with no new subjects, no
+leave-one-out, no exclusion of anyone's own input, and no dependence on the presentation-order field
+CoVal does not record. **All three of my fatals are structurally out of reach here**: no `≤`, no
+six-pairs-as-Binomial, no stratification on an outcome-derived quantity.
+
+**Downgraded.** *"Compilation leaves the idiosyncratic component essentially unchanged"* — the
+navigator's own defensible sentence — is **true of the aggregate and false of its parts.** var_resid is
+flat (0.04509 → 0.04571) while var_rater rises 48%. The unchanged total was two components moving:
+error leaving the cases and arriving at the people. **A flat aggregate is not an absent effect.**
+
+**Not identified, said here rather than discovered later.** There is **no within-cell replication** —
+each rater ranks four responses once per prompt — so the **rater-by-prompt interaction cannot be
+separated from error** and `rel_i` in the test-retest sense stays unidentified. The main effect is what
+is measured; the claim card says so.
+
+**Ontology shift.** Compilation was framed as one scalar — how much is lost — then corrected to a
+transfer. **It is two separable operations with opposite signs: it DECOUPLES error from cases and
+COUPLES error to people.** A compiled rule is not more or less accurate than its source; it
+**redistributes who bears its error**. That reframes the programme's object: the question a bridging
+score must answer is not how much information survives compilation, but **whose disagreement the
+compiled form can no longer express** — which is measurable wherever raters cross items, and needs no
+demographics to detect, only to describe.
+
+**Process.** Reproducibility gate **PASSES** — 72 keys byte-identical under `PYTHONHASHSEED` 11 and 77.
+Entry 18 could not run this gate because it shipped no code; the navigator reproduced it from prose and
+correctly called that *"luck standing in for process."* Rebuild control recomputes entry 18's ρ at drift
+0.0000 both arms. Positive control recovers a planted per-rater offset monotonically over 0.00–0.10.
+Both arms scored at **equal weights**, because `r04/run.py:252-259` gives core a weight of literally
+`None` and full the mean human rating — so r04's arms confound compilation with the presence of
+ratings.
+
+**NEXT.** The **α-coherence test**, staged behind this kill and now unlocked: rank raters by fitted
+`α_i` and ask whether the high-α set is coherent on `subjectivity`, `representativeness` and
+`importance` — three fields already on every assessment, none of them the outcome. **Kill: if the
+high-α set is indistinguishable from the rest on all three, the rater component is real but anonymous,
+and "identifiable subgroup" drops out of the claim.** Coherent ⇒ the compiled rubric has losers with a
+describable character, and that is the sentence this programme was built to be able to say.
