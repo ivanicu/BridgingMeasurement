@@ -1104,3 +1104,82 @@ whether this should continue. **That question is still open and is the one I can
    **group-coherence test using the scorer's own viewpoint loadings as the grouping covariate.**
    **Reproduction first. If the refit does not recover published statuses, everything downstream is
    about our reimplementation.**
+
+---
+
+## Entry 14 — B has an estimand after all, and the repair is one move
+
+**Observed.** The causal reviewer's redesign is the strongest of the four, because it **fixes the
+thing I could not**: B as I wrote it needs a counterfactual world where the judgement was *not*
+compiled, and **that world is not a treatment arm** — every channel that gets a judgement out of a
+human head into usable form is *already* an act of formalisation. **There is no accessible raw ground
+truth.**
+
+### The repair, in one sentence
+
+> **Replace the ill-posed binary (compiled vs. the inaccessible uncompiled truth) with a well-posed
+> ORDERED FAMILY: compare a MORE-compiled and a LESS-compiled procedure, both actual computable
+> members of the SAME algorithm family, on the SAME fully-observed data.**
+
+**And every dataset already has a capacity knob, built for other reasons:**
+
+| dataset | less compiled ↔ more compiled | on disk? |
+|---|---|---|
+| **CoVal** | `coval_full` (uncapped, unmerged, every rating) ↔ `coval_core` (≤4, merged, polarity-normalised) | **both, today** |
+| **Community Notes** | rank · threshold · rater-weighting | yes, open source |
+| **PRISM** | values stated *before* the conversation ↔ the actual in-conversation choice — **the person IS both arms** | yes, by design |
+
+**PRISM gives the constitution-versus-interpreter contrast WITHIN ONE PERSON.** Neither of the others
+can.
+
+### The estimand
+
+`e_{i,D}^{(k)} = δ(y_{i,D}, g_k(D))` — person *i*'s own recorded judgement against the compiled rule
+at capacity *k*. Decompose `e = μ + γ_D + ε_{i,D}`, then
+
+> **`ρ(k) = σ²_case / (σ²_case + σ²_idio)`** — *the share of the rule's disagreement with humans that
+> is **shared across raters on the same case***. Target: **`Δρ = ρ(deployed) − ρ(richer)`**.
+
+**Why this separates the two worlds nothing else could:** a genuinely **ambiguous** case makes raters
+disagree *with each other* → loads onto **ε**. **Only correlated, same-direction deviation from the
+rule loads onto γ.** So **γ is "this case needed discretion the rule does not have"**, distinguishable
+from "this case is hard."
+
+**The only assumption is within-case rater exchangeability** — weaker than anything Q1 needed,
+checkable, and **it does not require the corpus to represent any external population.** Selection is
+**held fixed rather than solved**: every capacity level is scored against the *same* selected sample,
+so the internal contrast is unbiased by selection even though generalising beyond the corpus is not.
+
+### Arm 3 runs today, and it deliberately is not Q1
+
+`g_full(p)` vs `g_core(p)`, each scored against **rater *i*'s own recorded ranking, with no
+leave-one-out and no exclusion of *i*'s input.** It is **not** asking *"does the rule represent me"* —
+it asks *"does the deployed mechanical rule reproduce case-specific human discretion in general."*
+**So F1–F4, the tie artifact, `relᵢ`, and the whole dependence problem do not arise.**
+**`ρ_core > ρ_full` is a positive finding, computable on disk today.**
+
+### Three pre-registered kills
+
+1. **`Δρ` flat across all arms** ⇒ compilation discards **noise**, not case-shared structure. *A real
+   defence of compiled systems, and a defensible negative.*
+2. **True restoration ≈ placebo restoration** ⇒ the structure is present but **not decision-relevant**.
+3. **`γ_D` explained by response ORDER or position** ⇒ an elicitation artifact, not discretion.
+   **Must be checked, not assumed** — verify whether CoVal randomised presentation order.
+
+### All four redesigns now say the same thing
+
+**Vary the capacity knob, measure what changes, on data in hand.** The rank sweep is Arm 1's capacity
+grid; the group-coherence test is a refinement of *what γ contains*; the exact-permutation control is
+how the restoration arm is built. **Four hostile reviewers, four lenses, one study.**
+
+**And the honest ceiling, stated by the reviewer rather than found later:** γ shows *this* capacity
+family at *this* setting fails to capture shared structure. **It does not show the structure is
+uncapturable by any possible compiled rule.** "Discretion" here means **"recoverable by more capacity
+within this family"** — much weaker and more honest than "beyond any compiled rule," which is probably
+untestable from any dataset. **And nothing here touches appeal**: contestation is a temporal,
+adversarial process, invisible in a static snapshot.
+
+**NEXT.** Build Arm 3. Claim card first, then: rescore all 968 joined prompts under `coval_full` and
+`coval_core`, compute `e` against each rater's own `world` ranking, fit the variance decomposition per
+arm, and report `ρ_full`, `ρ_core`, `Δρ` with a prompt-clustered bootstrap — **plus the order/position
+confound check before interpreting γ as discretion.**
