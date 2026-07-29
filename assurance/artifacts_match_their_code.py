@@ -27,8 +27,11 @@ THREE-VALUED, and this is the part that must not be collapsed
   STALE       records a hash and it does NOT match. The artifact predates the code. FAIL.
   UNVERIFIED  records no hash at all -- every round written before this gate existed. This is NOT a
               pass. The artifact may be fresh or stale and this instrument cannot tell. Folding
-              UNVERIFIED into MATCHES would manufacture 109 false certifications, and a false
-              acquittal is permanent because nobody re-examines a cleared claim.
+              UNVERIFIED into MATCHES would manufacture 138 false certifications -- the measured
+              count, not the 109 I first wrote from the number of round SCRIPTS when the unit is
+              ARTIFACTS, several rounds emitting more than one. A stale number inside the file whose
+              purpose is catching stale numbers, and it survived one commit.
+              A false acquittal is permanent because nobody re-examines a cleared claim.
 
 WHAT IT CANNOT DO, stated rather than left to be discovered
 ----------------------------------------------------------
