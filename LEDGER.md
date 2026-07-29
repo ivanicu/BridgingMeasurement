@@ -829,3 +829,131 @@ was written down as an object and committed before anyone saw it.*
    criteria corpus-wide. The current one cannot reject.
 3. **Compute the cluster-dissolution rate** (F1's remedy). It may be the result.
 4. **Re-read r33's +0.0663 as primary evidence**, per entry 9.
+
+---
+
+## Entry 11 — all five in. Every measure I designed is dead, and the finding was sitting in a field nobody read.
+
+**Observed.** The empiricist went to the files. **Numbers, not adjectives.**
+
+### M1 is not merely dead — it says the opposite of what I would have concluded
+
+| | |
+|---|---|
+| sign-split criteria | **4,451 / 15,248 = 29.2%** (of those with ≥2 raters: **80.0%**) |
+| weight-mass share | **70.3%** — clears my 5% kill threshold by **14×** |
+| **expected mass share under a PROPER null** | **88.9%** |
+| observed vs null | **~230 null-SDs BELOW** |
+
+> **Once you control for the trivial fact that any criterion with ~15 raters drawn from a 77/23
+> positive marginal will show some sign disagreement almost by construction, there is no excess
+> bimodality. There is a DEFICIT — criteria are more sign-coherent than random reshuffling produces.**
+
+**My threshold could never bind.** The marginal alone guarantees >5% "split" mass regardless of the
+truth. **I built a gate that could only open.** And read correctly, M1 is evidence **against** the
+sign-split story I designed it to gate.
+
+**And my null was degenerate — confirmed empirically, p = 1.0000 every time.** "Permute ratings within
+criterion" shuffles *who said what*; the split share is a function of the *multiset*. **Invariant by
+construction.** A check that cannot fail, in the gate position, in a project whose ledger catalogues
+that exact defect more than any other.
+
+### M2 is impossible as specified
+
+`coval_core` ships as `{'criterion': <string>}` — **no id, no weight, no polarity flag.** Nothing to
+re-weight. And the traceability M2 needs:
+
+| match rule | recovery |
+|---|---|
+| exact substring core→full | **11.6%** |
+| word-Jaccard ≥ 0.5 | **34.9%** |
+| median best Jaccard | **0.346** |
+
+Compression **3.91:1**. **This is real rewriting and merging, not excerpting** — a non-model matcher
+mismatches roughly two-thirds. My "no coder, no semantic matching, no model" line was false on contact
+with the schema.
+
+### The instrument is worse than the statistician assumed
+
+- pairwise comparisons per assessment: **mean 5.17, not 6.** Only **50.07%** give a strict total order;
+  **2.43% give ZERO pairs** (fully tied).
+- raters per criterion: **median 1**, mean 6.70. **63.5% of criteria have exactly one rater** — the
+  write-ins, rated only by their own author. So sign-split is structurally confined to the seeded
+  36.5%, and leaving that one rater out **deletes the criterion**: `R₋ᵢ` is not a smaller aggregate,
+  it is *a different rubric with fewer criteria*.
+
+**What does work, better than I claimed:** the person-level join. **1,012 / 1,012 = 100%** of ranking
+annotators appear as rubric raters; median per-prompt overlap **1.000**. *The one join in the design
+that is not shaky, and I left it implicit.*
+
+**And menu-dependence is impossible**: 1,078 / 1,078 distinct prompts, **zero** repeats with a varied
+response set. No natural experiment exists in the release.
+
+---
+
+## The finding, and it was in a field nobody read
+
+**CoVal elicits TWO orderings of the same four responses from the same person** — `personal` ("best for
+me") and `world` ("best for the world"). I verified this myself:
+
+| quantity | value |
+|---|---|
+| assessments carrying **both** blocks | **4,901 / 18,384 = 26.66%** |
+| **ordering differs** | **2,374 = 48.4%** — the reviewer's number, confirmed exactly |
+| **≥1 STRICTLY REVERSED pair** | **1,401 = 28.6%** |
+| reversed pairs / all pairs | **2,444 / 29,150 = 8.38%** |
+
+> **28.6% of participants, on the same four responses, strictly prefer X over Y for themselves and Y
+> over X for the world.**
+>
+> **The contradiction my design worried about in the abstract — "a person might endorse an aggregate
+> that contradicts their own ranking" — lives INSIDE ONE PERSON, before any aggregation happens.**
+
+**And every number in the entire CoVal project comes from `world`.** `covalx/judge.py:245`:
+`(asm.get("ranking_blocks") or {}).get("world")`. **0.686, +0.1215, all 109 rounds — they are about
+what people said was best FOR THE WORLD, never what they wanted for themselves.** That is not a
+footnote; it is the scope of the whole package, and it was never stated.
+
+**A discrepancy worth recording, because it is this project's own lesson turned on me.** My first
+attempt returned **97.23%**, the reviewer **48.4%**. Both computed correctly; both measuring different
+things. The block carries a free-text `rationale` alongside the `ranking` string, and I had compared
+whole JSON objects — so I was counting *different rationales*, not different orderings. **Resolved by
+printing one record and looking at it.**
+
+---
+
+## The one load-bearing difference in framing B, from the social-choice reviewer
+
+**Not execution rate** — that is Kaplow at the frequency limit. **Not "no interpreter, no appeal"** —
+that is Schauer's maximal entrenchment. **Not "fitted rather than written"** — Schauer's *Profiles,
+Probabilities and Stereotypes* (2003) and Casey & Niblett (2017) anticipate it.
+
+> **A human interpreter's judgement space is UNBOUNDED IN FEATURE DIMENSION — a judge can invent a new
+> distinction on the spot at zero marginal representational cost, because language has no fixed rank.
+> A compiled rule's capacity is FIXED AT ARCHITECTURE-CHOICE TIME.**
+>
+> **In law, granularity cost and data availability are two different knobs. In a fitted rule they
+> collapse onto the same knob** — Community Notes chose rank 1 *"to avoid overfitting on our very
+> small dataset"*, so **a data-scarcity decision is silently doing the work of a normative-granularity
+> decision, and nobody chose the latter on its own terms.**
+
+**And it is measurable**: refit the open-source scorer at rank 0,1,2,3,4,5; track each rater's residual;
+three buckets — **well-represented** · **capacity-limited** (exclusion is an artifact of rank 1)
+· **irreducible** (flat across all rank, the closest empirical stand-in for a distinction a smooth
+low-rank factorization cannot express by construction). **Bucket three is the number that answers the
+question, and it costs one grid of refits on public data.**
+
+---
+
+**The accounting.** Of everything I designed: **M1 dead and inverted · M2 impossible · M3 not
+independent of r33 · Q1 unidentified.** What survives is **P1 as a principle** (every reviewer kept it)
+and **one corrected permutation test**. **Five reviewers, ~500k tokens, and not one line of the design
+ever ran.** The cost of being wrong was zero because nothing was published — *which is the entire
+argument for writing the design down as an object and committing it before anyone saw it.*
+
+**NEXT.** The two things worth doing are both new:
+1. **The personal-vs-world scope correction**, back-propagated into the CoVal package — every headline
+   there needs the words *"for the world"* in it. **Zero model, already computed, and it rescopes 109
+   rounds.**
+2. **The rank-capacity ablation on Community Notes.** It is the only operationalisation of framing B
+   that survived contact with a social choice theorist, and it needs no humans.
