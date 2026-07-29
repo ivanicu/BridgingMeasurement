@@ -1554,3 +1554,160 @@ it is p≈3e-11.
 direction myself** — but the fact above changes the option set, and it should be given to the
 navigator: **CoVal cannot support a discretion claim at all, which strengthens the case for the
 Community Notes arm where the algorithm and its inputs are both recomputable.**
+
+---
+
+## Entry 20 — the navigator confirmed the result, supplied the interval, ran the control I lacked, and found that entry 19 refutes itself two paragraphs down
+
+**Observed.** First iteration under the new structure: an independent Fable navigator with a clean
+context, given the ledger and told it is subject to the same defect as me.
+
+### It reproduced entry 18 from PROSE ALONE
+
+Reimplemented the decomposition from the ledger's description, no code shared. **Every cell within
+0.0004.** N=15,202 both arms, k=968. **Δρ = −0.0744.**
+
+### It supplied the interval entry 18 said it could not be quoted without
+
+**Paired prompt-clustered bootstrap, 968 prompts, 2,000 reps: Δρ = −0.0744, 95% CI
+[−0.0991, −0.0510].** Excludes zero. **Entry 18's embargo is discharged.**
+
+### And it ran the control that could have killed it, which instead amplified it
+
+**The obvious non-compilation explanation nobody named:** core aggregates over 3.9× fewer criteria, so
+ρ might fall from coarser aggregation alone. It subsampled **full**'s criteria down to core's count —
+compilation absent, granularity varying:
+
+| full restricted to | ρ |
+|---|---|
+| ≤4 criteria | **0.3812** (sd 0.0123, 5 seeds) |
+| ≤6 | 0.3770 |
+| ≤8 | 0.3697 |
+| all 15.48 | 0.3591 |
+| **core @ 3.95** | **0.2847** |
+
+**Monotone, and in the OPPOSITE direction — coarsening alone RAISES ρ.** Against the
+granularity-matched baseline the compilation effect is **−0.0965, larger than the raw −0.0744.**
+
+### Where my interpretation overreached, precisely
+
+*"LESS case-bound and MORE rater-idiosyncratic"* gives equal billing to unequal components. **Holding
+var_idio at full's value, var_case alone moves ρ from 0.3591 to 0.2949: 86% of Δρ is the case term
+collapsing, 14% is the idiosyncratic term rising.** And under granularity matching var_idio is flat
+(0.05269 vs 0.05495). **So the "smearing across raters" narrative rests on the 14%.**
+
+> **The defensible sentence: compilation removes case-shared error and leaves the idiosyncratic
+> component essentially unchanged.**
+
+---
+
+## The five errors
+
+**1 · Entry 19 is refuted by entry 19's own FACT 2, two paragraphs below its own conclusion.**
+
+For order to contaminate **γ** it must be randomised **per prompt** — shared within a prompt's raters,
+varying across prompts. **Fixed order loads on μ. Per-rater randomisation loads on ε. Only per-prompt
+reaches γ.** And **a per-prompt shuffle cannot produce a stable label-specific corpus-wide deficit.**
+
+Splitting my own χ²=52.1 by corpus half: **B is under-selected in BOTH halves — 22.73% and 23.04% —
+while C and D swap (24.47/27.07 versus 27.10/24.33, i.e. noise).** A stable B penalty across halves is
+**direct evidence against per-prompt randomisation**, which is the only world that reaches γ.
+
+> **I wrote the correct analysis — "a uniform label bias loads onto μ or ε, not γ" — and then
+> concluded the opposite in the section header and in my message to the navigator.**
+>
+> **Seventh instance, and the shortest retrieval distance yet: the same entry.**
+
+**2 · Entry 10 asserted a capability absence about its own dataset, and it set the programme's
+direction.** It said `relᵢ` "could move to Community Notes, where it is estimable from within-rater
+variance." **CoVal is fully crossed: 1,012 raters × 1,078 prompts, 18,384 observations, median 20 per
+rater, minimum 2, and 100% of raters appear on ≥2 prompts.** A crossed decomposition identifies a
+**rater main effect on CoVal today.** *The disproving column was `annotator_id`, already measured by my
+own empiricist in entry 11.*
+**And the navigator refused to overclaim:** entry 10's FATAL #1 stands — no within-cell replication, so
+interaction cannot be separated from error and `relᵢ` in the test–retest sense **remains unidentified.**
+**What is identified is the component the programme actually needs, and it was never checked before the
+dataset was abandoned for it.**
+
+**3 · Entry 18's computation is not in the repository.** `rounds/` and `data/` are empty, no `.py`
+computes ρ, the last three commits touch `LEDGER.md` only. **The round that produced the headline
+shipped zero code**, so the pre-registered two-hashseed gate **cannot be run on a script that does not
+exist.** *"My reproduction succeeded, but by rewriting it from prose — that is luck standing in for
+process."*
+
+**4 · The power calculation that chose Community Notes is numerology, and it is the same class as
+`if chi > 100`.** "~1.3×10⁷ entries needed" is `O(r(n+p)log(n+p))` **with the hidden constant set to
+1.** At r=2 and n+p≈10⁶ the same expression gives **2.8×10⁷**, and "clears by 2.7×" becomes **1.25×.**
+**The margin is a free parameter.** *Entry 19 named hand-written thresholds as a class the gate is blind
+to — and then did not sweep the ledger for others. This is the biggest one, and it is load-bearing for
+the whole CN queue item.*
+
+**5 · Queue item 3's code premise had no receipt in the ledger, though it is true.** Zero ledger hits
+for `numFactors` / `upstream/scoring`, despite entry 2's NEXT making it step one. The navigator
+verified it itself. **Correct claim, no receipt — P4's "paste cmd + output" failing in the benign
+direction.**
+
+---
+
+## Direction, accepted without disagreement
+
+**NEXT STEP — add a rater main effect: `e_{i,p} = μ + γ_p + αᵢ + ε_{i,p}`, crossed, per arm, same
+paired prompt-clustered bootstrap. Report var_case, var_rater, var_resid, and Δvar_rater with a CI.**
+
+**It splits the 14% the one-way model cannot interpret, and the two outcomes have opposite engineering
+consequences:**
+
+- **World A — var_rater ≈ 0 or unchanged.** The idiosyncratic rise is unstructured. **The finding
+  closes as a positive result about the compiler:** 3.9× compression raises accuracy *and* decouples
+  error from cases, with no identifiable losers. **The line ends.**
+- **World B — var_rater rises under core.** Specific people are *systematically* worse served across
+  prompts. **That is B\* from entry 13 — measured, on data in hand, with no new subjects, no CN
+  reproduction, no leave-one-out, and no dependence on the missing order field.** And it hands over the
+  grouping covariate for free: **rank raters by αᵢ and test whether the high-α set is coherent on
+  `subjectivity` / `representativeness` / `importance` — three fields already on every assessment,
+  which I had not noticed were there.**
+
+**Pre-registered kill:** if Δvar_rater's 95% CI contains zero **and** var_rater is under ~10% of
+var_resid in both arms, **World B is dead, entry 18 is final as a positive result, and the
+compilation-loss line ENDS — not to be reopened on another dataset.**
+
+**Mandatory in the same round: commit the script — entry 18's and the extension — and run the
+two-hashseed gate that currently cannot run.**
+
+## What not to do, and it is what I was arguing for
+
+> **Do not start the Community Notes arm.**
+
+Its justification is the numerology in error 4. **Its own blocking gate is reproduction, and the target
+is 51 files, 24,606 lines, 12+ touching status assignment**, plus multiple meta-scorers, `scoring_rules`
+and `note_status_history` locking — **a multi-week engineering project standing between us and the first
+number**, on a system whose closest published reimplementation *explicitly did not implement the status
+heuristics.* Entry 19's argument for it **is the claim just overturned.** And it abandons a live,
+reproduced, interval-bearing, control-surviving result **mid-round.**
+
+**Premature scaling — and the pull is strongest precisely because CN is the more impressive object.**
+
+**Also frozen:** the E6a/E6b rubric repair. Entries 15–16 already established that instrument as the
+over-instrumentation pattern, and a grep beat it on the same claim.
+
+## Worth continuing: only-if
+
+**X = the deliverable is one small correct measurement of one compiler, and the field-level ambition is
+dropped.** The navigator's words, adopted:
+
+> **Dead: the programme as a novelty enterprise.** Six of six field-level claims died. *"Nothing in
+> this line should ever again be framed as 'nobody has.' That ceiling is not raised by better search;
+> it is a property of what a clean structural sentence does to this executor."*
+>
+> **Real: an asset, not a thesis.** And entry 17's finding is **under-sold** — *applying human ratings
+> to core changes accuracy by exactly 0.0 to fifteen decimals, because compilation moved the polarity
+> into the wording.* A sharp, checkable, counterintuitive result about compiled value specifications,
+> with a control nobody could improve on.
+>
+> **The honest framing of the session: the process worked.** Five reviewers prevented a paper whose
+> headline was three compounding artifacts, and nothing false was published. **That is the result. It
+> is smaller than the programme wanted and it is real.**
+
+**NEXT.** Build the round exactly as directed: crossed decomposition with the rater main effect, the
+script committed, the two-hashseed gate run, and the αᵢ-coherence test on the three assessment
+covariates staged behind World B's kill condition.
