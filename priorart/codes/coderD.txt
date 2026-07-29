@@ -1,0 +1,77 @@
+PAPER: 2502.13322
+E1: 0 | - | none
+E2: 0 | - | none
+E3: 1 | - | Introduction background
+E4: 3 | N | Factors Associated with Large Effects/Fig.4A + Discussion
+E5: 2 | - | Results/Fig.2-3 synthetic-control ATT
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: Synthetic-control causal study of 40,078 posts - attachment reduces reposts 46.1%, likes 44.1%, replies 21.9%, views 13.5%, and flattens cascades.
+PRESCRIBES_HOW: NO - measures an existing mechanism, proposes no change
+PAPER: 2510.00650
+E1: 0 | - | none
+E2: 1 | - | 3 Data collection
+E3: 2 | - | 4.3/Fig.5 recalculated helpfulness distribution
+E4: 3 | N | 4.3/Fig.6 declining share crossing the 0.4 threshold, framed as risk
+E5: 2 | - | 4/Fig.7 RDD (+5% odds of writing again, p=0.04)
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: Contributor growth/churn; RDD shows a first published note raises odds of writing again by 5%, an incentive starved by a low and declining ~10% publication rate.
+PRESCRIBES_HOW: NO - flags a risk, floats future work
+PAPER: 2509.15434
+E1: 4 | N | 7.1/Table 2; 8.2/8.3.1-2
+E2: 4 | C | 7.2/Table 3; 8.3.2
+E3: 4 | N | 7.3/Table 4 (digital juries, editorial selection); 8.3.2-3
+E4: 3 | N | 6/8.2-8.3.1 (~10% X, 6% Meta publish rate)
+E5: 4 | N | 7.4/Table 5; 8.3.1; 8.3.3
+E6: 3 | X | 6; 8.3.3
+E7: 0 | - | none
+E8: 4 | N | 8.3.2
+DELIVERS: PRISMA review (n=56) plus a comparative design-space taxonomy of four platforms; runs no new primary measurement, all numeric claims inherited.
+PRESCRIBES_HOW: YES - design-space tables name concrete buildable alternatives per stage, none validated here
+PAPER: 2301.09976
+E1: 1 | - | 4.1.2 Surveys
+E2: 1 | - | 4.1.1 Motifs
+E3: 1 | - | 3.2 Relation Model
+E4: 1 | - | 6.1/Table 2 (too generic to count as implementable)
+E5: 1 | - | 1/Fig.2
+E6: 3 | N | 5.2.1 Validity (exposure diversity can backfire)
+E7: 0 | - | none
+E8: 1 | - | 6.2 (names the unresolved legitimacy question without evidencing a failure)
+DELIVERS: Conceptual framework defining bridging systems and attention allocation, cataloguing signals and a validity discussion, structured as an open-questions agenda.
+PRESCRIBES_HOW: NO - explicitly Open Problems; architecture-level considerations, not a buildable mechanism
+PAPER: 2104.07175
+E1: 2 | - | Fig.3/Fig.4 checkbox-menu usage counts
+E2: 2 | - | Fig.5 CCDFs of note content
+E3: 4 | C | Fig.7/Fig.10 regression on helpfulness ratio; Discussion Fact-checking guidelines
+E4: 1 | - | What is Birdwatch
+E5: 1 | - | What is Birdwatch
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 1 | - | Discussion Implications
+DELIVERS: First characterisation of the Birdwatch pilot - what gets reported, which note features predict crowd-rated helpfulness, and lower consensus on high-follower/verified accounts.
+PRESCRIBES_HOW: NO - user-facing writing advice from a correlational regression, not a mechanism change
+PAPER: 2604.11224
+E1: 0 | - | none
+E2: 0 | - | none
+E3: 5 | N | 3/Eq.3,9-11; 2.1/Fig.1 (IVW rewards ideological extremity); 6-9 (AUC 0.94)
+E4: 1 | - | 5.2 passing mention
+E5: 0 | - | none
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 2 | - | 10.3 Ethics of Differential Weighting; 5.3
+DELIVERS: QS-MF per-rater weighting extension validated on 45M real ratings plus synthetic ground truth - converges 26-40% faster, resists coordinated attacks, recovers true quality at AUC 0.94.
+PRESCRIBES_HOW: YES - complete model, loss, identifiability constraints, closed-form update
+PAPER: 2409.08781
+E1: 0 | - | none
+E2: 0 | - | none
+E3: 1 | - | Data Overview background
+E4: 3 | N | Data Overview/Fig.1c-d (61.4h mean vs 5.75-6.25h half-life); Fig.4; Discussion
+E5: 3 | N | DiD/Fig.2 (ATT -62.0%); Fig.3 sensitivity; Fig.5 RDD (+103.4%)
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: DiD on 237,677 posts - display cuts reposts 62.0% and doubles deletion odds, but median 18.1h delay against a ~6h half-life cuts platform-wide reduction to 15.3%.
+PRESCRIBES_HOW: NO - concludes "needs to be faster", no mechanism

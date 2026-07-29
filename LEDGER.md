@@ -424,3 +424,74 @@ matrix.** Order of work, and the first is not skippable:
    numerical churn near the threshold rather than structural. The control for that is a **rank-1
    refit under a different seed** — flips that survive re-seeding at the same rank are the floor any
    rank-2 flip count must clear.
+
+---
+
+## Entry 6 — the instrument mostly failed, and the one thing it can say is worth more than the twenty it cannot
+
+**Observed.** Four blind coders, 22 full texts, the pre-registered rubric. **All four passed the
+unlabelled control pair** — each put the deep control at level 5 on AGGREGATE and held the shallow
+control at ≤3 everywhere. So the codes are admissible.
+
+**Then the reliability check fired.**
+
+| granularity | unanimous cells |
+|---|---|
+| exact 6-level | **11/32 (34.4%)** |
+| collapsed to 3 bands — *doesn't engage / studies it / says HOW* | **18/32 (56.2%)** |
+
+**At six levels the instrument does not work.** Coders reading the same full text assign E6 ∈ {0, 3, 5}
+on one paper and E8 ∈ {1, 2, 4, 4} on another. **That is not noise, it is a construct defect in my
+rubric**, and it is the same shape as everything else this week:
+
+> **E6 conflates two different questions.** *"How do we know the output represents them?"* was read by
+> one coder as *did the paper validate its own method* (2604.11224 recovers synthetic ground truth →
+> level 5) and by two others as *did the paper address representation at all* (→ level 0). **Those are
+> different properties and my level definitions merged them.** A paper can validate its method
+> exhaustively while saying nothing about whether the score stands in for anyone.
+
+**Killed.** Every stage-level claim about **E1, E3, E4, E5, E6, E8** — the instrument cannot carry
+them. The intersection count it printed (7/22 papers "say HOW" on at least one of the four stages)
+**may not be quoted**, because 3 of those 4 stages are contested by its own reliability check.
+
+**Survived, and these two are reliable:**
+
+| stage | double-coded unanimity | ceiling across all 22 papers and all 4 coders | codings at ≥2 |
+|---|---|---|---|
+| **E7 CONTEST** | **4/4** | **1 — DESCRIBE** | **0** |
+| **E2 REPRESENT** | **4/4** | 4 | 6 |
+
+> ### The finding
+> **Not one of 22 full texts, in the reading of any of four independent coders, so much as MEASURES
+> what happens to someone who disagrees with the output.** Not diagnoses it, not prescribes for it —
+> **never puts a number on it.** The highest level anyone assigned to CONTEST across the entire corpus
+> is 1: the stage gets *mentioned*, never studied.
+
+**For contrast, from the same codes:** AGGREGATE has **22 paper-codings at measure-or-deeper with a
+ceiling of 5**; EXECUTE has 17; COMPILE 12. **The field is deep exactly where the machinery is, and
+empty exactly where the person who lost the vote is.**
+
+**Why this one is believable when the two claims that died this week were not:** it comes from **full
+texts** rather than abstracts, **four independent readers** rather than me, it carries a **stated
+reliability** rather than an assertion, and it **survives the coarsening test** — it is not an artifact
+of a level boundary, because no coder put any paper above the lowest non-zero level.
+
+**Ontology shift.** The question *"did they answer how to do collective alignment, or only make
+measurements?"* is answerable **per stage**, and the answer is not uniform: **answered deeply for the
+aggregation rule, unmeasured for contestability.** The field has a well-developed theory of how to
+combine votes and no account at all of what it owes the outvoted.
+
+**Downgraded.** My pre-registered expectation was *"ELICIT and CONTEST and LEGITIMACY shallow"*. ELICIT
+is **not** shallow (ceiling 5, 9 codings at ≥2) and LEGITIMACY is contested rather than shallow. **One
+of three predictions survived, and only the CONTEST one is reliable enough to say so.**
+
+**NEXT.** Two things, in order:
+1. **Repair E6 before re-coding anything.** Split it into **E6a — did the paper validate its own
+   method** and **E6b — did the paper ask whether the score represents the people it came from.** The
+   second is the one this project cares about, and it has never been coded separately from the first.
+   **Do not re-run the coders until the split exists**; a second run on the same ambiguous definition
+   buys nothing.
+2. **Attack the CONTEST finding before believing it.** The obvious kill: *contestability may simply be
+   out of scope for a Community Notes paper and live in the platform-governance and appeals
+   literature* — Crossref now works, so search it. **If that literature exists, the finding becomes
+   "the CN measurement literature does not connect to it", which is weaker and still true.**

@@ -1,0 +1,88 @@
+PAPER: 2210.15723
+E1: 1 | - | Section 3.1 Fig 9-10
+E2: 1 | - | Section 3.1
+E3: 5 | C | Section 6.1 RQ1, Table 5-6, Fig 3-5
+E4: 4 | M | Section 4.1-4.2, footnote 4 held-out RMSE
+E5: 2 | - | Section 6.3 RQ3 A/B test, Fig 7, Tables 12-13
+E6: 4 | N | Section 6.2 RQ2, Fig 6, Appendix B Table 11
+E7: 0 | - | none
+E8: 1 | - | Section 7
+DELIVERS: Presents and validates a bridging MF algorithm selecting annotations causally informative and broadly perceived helpful across the spectrum, beating supermajority/average baselines.
+PRESCRIBES_HOW: YES - exact MF loss, regularization, filter thresholds, pipeline steps
+PAPER: 2506.15168
+E1: 1 | - | Introduction para 2
+E2: 1 | - | Data and definitions
+E3: 3 | N | Algorithmic resolution outcomes, Fig 1C, Fig 2; Discussion
+E4: 3 | N | Discussion (diversity threshold and regularization strength as design choices)
+E5: 2 | - | Fig 1B
+E6: 5 | X | Latent ideological dimension section, Fig 4, AUC 0.808 vs Global Party Survey
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: 13-country audit (1.9M notes) - the latent dimension tracks each country's Left-Right/Anti-Elite axes, validated against expert-coded party surveys, while cross-partisan consensus causes under-moderation of polarizing content.
+PRESCRIBES_HOW: NO - calls for risk assessment and complementarity, no concrete design
+PAPER: 2601.14002
+E1: 1 | - | Fig 1 workflow / Section 2
+E2: 1 | - | Section 3.2
+E3: 3 | M | Section 4.4 Counterfactual Analysis, Fig 5d-5e
+E4: 2 | - | Suppl S2 (99.8% reproduction match to production statuses)
+E5: 3 | N | Section 4.2 RQ3, Fig 3-4, ITS design
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: 437K notes/35M ratings - 30% of Helpful notes later lose status; display itself triggers a spike in polarized post-display rating; removing those raters counterfactually keeps many notes helpful.
+PRESCRIBES_HOW: NO - general directions only
+PAPER: 2511.02615
+E1: 1 | - | Experimental design
+E2: 1 | - | same paragraph
+E3: 3 | M | Fig 2, Fig 3-5
+E4: 1 | - | Methods threshold definitions
+E5: 0 | - | none
+E6: 3 | M | Table 1 excess helpfulness, Fig S10 true vs inferred
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: Calibrated simulations supplying ground-truth helpfulness the real system cannot observe - the algorithm suppresses >40% of genuinely helpful notes under realistic bias; 5-20% coordinated bad raters drive suppression to ~100% for targeted content.
+PRESCRIBES_HOW: NO - tentative unspecified directions
+PAPER: 2607.01824
+E1: 1 | - | Section 2
+E2: 1 | - | Section 2.1
+E3: 4 | A | Section 5.1 Eq 4-5, Table 2 (10.7% manipulable), Section 6.1
+E4: 4 | M | Section 5.1 MRS/Table 2, Section 5.2
+E5: 1 | - | Section 6.1 Feedback Dynamics
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: Proves a synthetic-consensus attack - up to 10.7% of low-quality notes pushed above the display threshold with <10 coordinated ratings for ~$30 - and describes a mitigation deployed in production.
+PRESCRIBES_HOW: YES - concrete implementable mitigations, confirmed deployed
+PAPER: 2603.18053
+E1: 3 | A | Strategic Conformity section, Theorem 0.2-0.3, Fig 1-3
+E2: 1 | - | Aggregation via Matrix Factorization, Eq 1
+E3: 5 | A | Theorem 0.7 consistency + min-variance; Fig 5a-b (5.73%/27.99%)
+E4: 1 | - | thresholds
+E5: 3 | N | Annotations on Controversial Topics, Table 1, Fig 3 DiD
+E6: 3 | M | Behavioral Model intro + Conclusion (no exogenous ground truth)
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: Rating Impact auditing causes minority-aligned contributors to conform and disengage; proves this biases the estimator (76-116% worse prediction); proposes and validates a two-stage weighted aggregation cutting error 5.7-28%.
+PRESCRIBES_HOW: YES - exact two-stage weighted MF, tested on real production data
+PAPER: 2604.11224
+E1: 1 | - | Introduction / Section 2
+E2: 1 | - | Section 2, Eq 4
+E3: 5 | M | Section 9 synthetic ground-truth recovery; Section 7; Section 8
+E4: 1 | - | Section 5.2 footnote
+E5: 0 | - | none
+E6: 5 | M | Section 1.4 Evaluation Without Ground Truth + Section 9
+E7: 1 | - | Section 10.4 Future Work
+E8: 1 | - | Section 10.3
+DELIVERS: QS-MF weighting influence by ideology-independent quality tracking; 22-55% fewer ratings for equal accuracy on 45M real ratings, attack displacement cut 8-39%, better synthetic ground-truth recovery at every corruption level.
+PRESCRIBES_HOW: YES - exact closed-form updates, drop-in replacement
+PAPER: 2409.08781
+E1: 1 | - | Introduction
+E2: 0 | - | none
+E3: 1 | - | Data Overview
+E4: 1 | - | Effect on Post Deletion
+E5: 3 | N | Cumulative Repost Count Fig 4a/d (15.3% vs 62%); Fig 3a; Discussion
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 0 | - | none
+DELIVERS: DiD+RDD on 237,677 posts - display cuts reposting 62% and doubles deletion odds, but display lags the ~6h viral half-life so only ~15.3% of lifetime reposts are prevented.
+PRESCRIBES_HOW: NO - only "needs to be faster"

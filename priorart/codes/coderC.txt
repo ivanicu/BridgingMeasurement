@@ -1,0 +1,88 @@
+PAPER: 2411.06116
+E1: 1 | - | Section 4.1 Survey Structure
+E2: 1 | - | Section 2.2 / Appendix B.2
+E3: 5 | C | Section 3.2/Fig.3B (P@1=0.7); Section 4.3/Fig.8 ablation; Appendix A.1/Fig.9
+E4: 5 | C | Section 4.2 Figs.4-6 blinded human eval; Appendix B.3 verbatim prompts
+E5: 4 | N | Introduction (91% never reach helpful); Section 4.1 display rule
+E6: 5 | C | Section 4.2/Fig.6 bridging-score comparison, quota-sampled left/right + anchors
+E7: 0 | - | none
+E8: 1 | - | Section 6 Discussion
+DELIVERS: LLM candidate-generation + simulated-jury pipeline synthesising notes into a Supernote, preferred 75.2% in blinded human trials and scoring higher on CN's own bridging algorithm.
+PRESCRIBES_HOW: YES - verbatim prompts, architecture, aggregation formula, threshold
+PAPER: 2506.24118
+E1: 4 | - | Section 2.2 free-text rater critiques proposal
+E2: 4 | - | Section 2.2
+E3: 3 | N | Section 4 Persuasive but inaccurate notes
+E4: 4 | M | Section 5 item 1 RLCF
+E5: 4 | N | Section 4 rater overload; Section 5 item 6
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 4 | C | Section 2.2 human raters as sole arbiters; Section 3
+DELIVERS: Position paper proposing a hybrid human+LLM ecosystem (LLMs write, humans exclusively rate) plus a research agenda - zero experiments or data of its own.
+PRESCRIBES_HOW: YES - concrete RLCF pipeline and human-only-rating gate, most items open
+PAPER: 2502.14132
+E1: 1 | - | Section 2.1
+E2: 3 | X | Section 4.1/Fig.2 (5-7% FC citation vs prior 1.2%); Section 4.2/Fig.4a-b Table 1
+E3: 2 | - | Appendix B/Fig.7
+E4: 0 | - | none
+E5: 0 | - | none
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 3 | X | Section 4.1; Conclusion and Broader Impact
+DELIVERS: LLM-assisted content analysis of 664K notes - notes cite professional fact-checkers far more than previously reported, especially for conspiracy claims; CN cannot function independently of professional fact-checking.
+PRESCRIBES_HOW: NO - diagnostic; defers design to another paper
+PAPER: 2503.10560
+E1: 1 | - | Data section
+E2: 1 | - | Links to external sources
+E3: 1 | - | Background
+E4: 0 | - | none
+E5: 2 | - | RQ1/Fig.3 (External Source OR=2.70)
+E6: 3 | X | RQ3 Partisan Asymmetry/Fig.4 (-3.80% vs -1.54%, Media Bias/Fact Check expert scores)
+E7: 0 | - | none
+E8: 1 | - | Introduction
+DELIVERS: Regression on 41,128 notes - external-source linking is the strongest helpfulness predictor (OR=2.70); biased sources penalised, asymmetrically by direction.
+PRESCRIBES_HOW: NO - generic policy suggestions, no algorithm
+PAPER: 2404.02803
+E1: 1 | - | Section 3 footnote 3
+E2: 1 | - | Section 3
+E3: 1 | - | Section 3
+E4: 0 | - | none
+E5: 3 | N | Section 3 Fig.3; Section 5 Results (-49.1% vs -16.34%); Conclusion
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 1 | - | Introduction
+DELIVERS: First causal DiD estimate - large post-treatment effect (~49% fewer retweets, +80% deletion) but modest overall (-16 to -21%) because notes publish too slowly.
+PRESCRIBES_HOW: NO - diagnoses timing without prescribing a fix
+PAPER: 2301.09976
+E1: 1 | - | Section 3.1 Data; Open Questions Set 1
+E2: 1 | - | Section 3.2 Relation Model Table 1
+E3: 4 | N | Section 4.1 Motifs; Fig.10 caption (exposure diversity refuted)
+E4: 4 | - | Section 2.3 Optimization Stack/Fig.6; Section 6.1/Table 2
+E5: 4 | - | Section 2.1.1 Allocation Process/Fig.3
+E6: 4 | N | Section 5.2.1 Validity; Section 5.2 Evaluation
+E7: 0 | - | none
+E8: 4 | - | Section 6.2 intrinsic governance; Conclusion
+DELIVERS: Cross-domain conceptual framework unifying recommenders, collective-response systems and facilitation, cataloguing bridging signals and their validity, plus open questions - no new system built or tested.
+PRESCRIBES_HOW: YES - Table 2 plus deployed motif definitions, self-framed as open problems
+PAPER: 2604.11224
+E1: 1 | - | Introduction/Section 2
+E2: 1 | - | Section 2
+E3: 5 | N | Section 9 (AUC 0.94-0.97); Section 4.3 and 6; Section 7 (26-54% fewer)
+E4: 1 | - | Section 5.2
+E5: 1 | - | Section 5.2
+E6: 3 | M | Section 5.3/Fig.3; Section 10.3
+E7: 1 | - | Section 10.4
+E8: 4 | - | Section 10.3 Ethics of Differential Weighting
+DELIVERS: QS-MF validated on 45M real ratings and synthetic ground truth - 26-40% fewer ratings for equal accuracy, AUC 0.94-0.97 identifying bad raters, 8-39% reduced attack displacement.
+PRESCRIBES_HOW: YES - complete loss, closed-form updates, hyperparameters, drop-in
+PAPER: 2409.08781
+E1: 1 | - | Results Data Overview
+E2: 1 | - | Results Data Overview
+E3: 1 | - | Results Data Overview
+E4: 0 | - | none
+E5: 3 | N | Cumulative Repost Count/Fig.4; Post Deletion RDD; Discussion
+E6: 0 | - | none
+E7: 0 | - | none
+E8: 1 | - | Introduction
+DELIVERS: DiD+RDD on 237,677 posts - display cuts reposts 62.0% and raises deletion odds 103.4%, but notes arrive too slowly so overall reduction is ~15.3%.
+PRESCRIBES_HOW: NO - diagnoses speed, proposes no fix

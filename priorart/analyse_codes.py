@@ -154,16 +154,35 @@ def report(per_paper: dict, disagreements: list) -> None:
     print(f"  Papers doing so on TWO OR MORE of the four: {len(both)}/{n}"
           f"  {', '.join(both) if both else '(none)'}")
 
-    if disagreements:
-        agree = 1 - len(disagreements) / max(
-            sum(len(v[2]) - 1 for p in per_paper for v in [per_paper[p].get(s)]
-                if v for s in [None]) or 1, 1)
-        print(f"\nINTER-CODER DISAGREEMENTS on double-coded papers: {len(disagreements)}")
-        for p, s, a, b in disagreements[:14]:
-            print(f"  {p} {s}: {a} vs {b}")
-    else:
-        print("\nNo double-coded cells found - reliability NOT measurable, "
-              "and no result here may be quoted without saying so.")
+    # RELIABILITY. Denominator is the number of cells actually seen by >1 coder --
+    # not the number of cells, which would silently dilute disagreement with the
+    # single-coded majority and report a reassuring number about nothing.
+    multi = [(p, s) for p in per_paper for s in STAGES
+             if s in per_paper[p] and len(per_paper[p][s][2]) > 1]
+    if not multi:
+        print("\nNo double-coded cells - reliability NOT measurable, and no result "
+              "here may be quoted without saying so.")
+        return
+    exact = len(multi) - len(disagreements)
+    print(f"\nRELIABILITY on {len(multi)} double-coded cells: {exact} exact agreements, "
+          f"{len(disagreements)} disagreements  ({exact / len(multi):.1%} exact)")
+    by_stage = defaultdict(lambda: [0, 0])
+    for p, s in multi:
+        by_stage[s][1] += 1
+    for p, s, a, b in disagreements:
+        by_stage[s][0] += 1
+    print(f"  {'stage':<12} disagree/double-coded   worst cells")
+    for s in STAGES:
+        d, t = by_stage[s]
+        if t:
+            cells = [f"{p}({a}v{b})" for p, ss, a, b in disagreements if ss == s]
+            print(f"  {s:<12} {d:>2}/{t:<2}   {'  '.join(cells[:4])}")
+    hot = [s for s in STAGES if by_stage[s][1] and by_stage[s][0] / by_stage[s][1] >= 0.5]
+    if hot:
+        print(f"\n  >>> CONTESTED STAGES (coders disagree on >=half the double-coded "
+              f"cells): {', '.join(hot)}")
+        print(f"  >>> No claim about these stages may be made from these codes. "
+              f"They need adjudication against the papers themselves, not a tie-break.")
 
 
 def selftest() -> None:
@@ -186,6 +205,19 @@ def selftest() -> None:
     hits = [p for p in per if per[p].get("E8", (0,))[0] >= 4]
     assert hits == ["9999.00001"], f"selftest: intersection recovery wrong -- {hits}"
     assert per["2409.08781"]["E5"][0] == 2
+    # DOUBLE-CODING PATH. The first version of this selftest planted only
+    # single-coded papers, so the reliability branch was never executed and shipped
+    # with an UnboundLocalError that only appeared when the second real coder landed.
+    # A positive control that does not exercise the branch it protects is decoration.
+    synth["coderY"] = parse(
+        "PAPER: 9999.00001\nE8: 2 | A | Thm 1\nE7: 4 | A | Sec 6\n"
+        "E1: 0 | - | none\nE6: 0 | - | none\n")
+    per2, dis2 = merge(synth)
+    assert per2["9999.00001"]["E8"][0] == 2, "selftest: MIN rule not applied across coders"
+    assert ("9999.00001", "E8", 5, 2) in dis2 or ("9999.00001", "E8", 2, 5) in dis2, \
+        f"selftest: disagreement not recorded -- {dis2}"
+    assert len(per2["9999.00001"]["E8"][2]) == 2, "selftest: coder list not accumulated"
+    report(per2, dis2)  # must not raise
     print("SELFTEST PASS: control check accepts a clean coder, rejects a flattened one, "
           "and the intersection recovers exactly the planted paper.")
 
