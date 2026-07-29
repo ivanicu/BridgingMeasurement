@@ -228,6 +228,61 @@ So *"the score has ground-truth validation"* splits into:
 
 ---
 
+## ⛔ THE FRAMING IS RETRACTED — 2026-07-29, second adversary, same day
+
+**"The field measures these as content-moderation products, not as collective-alignment
+procedures" is indefensible as stated.** An entire strand treats the aggregation step itself as the
+object of study, in venues the arXiv-only sweep could not see.
+
+| pointer | venue | what it does | what it kills |
+|---|---|---|---|
+| **10.1145/3491102.3502004** — Jury Learning | **CHI 2022** | *"Supervised ML today resolves label disagreements implicitly using majority vote, which overrides minority groups' labels"* — and builds an architecture that keeps minority positions addressable | **Discarded disagreement, outright** |
+| **10.52202/075280-2321** — DICES | **NeurIPS 2023** | encodes rater votes as **distributions across demographics** *"to allow for in-depth explorations of different aggregation strategies"* | **Kills it for one of the very exemplars this project named as a target** |
+| **10.18653/v1/2024.emnlp-main.1029** — D3CODE | **EMNLP 2024** | 4.5K sentences, 4K+ annotators, 21 countries, annotators' **moral values measured directly** on six moral foundations | **Kills "the normative judgment has never been measured"** — measured from the crowd, no expert institution required |
+| **10.1145/3442188.3445901** — Jacobs & Wallach, *Measurement and Fairness* | **FAccT 2021** | imports measurement-theoretic **construct validity** into computational systems: harms arise from mismatch between an unobservable normative construct and its operationalised proxy | **This is the apparatus our claim reinvented under a new name** |
+| **10.52202/079017-2557 / 10.1609/aaai.v39i27.35116** — *Axioms for AI Alignment from Human Feedback* | **NeurIPS 2024 / AAAI 2025** | frames RLHF reward learning as social-choice aggregation; proves Bradley–Terry–Luce **fails basic axioms**; builds new rules | **Kills the framing; substantially weakens decision contingency** |
+| **10.1145/3774904.3792987** — *Consensus Stability of Community Notes* | **WWW 2026** | 437K notes / 35M ratings: **30.2% of displayed Helpful notes later lose status** | Partial — temporal instability, not counterfactual-rule |
+| **10.18653/v1/2022.naacl-main.431** — *Annotators with Attitudes* | **NAACL 2022** | annotator identity and beliefs bias toxicity labels | Partial on individual stability — **between**-person, not within |
+
+### The corrected claim, which is narrower and much harder to kill
+
+**The apparatus exists and the deployed-system empirics exist. Nobody has connected them.**
+Measurement theory says to check construct-vs-proxy mismatch (FAccT 2021); social choice says the
+aggregation rule determines the outcome and standard rules fail axioms (NeurIPS 2024); and a separate
+literature measures what Community Notes does. **No one has run the first two against the third's
+decision record.** That is an application gap, not a question gap — and it is the only version of this
+claim that survived contact.
+
+### What survived, in the adversary's own grudging words
+
+| question | verdict |
+|---|---|
+| **Individual stability** — within-person test–retest of the *same* person's judgment, applied to AI value elicitation | **GENUINELY ABSENT (weakly).** The adjacent literatures exist — preference-construction in survey methodology, between-annotator identity effects in NLP — but no bridge paper. **The one leg that holds** |
+| **Referent circularity** — does a specific crowd system's validation chain terminate in professional experts | **PARTLY — unconfirmed rather than killed.** General platform-self-regulation critique exists; no paper traces one system's chain |
+| **Decision contingency**, in its *empirical* form on a deployed system: *N% of decisions flip under a defensible alternative rule nobody argued for* | **PARTLY.** The social-choice work is axiomatic; the Community Notes work is temporal. **Nobody has run the counterfactual rule on the live record** |
+
+---
+
+## SEARCH ROUTES — TESTED, NOT ASSUMED
+
+**This is the most reusable output of two adversary runs**, and the tool is `priorart/litsearch.py`.
+
+| route | status | working pattern |
+|---|---|---|
+| **Crossref** | ✅ **the workhorse.** No key. Returns DOI + **venue** + year for ACM / AAAI / ACL / NeurIPS proceedings — the field arXiv cannot give you | `api.crossref.org/works?query.bibliographic=<enc>&rows=N&select=title,DOI,issued,container-title` |
+| **DBLP** | ✅ for author and topic-**name** queries. Indexes titles **literally** — a stacked multi-word phrase returns 0, and that 0 means *no literal match*, never *nothing exists* | `dblp.org/search/publ/api?q=<enc>&format=json&h=N` |
+| **arXiv** | ✅ but `ti:"..."` is **brittle** — it fails silently on a paraphrased title. Use it to fetch an abstract for a title Crossref already gave exactly, never to discover | `export.arxiv.org/api/query?search_query=ti:%22<title>%22` |
+| DuckDuckGo | ⛔ anti-bot block page on `html.` and `lite.`, every query | — |
+| Semantic Scholar | ⛔ HTTP 429 without a key | — |
+| OpenAlex | ⛔ now paid: *"Insufficient budget"* | — |
+
+**The pattern: Crossref to DISCOVER → arXiv `ti:` for the ABSTRACT → the DOI otherwise.**
+⚠ Crossref's bibliographic search needs a **specific** query — *"Measurement and Fairness"* returns
+educational-assessment noise, while the full title returns the paper first. **A generic query
+returning noise is not evidence of absence.**
+
+---
+
 ## VENUE COVERAGE — STILL UNRESOLVED, AND NOW TWICE CONFESSED
 
 The adversary could not close the gap either. **DuckDuckGo returned an anti-bot block page on both

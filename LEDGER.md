@@ -272,3 +272,85 @@ unauthenticated and untested by us; DuckDuckGo is confirmed blocked.** The route
 than the verdict, because the venue gap is now the binding constraint on *every* claim this project
 can make. If the four questions survive, the first buildable one is decision contingency, because it
 alone needs no normative referent.
+
+---
+
+## Entry 4 — the second field-wide negative died within the hour, and this time the kill was in my own message
+
+**Observed.** The adversary dispatched at the end of entry 3 returned eight pointers. **The framing is
+retracted.** Full table in `PRIOR_ART.md`; the load-bearing ones:
+
+- **Jury Learning, CHI 2022** — *"majority vote… overrides minority groups' labels"*, with an
+  architecture that keeps them addressable. **Kills discarded-disagreement outright.**
+- **DICES, NeurIPS 2023** — encodes rater votes as **distributions across demographics** *"to allow
+  for in-depth explorations of different aggregation strategies."*
+- **D3CODE, EMNLP 2024** — 4K+ annotators, 21 countries, **moral values measured directly** from the
+  crowd on six moral foundations. **Kills "the normative judgment has never been measured."**
+- **Jacobs & Wallach, FAccT 2021** — construct validity, operationalised-proxy mismatch. **The
+  apparatus this claim reinvented.**
+- **Axioms for AI Alignment, NeurIPS 2024 / AAAI 2025** — RLHF as social choice; Bradley–Terry–Luce
+  fails basic axioms.
+
+**Killed.** The framing, and two of the four legs.
+
+### The part that matters more than the verdict
+
+**I had two of these kills in my own hands.** Two turns before asserting that discarded disagreement
+is structurally absent, I wrote out for Ivan — in my own catalogue of adjacent datasets — *"Jury
+Learning (Gordon et al., CHI 2022) — models every annotator, lets you compose juries"* and *"DICES
+(Google 2023) — deliberately over-samples disagreement."* **Then I asserted their negation.**
+
+**This is a different failure from entry 2's, and worse.** Entry 2: I did not read the primary source.
+Entry 4: **I read it, wrote it down, and asserted its opposite an hour later.** The information was
+not missing. It was present, in my own output, and unretrieved at the moment of claiming — because
+a clean structural story overwrote an inventory I had personally assembled.
+
+**Calibration fact, and it is about me rather than about the field: two field-wide negatives, two
+deaths, same day, both to sources that were available.** The rule that follows is not "search harder":
+
+> **A field-wide negative is not a finding I am entitled to state. It is a question I may hand to an
+> adversary.** Where I would have written *"nobody has asked X"*, write *"I did not find X; here is
+> the sweep; kill it."*
+
+And the retrieval rule underneath it: **an absence claim must be checked against my own prior output,
+not only against the world.**
+
+### Ontology shift — the corrected claim is narrower and much harder to kill
+
+**The apparatus exists. The deployed-system empirics exist. Nobody has connected them.** Measurement
+theory says check construct-vs-proxy mismatch (FAccT 2021). Social choice says the aggregation rule
+determines the outcome and the standard ones fail axioms (NeurIPS 2024). A third literature measures
+what Community Notes *does*. **No one has run the first two against the third's decision record.**
+
+**That is an APPLICATION gap, not a question gap** — and it is the only version that survived contact.
+It is also better: an application gap can be closed by us, on public data, without needing anyone to
+have overlooked anything.
+
+**Survived**, in the adversary's grudging words:
+- **Individual stability** — within-person test–retest applied to AI value elicitation: **genuinely
+  absent (weakly).** Adjacent literatures exist, no bridge paper. *The one leg that holds.*
+- **Referent circularity** — **unconfirmed rather than killed.**
+- **Decision contingency in its empirical form** — *N% of decisions flip under a defensible
+  alternative rule nobody argued for*, on a **deployed** record. The social-choice work is axiomatic;
+  the Community Notes work (WWW 2026: **30.2% of displayed Helpful notes later lose status**) is
+  temporal, not counterfactual-rule. **Still nobody's.**
+
+### The durable asset
+
+**`priorart/litsearch.py`** — routes that were *tested*, not assumed. **Crossref works with no key and
+returns the venue arXiv cannot give**; DBLP works for literal titles; arXiv `ti:` is brittle and fails
+silently on a paraphrase; DuckDuckGo, Semantic Scholar and OpenAlex are all closed. Pattern:
+**Crossref to discover → arXiv `ti:` for the abstract → the DOI otherwise.** Positive-controlled on
+Jury Learning, which it finds at CHI 2022 with the correct DOI. **Its own scope note: a generic query
+returns noise, and noise is not evidence of absence.**
+
+**Venue coverage is no longer the binding constraint.** That is the single biggest change of the day.
+
+**NEXT.** Two things, and the first is not optional:
+1. **Re-run the original Phase 0 sweep through Crossref**, not arXiv. The whole prior-art ledger was
+   built on a source that systematically excludes CHI, CSCW, FAccT, NeurIPS proceedings and ACL — the
+   venues that just produced five kills. **Every `Q` and `F` verdict in that ledger is suspect for the
+   same reason the novelty claims were.**
+2. Then the surviving leg: **individual stability**, and specifically whether Community Notes' rating
+   histories permit a within-person test–retest at all. If they do, that is the first buildable thing
+   in this project — and unlike the status counterfactual, no one has even the adjacent paper.
