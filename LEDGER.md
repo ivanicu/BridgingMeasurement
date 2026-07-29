@@ -184,3 +184,91 @@ included, is **UNVERIFIED, never ESTABLISHED.**
 3. **Then, and only then**, write the claim card for S1: the estimand is *the count of notes whose
    DISPLAY STATUS flips under a rank-2 refit of the same rating matrix* — a status counterfactual on
    the deployed record, which is τ_c and which CoVal could never run.
+
+---
+
+## Entry 3 — the complement has a shape, and the shape is that no referent for it exists
+
+**[D5 · UNVERIFIED]** — derived from a sweep that covers only arXiv. An adversary is out with one
+mandate: kill it. **Nothing here may be built on until that returns.**
+
+**Observed — the question asked of the field, not of a dataset.** Take everything that has been done
+on these systems, take the complement, and ask what the complement's members have *in common*.
+
+**The done-set's common feature.** Every study measures the system's output against a referent that
+**already exists in the world and is not normative**:
+
+| question studied | referent | exists? |
+|---|---|---|
+| does a note reduce spread | retweets, impressions | countable |
+| does it arrive in time | timestamps | a clock |
+| is it partisan | party ID, follower networks | codable |
+| can it be gamed | attack succeeds or not | binary |
+| does the fitted axis recover ideology | external expert-calibrated space | 2506.15168 |
+
+**That is not a coincidence, it is a selection effect.** A field fills the cells that have a ready
+referent, because those are the papers that can be written.
+
+**The complement's common feature — the finding.**
+
+> **Every absent question needs a NORMATIVE referent — what was right, whose view should have counted,
+> what "helpful" means — and no such fact exists in any of these datasets.**
+
+**And it closes into a circle that can be pointed at.** X's only genuinely normative referent is in
+`guardrails.md`: **professional reviewers rating whether Helpful-status notes are accurate.** So *the
+system built to replace professional fact-checking has professional fact-checking as its only validity
+referent* — and that referent's raw numbers are unpublished, unpre-registered, and never externally
+replicated. **This does not weaken the claim; it is its strongest instance.**
+
+**The split that keeps it honest.** Half the complement is *unmeasurable in principle*:
+
+- "what is genuinely helpful, independent of people" — **there is no such fact.** A philosophy
+  problem, not a research gap, and this project must not pretend otherwise.
+
+The other half is measurable and nobody built the instrument: **decision contingency · discarded
+disagreement · individual stability · referent circularity.**
+
+**Ontology shift, and it relocates S1.** The status counterfactual is the entry point **precisely
+because it needs no normative referent**. How many notes flip under a rank-2 refit does not require us
+to say which decision was right — it says the decision is **contingent**. The field avoided this
+space because it looked like it required a referent to enter. **It does not: you can establish
+contingency first and argue about correctness afterwards.**
+
+**The intersection with collective alignment.** The real question is not "does the crowd catch
+misinformation" but: *can a procedure absorb many people's normative input and produce a
+machine-executable judgment that **legitimately** **stands in for** **them**?* Three words carry it,
+and each measurable piece of the complement lands on one:
+
+| measurable piece | word | why |
+|---|---|---|
+| decision contingency under rule choice | **legitimately** | if the answer turns on a free parameter nobody justified (rank=1, threshold=0.28), the procedure's authority is borrowed from an arbitrary choice |
+| discarded disagreement | **them** | an aggregate that erases a coherent minority stands in for *some* of them |
+| individual stability | **stands in for** | if the input is not stable in the person there is nothing to stand in for — the procedure **constructs** rather than measures |
+| referent circularity | **legitimately** | if validation terminates in experts, the crowd system's legitimacy is downstream of the institution it replaces |
+
+**These are the four questions CoVal was asking in a different vocabulary.** Two unrelated sites, two
+datasets, two algorithms, converging on one set of four — **evidence that they are structural
+properties of collective-alignment procedures rather than quirks of one corpus.**
+
+**The sharpest consequence, and the one most likely to be wrong.**
+
+> **Most of the field is not in the intersection at all.** Spread, timeliness, coverage, manipulation
+> resistance — every one asks whether the system *works as a content-moderation product*, not whether
+> it *legitimately represents people*. **The field measures Community Notes as a moderation tool, not
+> as a collective-alignment procedure.**
+
+**Self-attack, stated before the adversary returns.** Three reasons to distrust this:
+1. **Sample bias, confessed.** arXiv only. **"Legitimacy", "representation", "minority erasure" and
+   "procedural justice" are exactly CSCW's traditional vocabulary** — if that literature exists, the
+   shape dies on contact.
+2. **It is too elegant.** *"The one thing never measured is the thing it exists to produce"* is a
+   sentence that writes itself, and door ④ says fluency is the failure mode, not the evidence.
+3. **Yesterday's lesson is still warm.** The last field-wide negative I asserted was killed by a
+   primary source I had not opened.
+
+**NEXT.** Adversary running: find the CSCW / CHI / ICWSM / FAccT / social-choice literature that
+already asks these, and report which non-arXiv routes actually work — **Crossref and DBLP APIs are
+unauthenticated and untested by us; DuckDuckGo is confirmed blocked.** The route list is worth more
+than the verdict, because the venue gap is now the binding constraint on *every* claim this project
+can make. If the four questions survive, the first buildable one is decision contingency, because it
+alone needs no normative referent.
