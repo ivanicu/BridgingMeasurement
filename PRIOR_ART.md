@@ -120,39 +120,124 @@ not re-ask. **O** = leaves something open we could take.
 
 ---
 
-## WHAT NOBODY HAS ASKED
+## WHAT NOBODY HAS ASKED — ⛔ RETRACTED 2026-07-29, SAME DAY, BY THE ADVERSARY THIS LEDGER DISPATCHED
 
-**The entire field measures the OUTPUT of the score and never validates the score AS A MEASUREMENT.**
-Thirty-four papers ask whether notes reduce spread, arrive in time, are manipulable, are partisan, or
-can be written by an LLM. **Not one asks what `helpfulness` is an estimate of.** There is no ground
-truth for helpfulness anywhere in the system: it is a latent intercept in a factorization, defined by
-the model that produces it, and the closest thing to a validity check in the literature — 2511.02615
-— is a **simulation**, which can only confirm the generative assumptions it was written with. *In our
-vocabulary: this instrument has never had a positive control.*
+**The original paragraph is below, struck. It claimed (a) the helpfulness score has never been
+validated as a measurement — "this instrument has never had a positive control" — and (b) nobody has
+tested whether one latent dimension is enough. Both are wrong, and the ledger's own text predicted
+how.**
 
-**And underneath that sits a specific, checkable, load-bearing assumption nobody has tested: the
-latent viewpoint space is fitted as ONE dimension.** Every use of the word "cross-partisan" in every
-paper above inherits it. If real viewpoints are two-dimensional or more, then "bridging" is defined
-only on the axis that happened to be fitted, and a note that bridges factor 1 while splitting an
-unfitted factor 2 is **surfaced as consensual when it is not**. That is not a manipulation story and
-not a bias story — it is a *coverage* story, and it is the exact shape of what we found in CoVal
-yesterday: **a proxy that is structurally blind to part of the property it is named after.** 2506.15168's
-"undermoderates polarizing content by design" may be the *shadow* of this, observed through a
-one-dimensional lens; if so, it has a cause nobody has named.
+### The five kills
 
-**Three tests follow immediately, and none of them is in the ledger above:**
-1. **Fit rank 1, 2, 3, … on the same rating matrix** and ask how much rating variance the second and
-   third factors carry. If factor 2 is negligible, the deployed assumption is *earned* and that is a
-   publishable defence of the system. If it is not, everything downstream of "cross-partisan" needs a
-   scope statement.
-2. **Status counterfactual under rank:** how many notes currently shown would *not* be shown at rank 2,
-   and vice versa? That is τ_c on the deployed record rather than in simulation.
-3. **A positive control for helpfulness at last**: plant notes of known relative quality (2510.24810's
-   labelled explanations, or 2503.10560's source-quality signal) into the real rating record and ask
-   whether the algorithm recovers the planted ordering. *An instrument that has never recovered a
-   known value is not a measurement.*
+| # | pointer | what it does | what it kills |
+|---|---|---|---|
+| 1 | **`twitter/communitynotes` → `documentation/under-the-hood/ranking-notes.md`** (primary source, raw fetch) | Verbatim: *"for now, to avoid overfitting on our very small dataset, we only use 1-dimensional factors. We expect to increase this dimensionality as our dataset size grows significantly"* — and *"We can represent multidimensional viewpoint spaces by increasing the dimensionality of the factors, without changing the algorithm itself."* | **Rank 1 is not an unexamined default.** It is a stated, reasoned, revisitable engineering tradeoff, and the codebase already generalises to rank-k. Claim (b)'s framing is dead |
+| 2 | **[2506.15168](https://arxiv.org/abs/2506.15168)** — full PDF, not the abstract | Builds an **independent multidimensional ground-truth ideology space** (Left–Right + Anti-Elite, from MP-follower networks calibrated against the Global Party Survey) and tests whether CN's single fitted axis reduces to it. **AUC 0.808 for the 1-D axis against the 2-D plane across 13 countries; the true second dimension lifts it only to 0.813.** Finds the axis *"cannot always be reduced to"* Left–Right, with anti-elite alignment in Japan and Brazil | **The dimensionality-sufficiency question is answered on real data, by a stronger design than ours** (external ground truth, not an internal refit). It also **names the mechanism** this ledger's closing paragraph said "nobody has named" |
+| 3 | **`documentation/under-the-hood/guardrails.md`** (primary source) | X runs a **continuous three-part external validation programme**: professional reviewers rate whether Helpful-status notes are *accurate*; randomised survey experiments measure whether a note shifts understanding in the correct direction; surveys of random non-contributor users measure helpfulness | **Claim (a) is directly contradicted.** This is concurrent-validity checking of the score, publicly documented and ongoing |
+| 4 | **[2210.15723](https://arxiv.org/abs/2210.15723)** — the founding paper, full PDF | Three waves of **randomised survey experiments (Wave 2, N=7,387)**, out-of-sample non-contributor respondents, measuring whether a selected note shifts agreement with the tweet's claim, broken down by party ID | **The sharpest kill.** A positive-control-style validation of the helpfulness construct, published 2022 — **inside the exact row this ledger flagged "must read in full" and did not read** |
+| 5 | **[2604.11224](https://arxiv.org/abs/2604.11224)** | Semi-synthetic coordinated attacks injected into **45M real ratings / 365K real notes**; measures displacement of quality estimates against baseline | Partly anticipates **Test 3's mechanism** — known signal injected into the real record, recovery checked — though its "known" reference is the model's own undisturbed output, not an independent quality label. Robustness, not construct validity |
+
+### The failure, named, because it is worse than being wrong
+
+**I asked documents about the system instead of asking the system.** X's algorithm documentation and
+its full scoring source are public. I ran five arXiv queries — *papers about Community Notes* — and
+never fetched the thing itself. **The adversary's first move was to read the primary source, and it
+found the answer to claim (b) in one file.**
+
+That is constitutional door ④, verbatim: *when I want to know what a system can do, I ask the system
+— the registry, the source. Never a document about it.* This ledger cited 34 documents about the
+system and zero lines of the system.
+
+**And the second failure is worse than the first.** The scope note at the top of this file says every
+row is read from an abstract, and row A says of the founding paper *"must read in full: it is the
+only place the estimand is defined."* **I then asserted a field-wide negative — "not one asks what
+helpfulness is an estimate of" — without opening it.** The reason the claim had to fail was written
+into this document, above the claim, by me. *A confession is never audited.*
+
+### ~~The original claim~~ (struck, kept per annotate-never-rewrite)
+
+> ~~The entire field measures the OUTPUT of the score and never validates the score AS A MEASUREMENT.
+> Not one asks what `helpfulness` is an estimate of. This instrument has never had a positive control.
+> And underneath sits an untested assumption: the latent viewpoint space is fitted as ONE dimension.~~
 
 ---
+
+## WHAT ACTUALLY SURVIVES
+
+**Three residuals the adversary could not kill, stated grudgingly in its own words, plus one question
+it found that this ledger never contained.**
+
+### S1 · The decision has never been tested, only the axis — and these are different questions
+
+2506.15168 answers: *does CN's fitted axis recover a known ideology space?* **Roughly yes — AUC
+0.808, and a true second dimension buys 0.005.**
+
+It does **not** answer: *does fitting a second factor change which notes get shown?*
+
+**These do not follow from one another, and the gap is mechanical.** Status is a threshold on the
+**intercept**, computed after the factors absorb what they can. Adding a factor changes *what is
+absorbed into the factors versus left in the intercept* — so a 0.005 AUC gain in **axis recovery** is
+fully compatible with a large number of **status flips**. The mapping from "the axis is nearly
+sufficient for describing ideology" to "the axis is sufficient for the decision" is **not monotone,
+and nobody has computed it.**
+
+**This is the CoVal proxy-ledger shape exactly:**
+
+| | |
+|---|---|
+| **PROPERTY** | the note bridges real viewpoint divides |
+| **PROXY** | positive intercept after removing **one** fitted factor |
+| **IMPLICATION** | validated in the direction *"the fitted axis correlates with known ideology"* |
+| **UNSOUND DIRECTION** | *"therefore the status decision is insensitive to rank"* — never tested |
+
+**Test 2 (status counterfactual under rank) is the surviving experiment**, and the adversary marked it
+**NOVEL** — no trace in arXiv, X's GitHub docs, or X's own changelog.
+
+### S2 · Who validates the validator?
+
+**The adversary's find, and it is not in any of the 34 rows.** Killing claim (a) does not settle the
+matter, it *forks* it. X's guardrails programme is X-designed, X-run, uses partnered reviewers and
+X-authored survey instruments, and publishes **no raw accuracy / informativeness / helpfulness
+numbers, no pre-registration, and no outside replication.**
+
+So *"the score has ground-truth validation"* splits into:
+- **validated and independently inspectable**, versus
+- **validated, but only X has ever seen the number.**
+
+**A live, decision-relevant fork, present in none of the 34 papers and none of this ledger's rows.**
+
+### S3 · The two half-anticipated tests, and what remains of them
+
+- **Test 1** (internal rank-2/3 refit of the deployed matrix + variance decomposition): 2506.15168 is
+  close *in spirit* but uses an externally constructed space, not a refit of the same matrix. **The
+  literal design was not found — but after S1 it is no longer the interesting version.** It is now a
+  *sub-step* of Test 2, not a question of its own.
+- **Test 3** (externally-labelled known-quality notes planted into the real record): not found. The
+  closest analogues use different "known" references. **Survives, weakened** — and only worth running
+  once S2 tells us whether an external label is even available to plant.
+
+---
+
+## CORRECTIONS TO THE ROWS ABOVE
+
+| row | was | correction |
+|---|---|---|
+| **A** 2210.15723 | `F` — "must read in full" | **The F-tag is right and was ignored.** Not a mislabel: a claimed global negative resting on a primary source this ledger itself flagged as unread |
+| **C** 2506.15168 | filed under bias/manipulation, "structural cost" | **False openness.** It also runs a genuine dimensionality-sufficiency test against independent ground truth with a quantitative answer. Material already *in* this ledger bore directly on the claim the ledger called open |
+| **E** 2604.11224 | `⛔ kills our item 2` | **Possibly wrong, and in our favour — which is why it needs checking.** QSMF's per-rater scalar is estimated from the ratings matrix alone, explicitly as peer prediction "without external ground truth", so it may not read note text either. **Item 2 is UNVERIFIED, not closed.** D6 from the abstract; re-check the full method before re-opening or re-closing |
+
+---
+
+## VENUE COVERAGE — STILL UNRESOLVED, AND NOW TWICE CONFESSED
+
+The adversary could not close the gap either. **DuckDuckGo returned an anti-bot block page on both
+`html.duckduckgo.com` and `lite.duckduckgo.com`** for every query attempted, confirmed by inspecting
+the raw HTML. Semantic Scholar 429s without a key; OpenAlex is paid. **CHI, CSCW, ICWSM, WWW, PNAS and
+the Nature/Science family remain systematically absent from a field that publishes there heavily.**
+
+**Any novelty claim in this document is therefore UNVERIFIED, never ESTABLISHED** — including S1 and
+S2. That distinction is the whole point of the three-valued verdict, and this is exactly the case it
+exists for.
 
 ## STOP CONDITION — NOT YET MET
 

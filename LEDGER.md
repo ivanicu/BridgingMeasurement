@@ -108,3 +108,79 @@ venues this sweep could not reach, and check whether X's own algorithm documenta
 was chosen or whether higher rank was ever tried. **Until it returns, the three proposed tests (rank-k
 sweep · status counterfactual under rank · planted-quality positive control) are candidates, not a
 queue.**
+
+---
+
+## Entry 2 — the adversary killed the novelty claim in 8 minutes, and the fatal move was reading the system instead of papers about it
+
+**Observed.** The reader dispatched at the end of entry 1 returned five kills. **Two of them are
+primary sources I never opened, and one of them is a document this ledger itself flagged as
+"must read in full" before asserting a field-wide negative on top of it.**
+
+| # | what it found |
+|---|---|
+| 1 | **X's own `ranking-notes.md`**: *"for now, to avoid overfitting on our very small dataset, we only use 1-dimensional factors. We expect to increase this dimensionality as our dataset size grows"* — plus *"We can represent multidimensional viewpoint spaces by increasing the dimensionality of the factors, without changing the algorithm itself."* Rank 1 is a **stated, reasoned, revisitable tradeoff**, and the code already generalises to rank-k |
+| 2 | **2506.15168 in full**: builds an independent 2-D ground-truth ideology space from MP-follower networks calibrated to the Global Party Survey, and tests whether CN's single axis reduces to it. **AUC 0.808; a true second dimension buys 0.005.** It also names the mechanism this ledger said nobody had named |
+| 3 | **X's `guardrails.md`**: a continuous three-part external validation programme — professional reviewers on accuracy, randomised survey experiments on informativeness, non-contributor surveys on helpfulness |
+| 4 | **The founding paper in full**: three waves of randomised survey experiments, **N=7,387** in wave 2, out-of-sample non-contributors, measuring whether a selected note shifts agreement with the claim, split by party ID |
+| 5 | **2604.11224**: semi-synthetic attacks injected into **45M real ratings / 365K real notes** — partly anticipating our Test 3's mechanism |
+
+**Killed.** Both headline claims. *"This instrument has never had a positive control"* is contradicted
+by kills 3 and 4. *"Nobody has tested whether one dimension is enough"* is contradicted by kills 1
+and 2.
+
+**Ontology shift — the failure, not the finding.** **I asked documents about the system instead of
+asking the system.** X's algorithm documentation and its full scoring source are public. I ran five
+arXiv queries — *papers about Community Notes* — and never fetched the thing itself. The adversary's
+**first move** was the primary source, and it found the answer to claim (b) in one file.
+
+That is constitutional door ④ verbatim: *when I want to know what a system can do, I ask the system —
+the registry, the source. Never a document about it.* **This ledger cited 34 documents about the
+system and zero lines of the system.**
+
+**And the second failure is worse.** The scope note at the top of `PRIOR_ART.md` says every row is
+read from an abstract; row A says of the founding paper *"must read in full: it is the only place the
+estimand is defined."* **I then asserted "not one asks what helpfulness is an estimate of" without
+opening it.** *The reason the claim had to fail was written into the document, above the claim, by
+me.* A confession is never audited.
+
+**Survived — and one is sharper than what it replaced.**
+
+**S1 · The AXIS has been tested; the DECISION has not, and they are different questions.** 2506.15168
+answers *does the fitted axis recover a known ideology space?* — roughly yes, and a second dimension
+buys 0.005 AUC. It does **not** answer *does fitting a second factor change which notes get shown?*
+**The gap is mechanical**: status is a threshold on the **intercept**, computed after the factors
+absorb what they can, so adding a factor changes *what lands in the factors versus the intercept*. A
+0.005 gain in **axis recovery** is fully compatible with many **status flips**. The map from
+"sufficient for describing ideology" to "sufficient for the decision" is **not monotone, and nobody
+has computed it.** The adversary marked the status-counterfactual test **NOVEL** — no trace in arXiv,
+X's GitHub docs, or X's changelog. **This is the CoVal proxy-ledger shape exactly**: a proxy validated
+in one direction being used to license a claim in the other.
+
+**S2 · Who validates the validator?** *The adversary's own find, in none of the 34 rows.* Killing
+claim (a) **forks** it rather than settling it: X's guardrails programme is X-designed, X-run, uses
+partnered reviewers and X-authored instruments, and publishes **no raw numbers, no pre-registration,
+no outside replication.** So *"the score has ground-truth validation"* splits into **validated and
+independently inspectable** versus **validated, but only X has ever seen the number.**
+
+**Downgraded.** Test 1 (internal rank sweep) is no longer a question of its own — it is a *sub-step*
+of S1. Test 3 survives weakened, and is only worth running once S2 says whether an external label
+exists to plant. **And row E's ⛔ on our item 2 is itself now UNVERIFIED, possibly in our favour**:
+QSMF's per-rater scalar is estimated from the ratings matrix alone, so it may not read note text
+either. **Never re-open item 2 on that basis without reading the full method.**
+
+**Still unresolved, now confessed twice.** The adversary could not close the venue gap either —
+DuckDuckGo served an anti-bot block page on every query, Semantic Scholar 429s, OpenAlex is paid.
+**CHI, CSCW, ICWSM, WWW, PNAS and Nature/Science remain absent.** Every novelty claim here, S1 and S2
+included, is **UNVERIFIED, never ESTABLISHED.**
+
+**NEXT.** Before any experiment, and in this order:
+1. **Clone `twitter/communitynotes` and read the scorer.** Not the docs about it — the source. Confirm
+   from the code that rank is a parameter, find where the intercept threshold is applied, and
+   establish whether a rank-k refit is a config change or a rewrite. **This should have been step
+   one of Phase 0.**
+2. **Read 2506.15168 in full myself**, not through the adversary's summary — it is now the single
+   most load-bearing paper in the ledger and I have it at second hand.
+3. **Then, and only then**, write the claim card for S1: the estimand is *the count of notes whose
+   DISPLAY STATUS flips under a rank-2 refit of the same rating matrix* — a status counterfactual on
+   the deployed record, which is τ_c and which CoVal could never run.
