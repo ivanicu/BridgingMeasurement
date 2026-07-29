@@ -1925,6 +1925,15 @@ result gives CoVal a subject and a negative one is a limitation CN would *inheri
 
 ## Entry 23 — the withheld improvement has a subject, and CoVal closes
 
+> ## ⛔ RETRACTED IN FULL, 2026-07-29, by entry 24. Kept unedited as the object that was retracted.
+> **`beta_x1 = +0.04209` measures the accuracy gap between the two arms, not compilation.** x1 raises
+> *every* arm's error, so `d = e_core − e_full` is a difference of two quantities it pushes the same
+> way, and the more accurate arm has more advantage to lose. **A non-compiled 4-criterion rubric
+> produces a LARGER coefficient (+0.06156), and compiled-minus-non-compiled is NEGATIVE (−0.02201,
+> t −2.64).** W-DESCRIBABLE is struck and so is the ontology paragraph below it. The polarity
+> downgrade in this entry is also **withdrawn** — it rested on a joint model in which x1 absorbs x2.
+> Every number in this entry is arithmetically correct and none of them means what the entry says.
+
 **Observed.** The navigator's directed replacement for my α-coherence test, run as
 `coval/rounds/r112_value_idiosyncrasy/run.py`. **The covariate had been in the release for 111 rounds
 without being opened**: `coval_full[*]` = `{criterion, rubric_item_id, scores}` where `scores` is
@@ -2001,3 +2010,105 @@ block alone while 48.4% of participants ranked differently for themselves), and 
 everywhere as **the uncompiled criterion set at equal weight** — `r04/run.py:252-259` dropped the
 weight column at persist time, so the match was *forced*, not chosen, and "the uncompiled system" is
 the wrong name for it.
+
+---
+
+## Entry 24 — RETRACTION. Entry 23 measured the arithmetic of comparing a better rule to a worse one
+
+**Observed.** The navigator overturned entry 23 by four independent routes, and **the pointer was one
+line the round threw away**: `r112/run.py` computed `err["full"]` and `err["core"]` and persisted only
+their difference. Rebuild the levels and it falls open. Round: `coval/rounds/r113_accuracy_matched_arm/`,
+which builds the world the diagnostics could only price.
+
+### x1 raises EVERY arm's error, so `d` is a difference of two things it pushes the same way
+
+| arm | mean error | distance from chance | β_x1 on the LEVEL |
+|---|---|---|---|
+| full | 0.40408 | 0.09592 | +0.04082 (t 4.65) |
+| core (compiled) | 0.33415 | **0.16585** | +0.08037 (t 9.11) |
+| **oracle (never compiled)** | **0.27616** | **0.22384** | +0.10238 (t 10.79) |
+| rand4 | 0.41898 | 0.08102 | +0.04123 (t 4.67) |
+
+The more accurate arm has more advantage to lose, so `e_core − e_full` shrinks toward zero **as a
+function of the accuracy gap**. Oldham's remedy prices it: `k·β_sum` predicted 75.2% of the reported
+coefficient on the navigator's population.
+
+### The separator: an accuracy-matched arm no compiler touched
+
+4 of full's own criteria per prompt, **selected on odd-indexed raters and evaluated only on the even
+half**, so it is out of sample and no rewriting, merging or polarity normalisation touched it. It
+**beats the compiled rubric** (0.27616 vs 0.33415).
+
+| contrast | β_x1 | reading |
+|---|---|---|
+| core − full (compiled) | +0.03955, CI [+0.02390, +0.05520] | the reported effect |
+| **oracle − full (never compiled)** | **+0.06156** | **larger than the compiled arm** |
+| rand4 − full (gap +0.0149) | +0.00041, t 0.06 | no gap, no effect |
+| **core − oracle (compiled − non-compiled)** | **−0.02201, t −2.64** | **the direct test is NEGATIVE** |
+| core − full, common shrink purged | +0.00718, t 0.80 | null |
+
+`corr(arithmetic prediction, observed β) = +0.9783`. `corr(accuracy gap, observed β) = −0.9822`. The
+purge's positive control retains **117%** of a planted one-armed effect at t 5.48 and detects `g=0.02`
+at t 2.99 — **so its null is a measurement, not silence.**
+
+**Killed.** *W-DESCRIBABLE*, and the ontology paragraph built on it. Entry 23's sentence would be
+produced verbatim by **any two rules of unequal accuracy, compiled or not**. Also killed: entry 23's
+claim that the finding transfers to Community Notes via `raterParams` "with no new data collection" —
+the navigator verified `raterParams` is an internal of the scorer that exists only after running the
+reproduction, and **CN has one aggregation rule, so there is no `d` to regress**; construct one and it
+differs in accuracy, reproducing this exact artifact.
+
+**The pre-registered kill returned UNVERIFIED, and that is recorded rather than reinterpreted.** It
+read *"β_x1 on d′ inside the CI of β_x1 on d → W-ARITHMETIC"*, written for the case where the
+non-compiled arm **matches** the compiled one. The observed +0.06156 is outside that CI **on the high
+side** — past the anticipated region, in the direction that strengthens the arithmetic reading. A test
+whose region I mis-specified does not become a pass by being read generously. **The retraction rests on
+two other results that are their own tests**: the negative `core − oracle` contrast, and the purge.
+
+**Withdrawn.** Entry 23's downgrade of entry 17's polarity story. It rested on a **joint** model in
+which x1 absorbs x2; x2 *alone* is +0.03644 (t 2.79) on the full population and +0.03110 (t 1.73)
+here. But x2-alone also purges to nothing, so **entry 17's polarity story is UNVERIFIED in both
+directions** — which is where it has to sit, and re-promoting it would be the mirror of the error.
+
+**The mechanism, and it is the third time.** r112's negative control — the within-prompt permutation of
+whole profiles, which both r112 and the previous navigator called *load-bearing* — **returns
+`p_perm 0.0000` on synthetic data containing no values at all.** The navigator built that generator: x1
+maps to "probability the rater ranks randomly", with zero knowledge of which criteria anyone cares
+about, and it reproduces 77% of the effect. **The permutation excludes chance and has no power against
+the only rival that mattered.** A "check that cannot fail", in the gate position, for the third time in
+this programme. The lesson is not "add a control" — it is that **a permutation null answers *did the
+pairing matter*, never *why*, and I keep reading the first as the second.**
+
+**And the navigator's own root cause, which it stated rather than buried.** Entry 22's NEXT — *its own
+directive* — specified x1, x2, prompt FE, controls, clustering and the permutation, and **never asked
+for β on each arm separately.** One line. Because it was not asked for, the round persisted `d` and
+dropped the levels three lines after computing them, and **the diagnostic that overturns the round was
+destroyed by following the spec.** Eleventh instance of material-already-in-hand, and this one belongs
+to the navigator.
+
+**Two artifact defects, both fixed.** r112's committed json was **not** the output of its committed
+`run.py` — patched after running, gated, committed without regenerating — so entry 23's positive
+control **+0.2991 appears in no output**; the real value is 0.3006319, which moved because an
+attenuation patch added an `rng.permutation` upstream of the planted noise. **The two-hashseed gate is
+structurally blind to this**: it compares two fresh runs of the same file to *each other*, never to
+what is on disk. It certifies **determinism, not currency**, and I had read it as both. r113 now
+verifies its artifact equals a fresh run — and its differ is NaN-aware in both directions, after the
+first gate run reported FAIL on identical output because `nan != nan`.
+
+**Survived, and this is what CoVal actually is.** Entry 17: applying human ratings to core changes its
+accuracy by **exactly 0.0 to fifteen digits**, because compilation moved the polarity into the wording
+— a control nobody can improve on. Entry 21/22: compilation redistributes the **size** of a
+near-universal improvement, −0.1038 at the best-served to −0.0292 at the worst on the admissible axis,
+with a rater-attached component not reducible to exposure. **A real, small, correct asset with no
+subject.** The three walls stand and are the deliverable: no within-cell replication, no
+presentation-order field, no compiler provenance.
+
+**Do NOT rescue this by quoting the levels.** β_x1 on `e_full` is +0.04082 and on `e_core` +0.08037,
+and they survive prompt+rater two-way FE. It is the tempting move and it is wrong: x1 and the ranking
+come from the **same rater in the same session**, so a careless rater produces noisy importance scores
+*and* a noisy ranking, and **this release has no instrument separating attention from values** — that
+is wall #1. D6 with a named uncontrolled confound is not a finding.
+
+**NEXT.** Packaging, then stop. Back-propagate this retraction into the CoVal README's r112 row and add
+r113. The other two packaging items are already verified complete. **Community Notes does not open** —
+its justification was entry 23's transfer sentence, now false.
