@@ -135,7 +135,33 @@ def control() -> bool:
     return ok
 
 
+def staged() -> int:
+    """Scan only the lines this commit ADDS. The working-tree scan certifies a state; this
+    certifies a CHANGE, which is what a commit is. Without it the gate passes forever once
+    the tree is clean, and every new bare claim rides in behind an already-green check."""
+    import subprocess
+    d = subprocess.run(["git", "diff", "--cached", "-U0", "--", "*.md"],
+                       capture_output=True, text=True).stdout
+    added = "\n\n".join(l[1:] for l in d.splitlines()
+                         if l.startswith("+") and not l.startswith("+++"))
+    if not added.strip():
+        print("no markdown lines added in this commit -- nothing to gate.")
+        return 0
+    bare = scan(added)
+    print(f"staged markdown: {len(added.splitlines())} added lines, {len(bare)} bare "
+          f"absence claim(s).")
+    for _, phrase, ctx in bare:
+        print(f"  BARE  [{phrase}]  {ctx}")
+    if bare:
+        print("\nRefusing: add the fetched primary-source pointer, or mark it UNVERIFIED.",
+              file=sys.stderr)
+        return 1
+    return 0
+
+
 def main() -> int:
+    if "--staged" in sys.argv:
+        return 0 if not control() else staged()
     if not control():
         print("REFUSING: the gate cannot separate a bare claim from a gated one, so it "
               "cannot certify either.", file=sys.stderr)

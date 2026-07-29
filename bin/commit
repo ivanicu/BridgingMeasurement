@@ -1,0 +1,13 @@
+#!/bin/bash
+# THE commit path for this repository. Plain `git commit` is not.
+#
+# Why a wrapper and not a hook: core.hooksPath is set globally, so repo-local
+# .git/hooks is ignored; and every commit here passes --no-verify, which skips the
+# global hooks too. Git-level enforcement is therefore unavailable, and this wrapper
+# IS BYPASSABLE. That is a stated limitation, not a solved problem -- the gate it runs
+# would have stopped four of five failures this week, but only if it is run.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+python3 assurance/absence_claims_are_gated.py --staged || {
+  echo "COMMIT REFUSED: an ungated absence claim is in the staged diff." >&2; exit 1; }
+git commit --no-verify "$@"
