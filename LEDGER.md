@@ -957,3 +957,73 @@ argument for writing the design down as an object and committing it before anyon
    rounds.**
 2. **The rank-capacity ablation on Community Notes.** It is the only operationalisation of framing B
    that survived contact with a social choice theorist, and it needs no humans.
+
+---
+
+## Entry 12 — the statistician and the social choice theorist independently designed the same study
+
+**Observed.** Both redesigns came back. **They are the same experiment at different resolutions, and
+neither reviewer saw the other's work.**
+
+| | social choice | statistics |
+|---|---|---|
+| dataset | Community Notes | Community Notes |
+| intervention | refit at rank 0,1,2,3,4,5 | refit at rank k\* vs k\*+1 |
+| readout | per-rater residual → three buckets | held-out log-likelihood + **status flips** |
+| contribution | *which* raters are excluded by the rank choice | *whether* the discarded factor is decision-relevant |
+
+**Convergence of two hostile reviewers with no shared context is worth more than either review.**
+
+### What each supplies that the other does not
+
+**Social choice supplies the interpretation.** Three buckets, and the third is the finding:
+**well-represented** · **capacity-limited** — *this rater's exclusion is an artifact of the rank-1
+choice, curable by capacity* · **irreducible** — *flat across all ranks, the closest empirical stand-in
+for a distinction a smooth low-rank factorization cannot express by construction.*
+
+**Statistics supplies the inference, and one control that is strictly better than mine.**
+
+> **My M2 negative control re-weighted by "a random quantity of the same magnitude." The correct
+> control is a factor whose rater-loadings are an EXACT PERMUTATION of the real fitted loadings —
+> identical marginal magnitude BY CONSTRUCTION, pairing broken.** That is what "same magnitude" should
+> have meant, and here it is exact rather than approximate.
+
+Plus: **permute entire rater ROWS, not cells** — a rater's residual pattern across notes is itself
+correlated, and cell-level permutation understates the null variance **in exactly the way person-vs-
+prompt clustering was misjudged in my design.** The same error, caught twice, in two places.
+
+### The power calculation that decides the dataset
+
+| | |
+|---|---|
+| entries needed to identify rank k\*+1 | `O(r(n+p)log(n+p))` ≈ **1.3×10⁷** |
+| Community Notes observed entries | **~3.5×10⁷** — clears by **2.7×** |
+| CoVal | a ~15×15 per-prompt matrix needs ~200 entries for bare identifiability and **does not structurally deliver even that**; criteria carry **no identity across prompts**, so pooling requires the semantic-matching step already shown to recover only 34.9% |
+
+**CoVal cannot support this study. It is not underpowered — it is below identifiability.**
+
+### The falsifier, and the honest limit
+
+**Falsified if** held-out likelihood gain at k\*+1 ≈ 0 **and** the real flip count is indistinguishable
+from the permutation null. **That is a clean, publishable negative**: the deployed compiler is not
+discarding decision-relevant structure.
+
+**And the limit is stated in the design rather than discovered later:** a null result rules out
+**linear** discarded structure only. **The finding must be written "no LINEAR compilation loss
+detected", never "no compilation loss."**
+
+### What this costs and what it replaces
+
+**It needs no humans, no new data, no semantic matcher, and no leave-one-out** — so it inherits none
+of the four identification failures, the tie artifact, the degenerate null, or the 11.6% traceability
+problem. **Every defect the five reviewers found in my design is absent from theirs by construction,
+not by patching.**
+
+**NEXT.** Two things, in this order, and the first is free:
+1. **The personal-vs-world scope correction** back into the CoVal package — **48.4% of participants
+   ordered the four responses differently for themselves than for the world, 28.6% with a strictly
+   reversed pair**, and every number in 109 rounds used `world` alone. Zero model, already computed.
+2. **The rank ablation on Community Notes**, built as the two reviewers jointly specified: reproduce
+   the official scorer first and confirm k\* empirically rather than trusting the documentation; then
+   held-out fit, rater-block permutation null, planted-factor positive control, and the status-flip
+   restoration test with an exact-permutation negative control.
