@@ -1920,3 +1920,84 @@ clustered by prompt and rater, negative control from a within-prompt permutation
 is ANONYMOUS, "identifiable subgroup" leaves the claim permanently, and CoVal closes on a corrected
 result.** Community Notes stays frozen either way — the navigator's reasoning is that a positive
 result gives CoVal a subject and a negative one is a limitation CN would *inherit*, not rescue.
+
+---
+
+## Entry 23 — the withheld improvement has a subject, and CoVal closes
+
+**Observed.** The navigator's directed replacement for my α-coherence test, run as
+`coval/rounds/r112_value_idiosyncrasy/run.py`. **The covariate had been in the release for 111 rounds
+without being opened**: `coval_full[*]` = `{criterion, rubric_item_id, scores}` where `scores` is
+`[{annotator_id, score}]`, score a signed −10..+10 importance weight — **every rater's own value
+profile over the criteria of the prompt they judged.** Verified against the object before use.
+
+### The measurement
+
+Regress the paired per-cell gain `d = e_core − e_full` on that rater's divergence from the
+**leave-one-out** consensus over the criteria they scored, with **prompt fixed effects** — which
+absorb every prompt-level quantity, so the exposure confound entry 22 had to model away is *designed
+out* rather than adjusted for — and two-way clustering on prompt and rater.
+
+| term | β | 95% CI | p_perm |
+|---|---|---|---|
+| **x1** value divergence from LOO consensus | **+0.04209** | **[+0.03028, +0.05391]** | **0.0000** |
+| x2 sign-disagreement share | +0.01279 | [−0.01158, +0.03717] | 0.2500 |
+| n_scored (control) | +0.03885 | [−0.02304, +0.10074] | |
+| log n_i (control) | +0.00404 | [−0.01193, +0.02000] | |
+
+Positive means a **smaller** gain. **One standard deviation of value divergence withholds 0.02024 of
+gain — 29.3% of the mean gain of −0.06900.** The within-prompt permutation of *whole score profiles*,
+which preserves both marginals exactly and destroys only the pairing, puts the null at
+[−0.00833, +0.00737]. **Observed sits five times outside it.** Positive control recovers a planted
+0.30 coefficient at +0.2991. Reproducibility gate: 55 keys byte-identical under two hash seeds.
+14,637 of 15,202 cells (96.3%).
+
+**Survived.** *W-DESCRIBABLE.* **Compilation returns least to the raters whose own stated values sit
+furthest from the consensus it compresses toward.** The redistribution entry 22 measured is not
+anonymous.
+
+**Killed.** *W-ANONYMOUS* — and with it the reading, live since entry 13, that the compilation
+question needed a dataset carrying demographics before it could name a subgroup. **It needed the
+raters' own stated values, which were already on disk.** Tenth instance of the same shape.
+
+**Downgraded.** **The polarity story.** Entry 17 held that compilation moved disagreement into
+polarity — `coval_core` is normalised to positive form, so a sign-split criterion cannot be expressed.
+`x2`, which is exactly the sign-disagreement rate, **carries none of the effect** (p_perm 0.2500). The
+mechanism is *continuous divergence in what a person thinks matters*, not polarity conflict.
+
+**Ontology shift.** The object of a compilation audit is not harm and not accuracy. **It is the
+distribution of a benefit.** A compiled normative rule can be better than its source *for everyone*
+and still systematically return less to the people furthest from its centre — and that is invisible
+to every audit that asks "who is harmed", because the answer is honestly *nobody*. The measurable
+question is **whose improvement is withheld**, and it needs the participants' own stated values, not
+their demographics. That transfers to any bridging system: it predicts that a Community Notes note
+which is *helpful to nearly everyone* still returns least to raters whose rating profile sits furthest
+from the fitted consensus — and `raterParams` makes that testable without any new data collection.
+
+**Scope, stated because the claim is bounded by it.** x1 rests on **at most six points**: CoVal gives
+each rater a bounded set of *shared* criteria plus their own contributed criteria, **which nobody else
+scores** — so a rater's self-invented criteria, arguably the purest statement of their values, can
+never enter a divergence-from-consensus measure at all. Split-half reliability of x1 is **0.1688**
+(Spearman-Brown 0.2888), so **+0.04209 is a floor**; the deattenuated +0.14574 fixes the *sign* of the
+bias and is marked **not quotable**, because dividing by 0.29 multiplies by 3.46 and that factor
+carries large sampling error of its own.
+
+**My own defect, again, in the file correcting it.** The round's docstring said
+`corr(alpha_full, alpha_core) = 0.6617 (recomputed here)` while the round computes **0.6925** — the
+navigator's figure on fitted crossed alphas over 15,202 cells versus mine on prompt-demeaned rater
+means over 14,637. Two estimators, two populations, same conclusion. Now stated separately instead of
+one passed off as the other.
+
+**CoVal IS DONE.** Three permanent walls, each verified rather than assumed: no within-cell
+replication ⇒ rater×prompt interaction and test–retest reliability unidentified forever; no
+presentation-order field ⇒ γ can never be called discretion (entry 19); no compiler provenance, since
+`coval_core` items carry `['criterion']` alone (entry 22). **Community Notes does not open** — the
+navigator's reasoning holds regardless of this outcome: a positive result gives CoVal a subject, a
+negative one would have been a limitation CN *inherits* rather than rescues.
+
+**NEXT.** Packaging only, and it is bookkeeping the previous verdicts already required:
+back-propagate the personal-vs-world scope correction (all 109 CoVal rounds used the `world` ranking
+block alone while 48.4% of participants ranked differently for themselves), and restate the full arm
+everywhere as **the uncompiled criterion set at equal weight** — `r04/run.py:252-259` dropped the
+weight column at persist time, so the match was *forced*, not chosen, and "the uncompiled system" is
+the wrong name for it.
