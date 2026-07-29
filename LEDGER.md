@@ -1027,3 +1027,80 @@ not by patching.**
    the official scorer first and confirm k\* empirically rather than trusting the documentation; then
    held-out fit, rater-block permutation null, planted-factor positive control, and the status-flip
    restoration test with an exact-permutation negative control.
+
+---
+
+## Entry 13 — three redesigns, and they compose into one study
+
+**Observed.** The psychometrician's redesign is a **third** distinct design, and it supplies the one
+thing the other two cannot.
+
+### The three
+
+| | asks | on |
+|---|---|---|
+| **social choice** | at which rank does each rater stop being explained — *well-represented · capacity-limited · irreducible* | CN, rank 0–5 |
+| **statistics** | does a rank-(k\*+1) factor exist, and does adding it **flip note statuses** beyond an exact-permutation null | CN, held-out likelihood + flip count |
+| **psychometrics** | is the overridden disagreement **coherently patterned by an identifiable subgroup**, above a label-permutation null | DICES + CN, cross-checked against PRISM |
+
+**The first two are the same experiment. The third is orthogonal and load-bearing:**
+
+> **Rank ablation can find that structure was discarded. It cannot tell you whether that structure was
+> a subgroup's coherent position or simply extra variance.** The group-coherence test is the only one
+> of the three that separates *"the compiler discarded something a real group believed"* from *"the
+> compiler discarded noise"* — **which is precisely the distinction M1's sign-split count could never
+> make.**
+
+**And they share a covariate for free:** CN's own scorer **already computes rater-viewpoint factor
+loadings** as part of normal operation. **The grouping variable the psychometric design needs is an
+output of the algorithm under test** — no demographics required, nothing to invent.
+
+### B restated so it is falsifiable — B\*
+
+Both my wordings were rejected. **A** ("legitimately stands in for them") is a first-person subjective
+state whose only validated instrument is a **self-report scale administered to the aggregated person**
+— forbidden by the no-new-subjects constraint. Recommending A here *"means recommending the field's
+current mistake — external-referent and non-contributor-survey substitution — with extra steps."*
+
+**B** as I wrote it ("what is lost, can it be put back") invites an unfalsifiable count of discarded
+quantities and reintroduces M2's sign confound: *moving decisions ≠ moving them in a direction anyone
+would want.*
+
+> **B\*: when a normative judgement is compiled to a single decision, does the compiled decision
+> systematically override disagreement that is COHERENTLY PATTERNED BY AN IDENTIFIABLE SUBGROUP — at a
+> rate exceeding what patternless noise would produce — and does the DIRECTION of that override
+> correspond to anything independently measurable about that subgroup's values?**
+
+**Same ontology, falsifiable estimand, no inference about anyone's internal state.**
+
+### CoVal is excluded from all three arms
+
+**Not for power this time, for contamination:** criteria were written *after* seeing the four
+responses, so **the discretion signal and the compiled decision share the same stimulus exposure** —
+the one independence this design needs. CoVal remains usable for a narrower question (which of M1's
+rival explanations is operating), but not for this.
+
+### The PRISM arm, used for exactly one thing
+
+**Does the DIRECTION of a group's coherent dissent match that group's independently-elicited,
+pre-exposure value priorities?** That is the only role PRISM's structure supports — **and it is an
+ecological, between-population inference**, matching different people by demographic category, with
+every risk that entails. **Stated in the design, not discovered later.**
+
+### The honest ceiling, which all three share
+
+**Even a clean positive finding — compilation systematically overrides a coherent minority — does not
+establish that restoring it produces a BETTER outcome by any external standard.** Same category of
+limit M2 had. **No data-only design closes it without new subjects or a field deployment.**
+
+**Outstanding:** the psychometrician did not return the *attack-the-author* task — no verdict on
+whether framing B was the fourth elegant claim, whether my process is methodology or ritual, or
+whether this should continue. **That question is still open and is the one I cannot answer myself.**
+
+**NEXT.** Unchanged and now better specified:
+1. **The personal-vs-world scope correction into CoVal** — free, computed, rescopes 109 rounds.
+2. **The composed CN study**: reproduce the official scorer and confirm k\* empirically → rank sweep
+   with per-rater residuals → status-flip restoration with an exact-permutation negative control →
+   **group-coherence test using the scorer's own viewpoint loadings as the grouping covariate.**
+   **Reproduction first. If the refit does not recover published statuses, everything downstream is
+   about our reimplementation.**
