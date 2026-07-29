@@ -625,3 +625,103 @@ without an interpreter* — because under that frame the CoVal core-compiler res
 polarity into rewritten criterion semantics while discarding rating and disagreement provenance**)
 stops being a footnote and becomes **a completed measurement of compilation loss, on data already in
 hand**, and endorsement stops being a separate question and becomes **the validation step**.
+
+---
+
+## Entry 9 — two reviewers, independently, say my headline may have the sign backwards
+
+**Observed.** The social-choice and psychometrics reviewers returned. Both were hostile as instructed.
+Both are right. **All three weaknesses I declared in the design were rated worse by them than by me**,
+and one was upgraded from "may not exist" to "does not exist, full stop."
+
+### The convergence, which is worth more than either review alone
+
+**Two independent lenses reached the same conclusion by different routes: the compilation loss may be
+beneficial denoising, and my design cannot tell the difference.**
+
+- **Psychometrics, directly:** a compiler correctly *denoising* unreliable ratings would **also** beat
+  a random re-weighting — because the disagreement being restored is *structured rater noise*, and
+  putting it back predictably degrades decisions. **Same statistical result, opposite normative
+  conclusion, and M2 has no test that discriminates them.**
+- **And the evidence is already in my own repository:** CoVal r33 found `coval_core` **beats**
+  `coval_full` by **+0.0663** at equal weights. **The compiled, lossy, polarity-normalised version is
+  MORE accurate than the raw ratings it was compiled from.** I cited that number in the design
+  document as background and did not notice it was prima facie evidence against my own thesis.
+- **Social choice, by another route:** the **Condorcet Jury Theorem**. If raters are noisy-but-better-
+  than-chance judges of response quality, the correct aggregate is *expected* to diverge from
+  individuals who are simply wrong. **A low `repᵢ` is then a FEATURE.** My design has zero
+  acknowledgement that a competing and arguably more applicable normative frame predicts the **opposite
+  sign** on the same measurement.
+
+**That is the fifth time this week an available piece of evidence was in my hands and unused** — and
+the first time it was a number I had personally written into the document I was asking others to
+attack.
+
+### The single strongest technical attack
+
+**The floor is wrong, and the right one is free.** I proposed a leave-one-out refit plus a cluster
+bootstrap whose validity I could not establish. The correct baseline is the **Kemeny-achievable**
+distance distribution — the best *any* aggregation rule could reach on the observed profile. And:
+
+> **CoVal ranks 4 responses. S₄ has 24 permutations. Exact Kemeny consensus is a brute-force
+> enumeration over 24 candidates. It is instant, exact, and closed-form.**
+
+**I built an elaborate apparatus while ignoring a 24-way loop that hands over the theoretically correct
+floor for nothing.** Without it, a result like "40% sit below the floor" **cannot distinguish** *build
+personalised or clustered rubrics* from *fix a badly-computed single aggregate* — **opposite
+engineering responses**, which is exactly the test for whether an action is Frontier at all.
+
+### Fatal, from psychometrics
+
+| # | defect | what it corrupts |
+|---|---|---|
+| 1 | **`relᵢ` is not estimable.** One ranking of 4 responses is **6 pairs that are the deterministic unpacking of one total order**, with transitivity enforced by the elicitation. No replication anywhere in the cell. Classical reliability needs ≥2 independent observations; this has one | the Q1 headline cannot separate *unrepresented* from *inconsistent* — which is the exact ambiguity Q1 existed to resolve |
+| 2 | **`repᵢ` has ~7 achievable values.** Pairwise accuracy over a 4-item ranking takes values in {0, 1/6, …, 1}, unevenly spaced and non-independent | "report the lower tail, not the mean" — **the tail would be quantisation noise** |
+| 3 | **M2 cannot detect the sign** (above) | the one number all of Q2 is staked on |
+| 4 | **M1 conflates ≥4 constructs**: a sign split *across raters on the same response* is disagreement or DIF; *across different responses* is the criterion doing its job. A count with a permutation null cannot tell them apart — **and M1 is the gate for everything else** | a false pass chases rater noise through M2 and M3; a false kill shuts down a real finding |
+
+### The construct is not what I named it
+
+**It is leave-one-out rank concordance**, not representation. Pitkin's descriptive-versus-substantive
+distinction is the standard reference: an aggregate can *serve* someone while *disagreeing* with their
+stated ranking. **My own weakness #3 said this and the reviewer says I understated it — "this isn't an
+edge case, it's the whole reason 'representation' and 'agreement' are different words in every other
+field that studies them."**
+
+### Framing B is a rename, with citations
+
+**Kennedy 1976** *Form and Substance in Private Law Adjudication*; **Kaplow 1992** *Rules Versus
+Standards*; **Lessig 1999** *code is law*. Kaplow **formalises the tradeoff as a function of case
+frequency and tailoring value — which is precisely M2's question.** So *"a normative judgement compiled
+into a program executing without an interpreter"* is textbook rules-versus-standards with new words.
+
+**This does not kill M2. It relabels it**: an empirical estimate of a well-defined parameter in a
+thirty-year-old law-and-economics model. **Legitimate and modest, if labelled that way. Not a new
+ontology** — and I was about to reorganise a research programme around it.
+
+### What both reviewers independently salvage
+
+**M2's random-reweighting negative control.** Both named it, unprompted, as the one piece not already
+settled by decades-old machinery: an empirical property of *this specific compiler*, with an honest
+kill condition, mapping onto a concrete build decision (route high-variance criteria to a human or
+ensemble path, or leave the pipeline alone). **Psychometrics adds the condition that makes it
+interpretable: pair it with an external-validity check — does the restoration move decisions TOWARD or
+AWAY from an independent ground truth — or it cannot separate benign denoising from harmful loss.**
+
+**Cheaper routes both reviewers offered, which I should have found:**
+- **Mixture-of-Mallows** on the raw rankings (Lu & Boutilier, JMLR): *a multimodal profile IS the
+  abandoned-minority finding*, off-the-shelf, with none of the LOO dependence risk.
+- **Thurstonian / Bradley-Terry-Luce**: the one legitimate route to a per-person reliability from a
+  **single** ranking — borrow a population-level noise model instead of demanding individual
+  replication. **This may resurrect `relᵢ`.**
+- **Generalizability theory**: a G-study design table would have shown `relᵢ` is unidentified **from
+  the design alone**, before any data was touched.
+
+**NEXT.** Three reviewers still out. Before anything is rewritten:
+1. **Check whether the same participant appears across multiple CoVal prompts.** If they do,
+   cross-prompt consistency is an estimable reliability facet and FATAL #1 is survivable. If not, Q1
+   on CoVal is dead and the question moves to Community Notes, where raters have many ratings each.
+2. **Compute the Kemeny floor.** 24 permutations per prompt. It is a loop, and it decides whether any
+   representation gap is inherent to the profile or specific to this compiler.
+3. **Re-examine r33's +0.0663 as the primary evidence about compilation**, not as background. It may
+   already answer Q2 in the direction opposite to the one I proposed.
