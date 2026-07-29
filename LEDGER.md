@@ -1802,3 +1802,121 @@ ratings.
 high-α set is indistinguishable from the rest on all three, the rater component is real but anonymous,
 and "identifiable subgroup" drops out of the claim.** Coherent ⇒ the compiled rubric has losers with a
 describable character, and that is the sentence this programme was built to be able to say.
+
+---
+
+## Entry 22 — nobody is worse served, and the gradient we each reported was our own selection artifact pointing opposite ways
+
+**Observed.** The navigator judged entry 21 and attacked five named weak points. The effect survives
+all five. **Both sentences wrapped around it — entry 21's and my own replacement for it — are wrong,
+and in the same way twice.** Round: `coval/rounds/r111_alpha_confound/run.py`, 675 lines,
+reproducibility gate 189 keys byte-identical under two hash seeds.
+
+### The number was never a variance component
+
+The variance of fitted rater means is the component **plus** a sampling term
+`var_resid × E[1/n_i] = 0.00416` — most of the raw value. So entry 21's 0.00422 and 0.00626 are
+`component + noise`, and its "9.4% and 13.7% of residual variance" are inflated. Three estimands
+from the same fitted alphas:
+
+| estimand | full | core | ratio |
+|---|---|---|---|
+| per-observation (what entry 21 quoted) | 0.00422 | 0.00626 | 1.48× |
+| per-person (what its sentence was about) | 0.00545 | 0.00773 | 1.42× |
+| moment-corrected | 0.00129 | 0.00351 | 2.72× |
+| navigator's independent U-statistic | 0.00102 | 0.00299 | **2.92×** |
+
+**On the excess-over-count-preserving-floor scale the contrast is estimand-invariant: +0.00184 to
++0.00225, a span of 0.00040**, 95% CI over prompts **[+0.00114, +0.00275]**, and flat at +0.00184 /
++0.00185 / +0.00181 as raters with fewer than 2, 3 and 5 prompts are dropped. The floor works
+*because* it preserves each rater's count, so it carries the identical 1/n_i inflation. Two
+independently built bias corrections — my moment correction and the navigator's U-statistic — agree
+on the contrast to within 4%. **Bias correction strengthens the effect: the rater term nearly
+triples rather than rising 48%.**
+
+### Killed: "systematically worse served" — and then killed again
+
+`alpha` is re-centred inside each arm every sweep, so it is a position relative to **that arm's**
+mean, and the means differ by **−0.06870**. A rater can rise in alpha while their disagreement
+*falls*. Entry 21 read an absolute claim off a relative quantity. **My own first replacement did the
+same thing one layer down** — I reported 50.0% of raters rising in alpha as "better- and worse-served
+in equal number." On absolute error: **15.3% of raters have a higher own-mean error under core against
+a paired within-prompt shuffle null of 13.5% (sd 0.8%)** — genuine excess **+1.8%, z 2.4** —
+and deconvolving the paired per-rater gain puts the truly-worse-off share at **6.07%**.
+
+### And the gradient was an artifact for both of us, in opposite directions
+
+| binned on | best-served 5% | worst-served 5% | gradient |
+|---|---|---|---|
+| full's alpha (mine) | −0.0427 | −0.0766 | gain **grows** |
+| core's alpha (navigator's) | −0.133 | −0.032 | gain **shrinks** |
+| **mean of both arms (Oldham 1962)** | **−0.1038** | **−0.0292** | **+0.0746, gain shrinks** |
+
+Bin on one arm and that arm's error is extreme by selection, so the other regresses toward its own
+mean — **the change-score-versus-baseline fallacy, and it flips sign with the choice of axis.** The
+mean of the two measurements is uncorrelated with their difference under exchangeable noise, and on
+that axis the gain is monotone across all six bins. **The navigator was right in direction and
+overstated in magnitude; I was wrong in direction.** Absolute error is lower under core in **6 of 6
+bins including the worst-served**, whose 0.5313 becomes 0.5021.
+
+**Survived.** *World B, and now with a subject.* The rival explanation fails: conditioning alpha on
+rater-level **exposure** — mean prompt typicality, share of values-contested prompts, log workload —
+explains R² 0.0589 of full's alpha and 0.0947 of core's and removes **22.0%** of the contrast against
+a permuted-covariate arithmetic floor of **2.6% [1.3%, 4.7%]**. The rater structure is **not**
+reducible to which prompts a rater met.
+
+**Downgraded.** Entry 21's granularity control is **UNVERIFIED as an extrapolation**, not confirmed:
+the capped arms sit at mean error 0.4161 / 0.4206 / 0.4162 against full's 0.4048, while core is
+**0.3361** — so the band never visits core's accuracy regime and the conclusion is read from a proxy
+outside it. Arcsine and z-standardisation and the binomial-floor argument all say scale is not the
+driver, which narrows it, but does not discharge it.
+
+**Ontology shift.** Entry 21 said compilation *decouples error from cases and couples it to people*.
+The verb on the second half is wrong. **Compilation improves agreement with nearly everyone and
+redistributes the SIZE of that improvement — from −0.104 at the best-served to −0.029 at the
+worst.** Not winners and losers. **Winners and smaller winners.** That is a materially different
+normative object: the question a compiled rule must answer is not *whom does it harm* but *whose
+improvement does it withhold* — and the second is invisible to any audit that only looks for harm.
+
+### Three defects of my own, all in this round's first version
+
+1. A deconvolution subtracting both arms' noise as if independent, when they are the **same cells,
+   positively correlated**. It went negative, hit a `1e-12` clamp, and printed a clean **0.00%** that
+   was the clamp. A broken estimator that returns a *publishable-looking* number is worse than one
+   that crashes.
+2. A conclusion string that interpolated a boolean into a sentence asserting the positive, printing
+   *"lower at EVERY percentile checked (False)"*. **I generated the number and hand-wrote the claim
+   around it** — the discipline says conclusion strings are never hand-written, and this is the
+   composition-level version of the same failure.
+3. A percentile table binned on the **outcome arm**, which this programme's own case law forbids.
+
+**And entry 21's design facts were wrong.** It claimed *"every rater appears on ≥2 prompts, median
+20"*; actual is **min 1, median 16**, 15 raters at n=1 holding 0.15% of cells, and **1,011 raters
+carry data against 1,012 indices**. True of the raw release, reported about the analysis object.
+**Ninth instance of that shape.** Immaterial to every number above — the low-n sweep proves it — and
+saying so is part of the correction, because a correction that leaves the magnitude unstated implies
+the result moved.
+
+**Two walls confirmed, one new.** No within-cell replication ⇒ the rater×prompt interaction and
+test–retest reliability are unidentified **forever**. No presentation-order field ⇒ gamma can never be
+called discretion (entry 19). **NEW, verified by the navigator against the object:** `coval_core`
+items carry `['criterion']` and nothing else — no `rubric_item_id`, no scores, no ancestor link. **The
+compiler has no provenance.** Entry 10's NEXT item 1 asked for exactly this check; the answer is no.
+So no ancestor-matching measure is possible without building a semantic matcher, which is a new
+instrument needing its own validation — **explicitly not to be built.**
+
+**NEXT, the navigator's replacement for my alpha-coherence test, accepted without disagreement.** It
+wins on power and on construct validity. My test would have ranked raters by fitted alpha — but
+`corr(alpha_full, alpha_core) = 0.6617`, so the high-alpha set is mostly *"raters who disagree with
+any rule"*, not *"raters compilation serves worse"*; the claim is about compilation, so the outcome
+must be the **change**. And the genuinely-worse-off set is ~16 people, on which no coherence test
+resolves anything. The covariate instead: **`coval_full` carries every rater's own signed −10..+10
+scores on individual criteria — 99.95% of analysis cells, median 6 criteria, 94.4% with ≥5 — and
+nothing in 111 rounds has opened it.** Regress the per-cell paired gain on that rater's own revealed
+value-idiosyncrasy: `x1 = 1 − corr(their scores, consensus)`, `x2 =` share of their scored criteria
+whose sign disagrees with consensus. Prompt fixed effects, controls for `n_scored` and `n_i`, two-way
+clustered by prompt and rater, negative control from a within-prompt permutation of whole profiles.
+**Kill: if both CIs contain zero and the permuted null covers the observed effect, the redistribution
+is ANONYMOUS, "identifiable subgroup" leaves the claim permanently, and CoVal closes on a corrected
+result.** Community Notes stays frozen either way — the navigator's reasoning is that a positive
+result gives CoVal a subject and a negative one is a limitation CN would *inherit*, not rescue.
