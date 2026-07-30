@@ -11,12 +11,25 @@
 > correction is inline and this banner is the record of what the document said.**
 
 **Programme:** collective-alignment measurement. **Closed 2026-07-29**, on a pre-registered kill that
-fired. 26 ledger entries, 114 rounds. ⚠ **The retraction count is UNRESOLVED**: this document said
-**14**, with no list and no receipt; the sibling README says "eleven of twelve CoVal retractions";
-`RETRACTIONS.md` carries 224 entries and its own stale self-count. The ledger has 8 `Killed.` blocks
-plus 1 `Withdrawn.`, but blocks retract several claims each, so a claim-level count exceeds 25 and an
-entry-level count is ~19–20. **No number is quoted here until one is counted under a stated rule** —
-and a document whose headline transferable content is its own error count may not get that count wrong.
+fired. **26 ledger entries, 114 rounds.**
+
+**The retraction count, counted under a stated rule, because an earlier version asserted "14" with no
+list and no receipt.** The rule: a retraction is a claim previously stated as a finding and later
+withdrawn or overturned, counted from this ledger's own explicit markers. **The number depends on the
+unit, and that is the answer** — this programme's own case law says name the estimand before the bound,
+after identical data gave 2.34% or 24.71% depending on whether the unit was the response or the rater.
+
+| unit | count |
+|---|---|
+| ledger entries containing ≥1 retraction | **12** of 26 |
+| explicit `**Killed.**` + `**Withdrawn.**` blocks | **9** (7 + 2) |
+| `**Downgraded.**` blocks — narrowed, **not** withdrawn, and deliberately excluded | 8 |
+| individual claims withdrawn | **>15, not enumerated** — a single `Killed.` block retracts several |
+
+**"14" was none of these.** The sibling README's "eleven of twelve CoVal retractions" counts a
+different population (CoVal rounds, not ledger entries) and `RETRACTIONS.md` carries 224 entries with
+its own stale self-count. A document whose headline transferable content is its own error count may not
+get that count wrong, and the honest form of that count is a table with its unit named.
 
 The stopping condition was written before the last round ran: *no demographic group departing from the
 arithmetic line after Benjamini-Hochberg, while the positive control still recovers a planted effect →
@@ -153,7 +166,7 @@ Offered as the most transferable content in this document.
 | instances where the **falsifying or resolving material was already in hand** (the ledger's own ordinal counter, now at 13 with wall #1) | **13** |
 | field-level novelty claims that died | **UNVERIFIED at "6 of 6"** — asserted in a navigator quote, never enumerated; the sibling README says *five* |
 | times a permutation null was placed in the load-bearing gate position | **3** |
-| total retractions | **UNRESOLVED — see the note at the top; no defensible count exists yet** |
+| total retractions | **12 entries / 9 explicit blocks / >15 claims** — see the unit table at the top |
 
 Not one was caught by pre-registration, positive controls, or three-valued verdicts. Every one was
 caught by reading a primary source, by re-reading the programme's own prior output, or by an independent
