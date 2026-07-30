@@ -1721,7 +1721,7 @@ removes case-shared error and leaves the idiosyncratic component essentially unc
 one clause that overreached: **"smears error across raters" is a claim about the 14%, and a one-way
 model cannot tell a rise attached to particular people from unstructured noise.** It directed the
 crossed decomposition and pre-registered the kill. Round:
-`coval/rounds/r110_rater_component/run.py`, commit `9185b91`, 484 lines, the first round in this line
+`coval/rounds/12_compilation_redistribution/r110_rater_component/run.py`, commit `9185b91`, 484 lines, the first round in this line
 that ships code.
 
 ### The rater main effect is IDENTIFIED on CoVal, which entry 10 said required leaving it
@@ -1809,7 +1809,7 @@ describable character, and that is the sentence this programme was built to be a
 
 **Observed.** The navigator judged entry 21 and attacked five named weak points. The effect survives
 all five. **Both sentences wrapped around it — entry 21's and my own replacement for it — are wrong,
-and in the same way twice.** Round: `coval/rounds/r111_alpha_confound/run.py`, 675 lines,
+and in the same way twice.** Round: `coval/rounds/12_compilation_redistribution/r111_alpha_confound/run.py`, 675 lines,
 reproducibility gate 189 keys byte-identical under two hash seeds.
 
 ### The number was never a variance component
@@ -1935,7 +1935,7 @@ result gives CoVal a subject and a negative one is a limitation CN would *inheri
 > Every number in this entry is arithmetically correct and none of them means what the entry says.
 
 **Observed.** The navigator's directed replacement for my α-coherence test, run as
-`coval/rounds/r112_value_idiosyncrasy/run.py`. **The covariate had been in the release for 111 rounds
+`coval/rounds/12_compilation_redistribution/r112_value_idiosyncrasy/run.py`. **The covariate had been in the release for 111 rounds
 without being opened**: `coval_full[*]` = `{criterion, rubric_item_id, scores}` where `scores` is
 `[{annotator_id, score}]`, score a signed −10..+10 importance weight — **every rater's own value
 profile over the criteria of the prompt they judged.** Verified against the object before use.
@@ -2017,7 +2017,7 @@ the wrong name for it.
 
 **Observed.** The navigator overturned entry 23 by four independent routes, and **the pointer was one
 line the round threw away**: `r112/run.py` computed `err["full"]` and `err["core"]` and persisted only
-their difference. Rebuild the levels and it falls open. Round: `coval/rounds/r113_accuracy_matched_arm/`,
+their difference. Rebuild the levels and it falls open. Round: `coval/rounds/12_compilation_redistribution/r113_accuracy_matched_arm/`,
 which builds the world the diagnostics could only price.
 
 ### x1 raises EVERY arm's error, so `d` is a difference of two things it pushes the same way
