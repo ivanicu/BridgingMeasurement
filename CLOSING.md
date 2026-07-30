@@ -115,14 +115,40 @@ provenance.** Both verified against the object.
 
 > **⛔ The third wall was never verified and is FALSE.** This document claimed "no within-cell
 > replication → the rater×prompt interaction and test–retest reliability are unidentified". **111 of
-> 18,269 (rater, item) cells carry 2–5 assessments** (0.6% of the release), 57 of 111 give a *different*
-> world ranking, and every prompt line holds exactly four responses — so these are re-rankings of the
-> same four texts. **Test–retest agreement IS estimable: intra-rater pairwise concordance 0.8446 on 605
-> comparable pairs**, against core at 0.666 and full at 0.596 on the same metric. The *interaction* half
-> of the wall probably survives on power at n = 111; the *reliability* half does not survive at all.
-> There are no timestamps, so this is order-free replicate agreement rather than a temporal retest, and
-> no interval was computed. **D9** that the replication exists; **D6** that these are deliberate
-> re-ratings; **D6, low precision** that 0.8446 is "the" reliability.
+> 18,269 (rater, item) cells carry 2–5 assessments**, 57 of 111 give a *different* world ranking, and
+> every prompt line holds exactly four responses — so these are re-rankings of the same four texts.
+>
+> **Test–retest agreement IS estimable in aggregate and is NOT estimable per rater.** That distinction
+> is the whole correction, and the wall conflated it.
+>
+> - **The aggregate figure, with the interval an earlier version said did not exist:** intra-rater
+>   pairwise concordance **0.8446** (511/605), cluster-robust 95% CI **[0.7819, 0.9045]** on rater
+>   (97 clusters), **[0.7778, 0.9073]** on cell — se 0.032, and a **design effect of 4.8–5.3** against
+>   the naive binomial [0.816, 0.874]. One rater holds 10.2% of the pairs; without them, 0.8748.
+> - **It is not duplicate-driven, and the alternative was tested rather than noted absent:** excluding
+>   *every* textually identical pair gives **437/517 = 0.8453**, CI [0.775, 0.915]. Median rationale
+>   similarity 0.287; `representativeness` differs in 39.3% of replicate pairs. **D7.**
+> - **It describes one collection branch, not the release.** All 100 replicate-holding prompts collect
+>   **zero** personal blocks, against 321 of 1,078 release-wide; 0 of 226 replicated assessments carry
+>   one (p ≈ 4.4e-16). It is *not* a rater stratum — all 101 replicate-holding raters produce
+>   full-profile assessments elsewhere. **So 0.8446 is the world-only stratum: 70.2% of prompts, 73.2%
+>   of cells.** The ceiling comparison survives apples-to-apples: on the 89 replicate-carrying prompts
+>   holding both rubrics, compiled **0.6651** and uncompiled **0.6107** against release-wide 0.6604 /
+>   0.5941.
+> - **The ceiling is 0.915, not 0.845.** A rubric is deterministic, so it is bounded by agreement with
+>   the *stable component*, not by two-noisy-observations agreement. With observed order = stable order
+>   plus an independent flip at rate 1−q, concordance is `q²+(1−q)²`, so 0.8446 → **q = 0.9151**, CI
+>   [0.8754, 0.9497]. **Headroom 0.250, not 0.179.** Model-based, **D5**.
+> - **The interaction half survives — on the replicates' LOCATION, not their absence.** 91 of 101
+>   replicate-holding raters have exactly **one** replicated cell, so a rater trait is identified only
+>   at **n = 10**: split-half r = **−0.051** (and −0.175, p 0.63) against an **MDE of 0.785**. And the
+>   dispersion is *at least as large at cell level as at rater level* (ρ 0.3374, LRT 80.8, vs ρ 0.3006,
+>   LRT 66.5), so it cannot be attributed to a person at all. **It fails at identification, one step
+>   before power.**
+>
+> No timestamps exist, so this is order-free replicate agreement, not a temporal retest. **Not entitled:**
+> "the rater×prompt interaction is identified" · "an attention control now exists" · "the x1 levels are
+> rescuable" · "0.8446 is CoVal's reliability" without the world-only qualifier.
 
 ---
 
@@ -217,15 +243,36 @@ apparatus disciplines what happens *after* committing to a design; the failures 
 
 ---
 
-## What is now open, and who decides it
+## What wall #1's fall opened: nothing
 
-**The closure rested on three walls; one is false.** A test–retest reliability of **0.845 at n = 111**
-is a real instrument on a small population, and the reliability half of wall #1 is gone. Whether that
-**reopens the programme is a direction question**, and direction in this programme deliberately does not
-live with the executor — it is recorded here, not decided. What can be said without deciding it: the
-anonymity result (**5**) and the methods result (**7**) are untouched by wall #1's fall, and the
-per-arm-levels refusal in the ledger's entry 24 still stands but on a **narrower** argument than was
-published — that x1 and the ranking share a common cause, not that no instrument exists.
+Ruled on independently, and the ruling is **no**. The fall changes what the claims may **say**; it opens
+no measurement.
+
+- **The rater-trait round is dead and its pre-registered kill fired at zero compute.** *"Split-half
+  correlation of rel_i across a rater's two replicated cells, |z| > 1.96 → the trait exists"* → **z =
+  −0.14** at n = 10 against an MDE of 0.785.
+- **The ceiling round is arithmetic, not a measurement.** Every number above — 0.8446, its interval,
+  0.6651/0.6107, q = 0.9151 — is computed from data in hand. What a *round* would do is build better
+  rubrics until they approach 0.915, an open-ended engineering programme whose kill cannot be
+  pre-registered because rubrics cannot be enumerated.
+- **Entry 25 is untouched and its footing is stronger than this document first claimed.** r114
+  pre-registers W-SUBJECT as "D6 at best, because a demographic group can differ in average care and
+  this release cannot separate care from values" — and the kill fired for **W-ANONYMOUS**, which does
+  not need that separation. Wall #1 appears in that round only as the reason x1 died.
+- **Entry 24's refusal to quote the per-arm levels stands, on a narrower argument than was published:**
+  x1 and the ranking share a common cause, not that no instrument exists.
+- **A correction that costs nothing and is stated with its magnitude:** r114's population is **15,202
+  rows over 15,103 distinct cells** — 99 duplicate rows, 0.65% — so the round used the replicates
+  silently as duplicate rows and "15,202 cells" was an assessment count. That reweighting cannot move
+  max |t| 1.83 or the +0.00184–0.00225 band. **A documentation correction, not a result change.**
+
+> **The transferable form.** *"No instrument exists"* and *"the instrument has no power"* are different
+> claims, and this wall conflated them for the length of the programme. **A dataset's limits are
+> geometric.** Where the replication *sits* — one prompt stratum, one cell per rater — decides what it
+> can identify; "there is none" was never the interesting question. And the ground I first proposed for
+> closing, *"a point estimate with no interval is not an instrument"*, was itself a false unavailability
+> claim: the interval is a twenty-second bootstrap. **The defect that manufactures findings also
+> manufactures impossibilities that make stopping feel earned.**
 
 ---
 
