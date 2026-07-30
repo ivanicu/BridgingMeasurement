@@ -2284,3 +2284,94 @@ false, and that a test–retest reliability of 0.845 at n=111 is a real instrume
 Whether any of the 114 rounds used those replicates is **UNVERIFIED** — I did not audit 114 scripts for it,
 and the count `18,269` returning zero hits across both repositories is evidence about the DOCUMENTS, not
 about the code.
+
+---
+
+## Entry 27 — the closure stands, and the ground I would have defended it on was itself a false unavailability claim
+
+**Observed.** A navigator ruled on whether wall #1's fall reopens the programme. **It does not.** The
+fall changes what the claims may **say**; it opens no measurement. And the reasoning that gets there is
+sharper than mine on five counts, two of which are my errors.
+
+### The reliability has an interval, and I asserted it did not
+
+**0.8446 (511/605), cluster-robust 95% CI [0.7819, 0.9045]** clustering on rater (97 clusters),
+**[0.7778, 0.9073]** on cell (107 clusters), se 0.032. The naive binomial CI [0.816, 0.874] is wrong by
+a **design effect of 4.8–5.3**. One rater holds **62/605 = 10.2%** of all pairs; drop them and it is
+**0.8748** on 543.
+
+> **⚠ And this is the correction that matters most about my own conduct.** The ground I offered for
+> closing — *"a reliability point estimate with no interval is not an instrument"* — **is itself an
+> unavailability claim, and it is false.** The interval is a twenty-second cluster bootstrap. Had the
+> closure been protected on that ground it would have been the **fifteenth instance of this
+> programme's signature defect, in the closure-PROTECTING direction**, one paragraph after I warned the
+> navigator about exactly that. The defect does not only manufacture findings; **it also manufactures
+> impossibilities that make stopping feel earned.**
+
+### D6 → D7: it is not duplicate-driven, because the alternative was tested
+
+Excluding **every** textually identical pair: **437/517 = 0.8453**, CI [0.775, 0.915] — unchanged.
+Median rationale similarity **0.287** with 54.1% below 0.3; `representativeness` differs in **39.3%** of
+replicate pairs, `subjectivity` 24.6%, `importance` 23.8%. Entry 26 rested D6 on *"no field marks
+them"*, which is an absence. **This rests D7 on a control.**
+
+### NEW, and it relocates the whole finding: replication is a property of the COLLECTION BRANCH
+
+Verified here from the object: **all 100 replicate-holding prompts collect zero personal blocks**,
+against **321 of 1,078** release-wide; **0 of 226** replicated assessments carry one, against 4,901 of
+18,158 singletons. p = 0.7022¹⁰⁰ ≈ **4.4e-16**. And it is **not** a rater stratum — every one of the
+101 replicate-holding raters produces full-profile assessments elsewhere.
+
+**So 0.8446 describes the world-only stratum — 70.2% of prompts, 73.2% of cells — not the release.**
+The apples-to-apples ceiling check survives it: on the 89 replicate-carrying prompts holding both
+rubrics (1,712 cells), compiled **0.6651** and uncompiled **0.6107**, against release-wide 0.6604 /
+0.5941.
+
+### The ceiling is 0.915, not 0.845 — I under-read my own number
+
+A rubric is deterministic, so it is not bounded by two-noisy-observations agreement but by agreement
+with the **stable component**. Under the simplest model — observed order = stable order plus an
+independent flip with probability 1−q — replicate concordance is `q² + (1−q)²`, so **0.8446 → q =
+0.9151**, CI **[0.8754, 0.9497]**. **Headroom is 0.250, not 0.179.** Model-based, **D5**, labelled.
+This programme's habit is over-reading; **here I did the opposite, and it cost 0.07 of real headroom in
+the one claim the fall genuinely licenses.**
+
+**Killed.** *rel_i as a rater trait, and option (c) with it — its kill fired at zero compute.*
+**91 of 101 replicate-holding raters have exactly one replicated cell**, so a rater trait is identified
+only where a rater has two: **n = 10**. Split-half correlation across those raters' two cells:
+**r = −0.051** (one pairing) and **−0.175** (p = 0.63, another). **MDE |r| at n = 10, 80% power = 0.785.**
+The only direct test of whether rel_i is a person-trait returns ~0 where 0.785 is the floor.
+
+**And the dispersion that makes rel_i look real is not at the rater.** Beta-binomial
+**ρ = 0.3006 at rater level (LRT 66.5)** but **ρ = 0.3374 at cell level (LRT 80.8)**. Both p ≈ 0 — the
+dispersion is real and *at least as large* at the cell, so it cannot be assigned to a person rather than
+to an item or to within-ranking dependence (one changed mind about A flips 3 of 6 pairs).
+**It fails at IDENTIFICATION, one step before power** — and my brief asked the navigator to check power
+on a quantity that is not identified, which is how a well-powered-looking round gets built.
+
+**Downgraded.** *"15,202 cells"*, which appears in entry 25, in r114 and in the closing statement.
+Verified here: r114's population is **15,202 rows over 15,103 distinct (prompt, rater) cells — 99
+duplicate rows, 0.65%**, multiplicity {1: 15008, 2: 93, 3: 1, 5: 1}. **The round used the replicates
+silently, as duplicate rows.** Fourteenth instance of the shape and the first with a negligible
+magnitude: 0.65% reweighting on 95 of 15,103 cells cannot move max |t| 1.83 or the +0.00184–0.00225
+band. **A documentation correction, not a result change** — and worth saying at that size, because a
+correction reported without its magnitude implies the result moved.
+
+**Survived, on stronger footing than the closing statement claimed.** Entry 25 is untouched.
+`r114/run.py:48-52` pre-registers W-SUBJECT as *"D6 at best, because a demographic group can differ in
+average CARE and this release cannot separate care from values"* — and the kill fired for
+**W-ANONYMOUS**, which does not need that separation. Wall #1 appears in that file only as the reason x1
+died, never as support for anonymity.
+
+**Ontology shift.** *"No instrument exists"* and *"the instrument has no power"* are different claims,
+and wall #1 conflated them for the whole programme. The correct statement is now available in one line:
+**the reliability half of wall #1 is gone and the interaction half survives — not on the absence of
+replicates, but on their LOCATION.** 111 replicated cells confined to one prompt stratum and spread
+one-per-rater across 101 raters yield an aggregate test–retest figure and no rater-level trait.
+**A dataset's limits are geometric, not merely present or absent** — where the replication sits decides
+what it can identify, and "there is none" was never the interesting question.
+
+**NEXT.** Apply this to the closing statement — the interval, the stratum, the 0.915 ceiling, the
+identification failure, and the 15,103. **Nothing opens.** Option (c)'s pre-registered kill has fired,
+option (b) is arithmetic already done, and reopening would require a new site that breaks a wall that
+is still standing.
