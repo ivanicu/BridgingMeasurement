@@ -2044,12 +2044,40 @@ half**, so it is out of sample and no rewriting, merging or polarity normalisati
 | core − full (compiled) | +0.03955, CI [+0.02390, +0.05520] | the reported effect |
 | **oracle − full (never compiled)** | **+0.06156** | **larger than the compiled arm** |
 | rand4 − full (gap +0.0149) | +0.00041, t 0.06 | no gap, no effect |
-| **core − oracle (compiled − non-compiled)** | **−0.02201, t −2.64** | **the direct test is NEGATIVE** |
+| core − oracle (compiled − non-compiled) | −0.02201, t −2.64 | ⛔ **NOT evidence — see below** |
 | core − full, common shrink purged | +0.00718, t 0.80 | null |
 
 `corr(arithmetic prediction, observed β) = +0.9783`. `corr(accuracy gap, observed β) = −0.9822`. The
 purge's positive control retains **117%** of a planted one-armed effect at t 5.48 and detects `g=0.02`
 at t 2.99 — **so its null is a measurement, not silence.**
+
+> ### ⛔ TWO OF THIS ENTRY'S THREE ARGUMENTS ARE CORRECTED, 2026-07-29, by an independent navigator
+> The **verdict stands**; two of the arguments for it do not, and one is replaced by something
+> stronger.
+>
+> **① `core − oracle = −0.02201` is NOT evidence, and citing it was the same error one level up.**
+> That pair's own arithmetic prediction is **−0.02720** — its accuracy gap runs the other way, so the
+> artifact *predicts* a negative coefficient there. Purged, it is **+0.00519, t 0.61: null, not
+> negative.** I quoted a raw contrast as independent evidence **inside the round that proves raw
+> contrasts are artifacts.** The retraction rests on the **purge**, applied twice, and on ②.
+>
+> **② The argument I never made, and it is the strongest one available.** A correlation across 7
+> non-independent pairs invites the charge that two extremes carry it. The null is sharper: **do any
+> pairs depart from the pure accuracy-gap prediction by more than their own noise?** Residuals about
+> `k·β_sum` have **sd 0.00743**, mean |resid| **0.00636**, against a mean standard error of
+> **0.00858**. **One of seven exceeds a single standard error and the largest departure is |z| =
+> 1.58** — none significant. The observed coefficients are not merely *correlated* with the
+> arithmetic; **not one is distinguishable from it.** (Stated more precisely than the navigator did:
+> it said no pair departs by more than its own standard error, and one does.)
+>
+> **③ "x2-alone also purges to nothing" had no receipt when written.** No artifact carried a purged
+> x2. Computed since: **+0.01702, se 0.01984, t 0.86.** The claim was **true and unsupported at the
+> time I made it** — a different defect from being wrong, and the one this programme keeps
+> committing.
+>
+> **④ The round is misnamed.** `r113_accuracy_matched_arm` contains no accuracy-matched arm: the
+> oracle **beats** core, 0.27616 to 0.33415. That is why its own kill returned UNVERIFIED — the
+> region was written for a match and the arm overshot.
 
 **Killed.** *W-DESCRIBABLE*, and the ontology paragraph built on it. Entry 23's sentence would be
 produced verbatim by **any two rules of unequal accuracy, compiled or not**. Also killed: entry 23's
