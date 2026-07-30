@@ -34,6 +34,14 @@ to CoVal-core changes its pairwise concordance by **exactly 0.0 to fifteen digit
 ratings to climb from **0.5899** to **0.6831**. A control that cannot be improved on: the compiled
 rubric has no ratings to apply because the direction is already in the sentence.
 
+**And *which* compilation step earns it is decomposed, not confounded.** r33's own verdict says the
+share is *not* decomposed — rewrite, merge, dedup, compatibility selection and truncation are
+confounded there — but **r44 decomposed it**: the polarity-rewrite step alone is **+0.0733**, larger
+than the entire full→core total of **+0.0662** which later stages partly give back, and
+**compatibility selection is a real second term at +0.0149** over a size-matched random choice of the
+same number of criteria. So *which items survive* carries signal too, and claim 1 is a statement about
+the dominant step rather than the only one.
+
 **2 · Compilation improves agreement with nearly everyone.** μ falls **0.06870**, and absolute error is
 lower under core in **6 of 6** percentile bins of the Oldham axis (see claim 3 for their
 sizes), including the worst-served bin
@@ -208,7 +216,8 @@ published — that x1 and the ranking share a common cause, not that no instrume
 
 ---
 
-**The package:** [CoValCrossroad](https://github.com/ivanicu/CoValCrossroad) — 114 rounds in 12
+**The package** (reachable and current at the time of writing: HTTP 200, and local `HEAD` ==
+`origin/main` == `4b77e3bb`): [CoValCrossroad](https://github.com/ivanicu/CoValCrossroad) — 114 rounds in 12
 campaigns, every round's question, finding and caveats in its README, and every retraction annotated in
 place rather than deleted. **The diary:** [`LEDGER.md`](LEDGER.md), 26 entries, one per belief update.
 **The machines:** three mechanical gates in [`assurance/`](assurance), each attacked before being
