@@ -128,7 +128,11 @@ def main() -> int:
         return 1
 
     root = pathlib.Path(args.rounds_root)
-    dirs = sorted((p for p in root.iterdir() if p.is_dir()), key=lambda p: p.name)
+    # A round is any directory holding a run.py, at ANY depth. The first version listed the root's
+    # immediate children -- and when 113 rounds were regrouped into 12 campaign directories it found
+    # the campaigns, none of which has a run.py, and reported ZERO artifacts as a clean bill. The
+    # gate written to catch a stale artifact was blinded by a layout change and passed vacuously.
+    dirs = sorted({p.parent for p in root.rglob("run.py")}, key=lambda p: p.name)
     if not dirs:
         print(f"REFUSING: no round directories under {root}. Nothing-to-check is exit 2, never a "
               f"pass.", file=sys.stderr)
@@ -156,7 +160,14 @@ def main() -> int:
         print("\nA stale artifact is a number nobody can reproduce from the code that claims to "
               "produce it. Rerun the round and commit the output with the source.", file=sys.stderr)
         return 1
-    print("\nNo artifact contradicts the source that claims to have produced it.")
+    if not rows:
+        print("\nOBSERVED NOTHING: no artifacts found under "
+              f"{root}. That is exit 2, not a clean bill -- a check with no population has not "
+              "passed, it has not run. This gate printed a pass on an empty population once, which "
+              "is the failure it exists to catch, one level up.", file=sys.stderr)
+        return 2
+    print(f"\nNo artifact contradicts the source that claims to have produced it "
+          f"({counts.get('MATCHES', 0)} verified current).")
     return 0
 
 
