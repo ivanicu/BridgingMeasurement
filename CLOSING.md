@@ -156,9 +156,23 @@ provenance.** Both verified against the object.
 
 **7 · Regressing a paired difference of two rules' per-rater error on a rater-level covariate produces
 a coefficient set by the rules' *accuracy gap*, not by what distinguishes the rules.** On 7,275 cells
-across 7 arm pairs from 5 arms: **not one pair is statistically distinguishable from the accuracy-gap
-line** — one of seven exceeds a single standard error, **none exceeds two**, and the largest
-departure is **|z| = 1.58**; residual sd **0.00743**, mean |resid| **0.00636**, mean se **0.00858**. A
+across 5 arms: **not one is statistically distinguishable from the accuracy-gap line**, and the line
+is not an empirical regularity — **it is a derivation.**
+
+`β_d = k·β_sum` with `k = mean(d)/(mean(sum) − 1)` is *algebraically identical* to
+**`β_a ∝ (0.5 − e_a)`** — verified to **1.11e-16**, so the two are one statement. And that
+proportionality is exactly what a **common multiplicative shrink toward chance** predicts: a covariate
+multiplying every arm's distance from chance by the same `(1 − λx)` gives `β_a = λ(0.5 − e_a)` directly.
+**One shared λ = 0.4521 (se 0.0287) fits all five arms: χ² = 3.26 on 4 df, p = 0.52** against a
+pre-registered critical 9.49; largest departure **|z| = 1.59 at `first4`**. Refusing constancy would
+need the spread 1.71× wider.
+
+> ⚠ **And this corrects the evidence base downward.** An earlier version reported *7 arm pairs at
+> corr +0.9783* as the support. Five arms give five level coefficients and five mean errors; **every
+> pair is a difference and a sum of those same numbers**, so correlating linear combinations of five
+> numbers against other combinations of the same five cannot carry seven degrees of freedom. **The
+> evidence is 4 df.** The claim is *stronger* — a theorem with a named assumption, transferable to any
+> dataset with two rules and a rater-level covariate — and its base is *smaller* than was published. A
 never-compiled arm gives a **larger** coefficient (**+0.06156**) than the compiled one (**+0.03955**);
 an arm with almost no gap gives none (**+0.00041**, t 0.06).
 
@@ -189,7 +203,7 @@ Offered as the most transferable content in this document.
 
 | | count |
 |---|---|
-| instances where the **falsifying or resolving material was already in hand** (the ledger's own ordinal counter, now at 13 with wall #1) | **13** |
+| instances where the **falsifying or resolving material was already in hand** (the ledger's own ordinal counter) | **14** |
 | field-level novelty claims that died | **UNVERIFIED at "6 of 6"** — asserted in a navigator quote, never enumerated; the sibling README says *five* |
 | times a permutation null was placed in the load-bearing gate position | **3** |
 | total retractions | **12 entries / 9 explicit blocks / >15 claims** — see the unit table at the top |
