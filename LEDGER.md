@@ -2216,3 +2216,71 @@ published on this estimand (arXiv 2311.05074, NAACL 2024) and does not break wal
 count per rater-item = 1). PRISM cannot form the crossed decomposition at all (0 of 8,011
 conversations have more than one rater). Community Notes has one aggregation rule, so there is no
 paired contrast to regress.
+
+---
+
+## Entry 26 — WALL #1 IS FALSE. CoVal has within-cell replication, and the arithmetic was in my own sentence
+
+**Observed.** An independent audit of the published closing statement found that the wall the entire
+programme rested on does not exist. Reproduced here from the object before anything was written:
+
+```
+assessments 18,384   distinct (prompt, rater) cells 18,269   MAX per cell 5
+per-cell distribution {1: 18158, 2: 109, 3: 1, 5: 1}
+replicated cells 111   excess assessments 115
+responses per prompt line {4: 1078}          <- the same four texts, every line
+replicated cells whose world ranking DIFFERS: 57 of 111
+replicate ranking pairs 122   comparable ordered item-pairs 605
+INTRA-RATER PAIRWISE CONCORDANCE 511/605 = 0.8446
+```
+
+**The falsifying arithmetic was on the page, in one sentence of this ledger.** Entry 19 quotes
+"18,384 observations" and "1,012 raters × 1,078 prompts" together. **18,269 appears nowhere in either
+repository.** The gap between the count I published and the count I never took *is* the replication.
+**Thirteenth instance of the shape, and by far the most expensive** — because this wall was not one
+finding among many.
+
+### What wall #1 was load-bearing for
+
+| it justified | status now |
+|---|---|
+| `rel_i` / test–retest reliability **"unidentified forever"** | **FALSE.** 0.8446 on 605 comparable pairs |
+| *"this release has no instrument separating attention from values"* — which killed the x1-levels rescue in entry 24 | **FALSE as stated.** An instrument exists; whether it has the power to do that separation is a new question |
+| one of the **three walls** the closing document calls the deliverable | **two walls, not three** |
+| every round's claim-card line *"no within-cell replication, so the rater×prompt interaction is inseparable from error"* | **the interaction half probably survives on POWER at n=111; the reliability half does not survive at all** |
+
+### And the number is not a curiosity — it is a reliability ceiling the rubrics sit far below
+
+**Intra-rater concordance 0.8446, against core at 0.666 and full at 0.596 on the same metric.** So the
+rubrics sit far below a reliability ceiling that was assumed unmeasurable. Every "how good can a rubric
+get on this data" question in 114 rounds was answered against no ceiling at all.
+
+**Downgraded.** Everything the closing statement says about wall #1, and — more carefully — entry 24's
+refusal to consider the per-arm levels. That refusal was correct *for another reason* (x1 and the
+ranking come from the same rater in the same session, so they share a common cause), but its stated
+reason was the wall, and the wall is gone. **The levels stay inadmissible on the shared-cause argument
+alone, which is weaker than what was published.**
+
+**Scope, stated so this does not become an over-correction.** 111 of 18,269 cells is **0.6%** of the
+release. There are **no timestamps**, so this is *order-free replicate agreement*, not a temporal
+retest. 605 pairs cluster inside 101 raters and no interval was computed. **D9** that the replication
+exists — arithmetic, reproduced independently by the auditor and by me. **D6** that these are
+deliberate re-ratings: 57 of 111 differ, with distinct free-text rationales and flipped
+`representativeness`, which is not what record duplication looks like — but no field marks them and
+provenance was not established. **D6, low precision** that 0.8446 is "CoVal's test–retest reliability".
+
+**Ontology shift.** The programme's closure was built on three walls presented as properties *of the
+release*. One was a property *of a query I never ran*. A "permanent wall" is a claim about a dataset,
+and a claim about a dataset is checkable — **so the correct epistemic status of an unchecked wall is
+UNVERIFIED, never SETTLED**, and I put all three in a section named `=== SETTLED — do not re-derive ===`
+in every loop prompt for days. **The instruction that protected me from re-deriving settled facts is
+the instruction that stopped me from checking them.**
+
+**NEXT.** Correct the closing statement, which is published and wrong on this and on nine other counts
+the audit lists. Then: **whether wall #1's fall reopens the programme is a DIRECTION question, and
+direction does not live with me.** I am recording it, not deciding it. The honest statement of the
+position is that CoVal closed on three verified walls, one of which was never verified and is now
+false, and that a test–retest reliability of 0.845 at n=111 is a real instrument on a small population.
+Whether any of the 114 rounds used those replicates is **UNVERIFIED** — I did not audit 114 scripts for it,
+and the count `18,269` returning zero hits across both repositories is evidence about the DOCUMENTS, not
+about the code.
