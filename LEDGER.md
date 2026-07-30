@@ -2140,3 +2140,79 @@ is wall #1. D6 with a named uncontrolled confound is not a finding.
 **NEXT.** Packaging, then stop. Back-propagate this retraction into the CoVal README's r112 row and add
 r113. The other two packaging items are already verified complete. **Community Notes does not open** —
 its justification was entry 23's transfer sentence, now false.
+
+---
+
+## Entry 25 — the redistribution is real and it has no subject. The kill fired; CoVal closes
+
+**Observed.** The navigator's directed final round: does the withheld share of compilation's
+improvement have a **demographic** subject? Round
+`coval/rounds/12_compilation_redistribution/r114_demographic_subject/`.
+
+The covariate was verified against the object before any code: `data/annotators.jsonl`, **1,012 of
+1,012** records, six structured axes summing to exactly **47 group cells** — age 6, ai_concern_level
+4, country_of_residence 19, education_level 7, gender 4, generative_ai_usage 7 — **zero missing on
+any axis**, and the 1,012 ids are the 1,012 rater indices. 113 rounds had never crossed it with the
+compilation contrast.
+
+**Why demographics and not another covariate.** They escape **both** killers this programme has
+already hit. `α` died because it is derived from the outcome (entry 22). `x1` died because a careless
+rater produces noisy criterion scores *and* a noisy ranking, and this release has no instrument
+separating attention from values — wall #1 (entry 24). **A group indicator is neither: not derived
+from the outcome, and carelessness cannot manufacture a country of residence.**
+
+### The estimand is the departure from the line, not the coefficient
+
+Entry 24 established that `β_d` **is** the arithmetic line — any covariate raising both arms' errors
+yields a differential proportional to their accuracy gap. So the quantity is
+`β_d − k·β_sum` with **k = 0.26514**, and **the levels are reported per group per arm before any
+difference is taken.** That ordering is the direct remedy for entry 22's root cause: its directive
+asked only for the difference, so the round computed both arms' errors and discarded them three lines
+later, destroying the diagnostic that overturned it.
+
+| | |
+|---|---|
+| population | **15,202 cells**, 968 prompts, 1,011 raters — the full one entries 21/22 used |
+| cells tested | **30** of 47 cleared the pre-registered floor of 20 raters; **17 excluded and named** |
+| largest \|t\| on the departure | **1.83** (p = 0.0669) — nothing survives even *uncorrected* |
+| after Benjamini-Hochberg, q = 0.05 | **0 of 30** |
+| **positive control** | plant `e_core += g·1[group]`, full untouched → retention **89.9%**, **t 4.89** at g=0.02; t 9.51 at g=0.04; **MDE ≈ g 0.0115** |
+| **negative control** — *not* a permutation | 200 synthetic groups matched on size **and** mean own-error → band **[−0.00814, +0.00697]**; real group +0.00289, **inside** |
+| matched-arm check (never-compiled oracle) | −0.00347, t −0.50 |
+
+**The MDE is what makes the null readable.** The redistribution's own spread is about **0.075**
+(−0.1038 to −0.0292). An instrument that detects a group effect of **0.0115** would have caught
+something **seven times smaller than the thing being explained**. This is a measurement, not silence.
+
+**Killed.** *W-SUBJECT.* And with it **entry 13's founding belief**, now false *twice over*: it held
+that naming a subgroup required a dataset carrying demographics. Entry 23 showed that was false
+because the raters' own stated values were already on disk. Entry 25 shows it was false for a second
+reason — **the demographics were on disk too, and they say nothing.** Twelfth instance of the shape,
+and the last one this programme will record.
+
+**Survived.** The rater-attached component itself: **+0.00184 to +0.00225** on the
+excess-over-count-preserving-floor scale, estimand-invariant across four estimands, CI over prompts
+excluding zero, and not reducible to prompt exposure (22.0% removed against a 2.6% permuted floor).
+**Real, and anonymous** — not anonymous *pending a better covariate*, but anonymous on the only
+release carrying both the contrast and the demographics, with a positive-controlled instrument and a
+non-permutation null.
+
+**Ontology shift, and it is the programme's last.** The object of a compilation audit is the
+**distribution of a benefit** (entry 23's one surviving idea). This entry adds the harder half:
+**that distribution can be real, measurable, and attached to particular people, and still have no
+describable character.** "Who is disadvantaged by this rule" can have a *true answer that names
+nobody*. Every governance instrument that assumes an identifiable affected class — impact
+assessments, demographic audits, subgroup fairness reporting — is built on the premise that a real
+disparity has a nameable subject. **Here one does not**, and the finding is not underpowered: the
+instrument that found nothing recovers a planted effect seven times smaller.
+
+**Stopping rule discharged.** The kill was written before the run: *no cell surviving BH **and** the
+positive control retaining g=0.02 at |t| > 2 → W-ANONYMOUS, "identifiable subgroup" leaves the claim
+permanently, not to be reopened on another dataset.* Both conditions met. **CoVal is closed.**
+
+**NEXT.** The closing document, claiming only what the navigator enumerated as entitled — and
+explicitly not the sentences it enumerated as forbidden. **Nothing else opens.** DICES is already
+published on this estimand (arXiv 2311.05074, NAACL 2024) and does not break wall #1 anyway (max
+count per rater-item = 1). PRISM cannot form the crossed decomposition at all (0 of 8,011
+conversations have more than one rater). Community Notes has one aggregation rule, so there is no
+paired contrast to regress.
